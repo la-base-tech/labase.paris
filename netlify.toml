@@ -2,13 +2,13 @@
   publish = "src"
 
 [[redirects]]
-  from = "https://labase.netlify.com"
-  to = "https://labase.paris"
+  from = "https://labase-paris.netlify.com"
+  to = "https://labase-paris.paris"
   status = 301
 
 [[redirects]]
-  from = "https://labase.netlify.com/*"
-  to = "https://labase.paris/:splat"
+  from = "https://labase-paris.netlify.com/*"
+  to = "https://labase-paris.paris/:splat"
   status = 301
 
 [[redirects]]
