@@ -1,0 +1,17 @@
+[build]
+  publish = "dist"
+
+[[redirects]]
+  from = "https://labase.netlify.com"
+  to = "https://labase.paris"
+  status = 301
+
+[[redirects]]
+  from = "https://labase.netlify.com/*"
+  to = "https://labase.paris/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
