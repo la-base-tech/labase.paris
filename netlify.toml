@@ -1,5 +1,5 @@
 [build]
-  publish = "dist"
+  publish = "src"
 
 [[redirects]]
   from = "https://labase.netlify.com"
