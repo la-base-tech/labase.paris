@@ -3,12 +3,12 @@
 
 [[redirects]]
   from = "https://labase-paris.netlify.com"
-  to = "https://labase-paris.paris"
+  to = "https://labase.paris"
   status = 301
 
 [[redirects]]
   from = "https://labase-paris.netlify.com/*"
-  to = "https://labase-paris.paris/:splat"
+  to = "https://labase.paris/:splat"
   status = 301
 
 [[redirects]]
