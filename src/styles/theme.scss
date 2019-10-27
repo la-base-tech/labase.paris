@@ -1,0 +1,9 @@
+@import './node_modules/bulma/sass/utilities/initial-variables.sass';
+
+// Note: gatsby fails to build this export, we need to use the .js version: keep it synced !
+:export {
+  breakpoint-tablet: $tablet;
+  breakpoint-desktop: $desktop;
+  breakpoint-widescreen: $widescreen;
+  breakpoint-fullhd: $fullhd;
+}

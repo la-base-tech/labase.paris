@@ -1,6 +1,3 @@
-[build]
-  publish = "src"
-
 [[redirects]]
   from = "https://labase-paris.netlify.com"
   to = "https://labase.paris"
@@ -10,8 +7,3 @@
   from = "https://labase-paris.netlify.com/*"
   to = "https://labase.paris/:splat"
   status = 301
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
