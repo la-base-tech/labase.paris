@@ -1,0 +1,50 @@
+version: 2.1
+
+defaults: &defaults
+  docker:
+    - image: circleci/node:12.13.0
+  working_directory: ~/project
+
+jobs:
+  checkout:
+    <<: *defaults
+    steps:
+      - checkout
+
+      - save_cache:
+          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+          paths:
+            - ~/project
+
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+ 
+      - run: yarn install
+
+      - save_cache:
+          key: v1-dependencies-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+
+  lint:
+    <<: *defaults
+    steps:
+      - restore_cache:
+          keys:
+            - v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+
+      - run: yarn lint
+
+workflows:
+  version: 2
+  lint:
+    jobs:
+      - checkout
+      - lint:
+          requires:
+            - checkout
