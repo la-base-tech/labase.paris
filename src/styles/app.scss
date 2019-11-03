@@ -1,4 +1,10 @@
 @charset "utf-8";
 
-@import './bulma_custom.scss';
+@import './variables.scss';
 @import '~bulma/bulma.sass';
+
+@font-face {
+  font-family: 'CaracasStencilPro';
+  src: url('/fonts/CaracasStencilPro-DemiBlack.otf');
+}
+

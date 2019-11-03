@@ -1,7 +1,16 @@
 @import './node_modules/bulma/sass/utilities/initial-variables.sass';
 
 // Note: gatsby fails to build this export, we need to use the .js version: keep it synced !
+
+$black: #000000;
+$white: #ffffff;
+$yellow: #FFE500;
+
+
 :export {
+  black: $black;
+  white: $white;
+  yellow: $yellow;
   breakpoint-tablet: $tablet;
   breakpoint-desktop: $desktop;
   breakpoint-widescreen: $widescreen;
