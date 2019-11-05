@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 import GatsbyImage from 'gatsby-image/withIEPolyfill';
 
-const HeaderSection = ({ image }) => (
-  <section className="hero is-fullheight">
-    <GatsbyImage fluid={image.childImageSharp.fluid} />
-  </section>
-);
+const HeaderSection = ({ image }) => {
+  return (
+    <section className="hero is-fullheight">
+      <GatsbyImage fluid={image.childImageSharp.fluid} />
+    </section>
+  );
+};
 
 HeaderSection.propTypes = {
   image: PropTypes.shape({

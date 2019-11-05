@@ -13,4 +13,4 @@
 
 - Use the specified node version `nvm install`
 - Install the project dependencies `yarn`
-- Start the app `yarn develop`
+- Start the app `yarn dev`

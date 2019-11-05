@@ -3,7 +3,7 @@
 const theme = {
   black: '#000000',
   white: '#ffffff',
-  $yellow: '#FFE500',
+  yellow: '#FFE500',
   breakpointTablet: '769px',
   breakpointDesktop: '1024px',
   breakpointWidescreen: '1216px',
