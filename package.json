@@ -2,7 +2,13 @@
   "name": "labase.paris",
   "version": "0.0.1",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/free-brands-svg-icons": "^5.11.2",
+    "@fortawesome/free-regular-svg-icons": "^5.11.2",
+    "@fortawesome/free-solid-svg-icons": "^5.11.2",
+    "@fortawesome/react-fontawesome": "^0.1.7",
     "bulma": "^0.8.0",
+    "cross-fetch": "^3.0.4",
     "deep-map": "^2.0.0",
     "es6-weak-map": "^2.0.3",
     "gatsby": "^2.17.8",
@@ -23,7 +29,8 @@
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-helmet": "^5.2.1",
-    "styled-components": "^4.4.0"
+    "styled-components": "^4.4.0",
+    "validator": "^12.0.0"
   },
   "devDependencies": {
     "eslint": "^6.6.0",
@@ -34,14 +41,14 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "^7.16.0",
+    "netlify-cli": "^2.20.2",
     "prettier": "^1.18.2"
   },
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "netlify:dev": "netlify dev",
+    "gatsby:dev": "gatsby develop",
     "format": "prettier --write 'src/**/*.{js,jsx}'",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
     "lint": "eslint --ext js --ext jsx ."
   }

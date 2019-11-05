@@ -1,6 +1,7 @@
 [build]
   command = "yarn build"
   publish = "public/"
+  functions = "functions"
 
 [[redirects]]
   from = "https://labase-paris.netlify.com"
