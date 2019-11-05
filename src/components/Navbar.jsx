@@ -1,19 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { StaticQuery, graphql } from 'gatsby';
+import GatsbyImage from 'gatsby-image/withIEPolyfill';
 
 const LogoStyled = styled.span`
   cursor: default;
   padding: 0.5rem 0.75rem;
 `;
 
-const NavBar = () => (
+const Navbar = ({ data }) => (
   <nav className="navbar" role="navigation" aria-label="main navigation">
     <div className="navbar-brand">
       <a className="navbar-item" href="labase.paris">
         <LogoStyled>
           <span>
             {' '}
-            <img src="../../images/labase.png" />
+            <GatsbyImage fixed={data.logo.childImageSharp.fixed} />
           </span>
         </LogoStyled>
       </a>
@@ -52,4 +55,31 @@ const NavBar = () => (
   </nav>
 );
 
-export default NavBar;
+Navbar.propTypes = {
+  data: PropTypes.shape({
+    logo: PropTypes.shape({
+      childImageSharp: PropTypes.shape({
+        fixed: PropTypes.shape({}).isRequired,
+      }).isRequired,
+    }).isRequired,
+  }).isRequired,
+};
+
+export default function NavbarWrapper(props) {
+  return (
+    <StaticQuery
+      query={graphql`
+        query {
+          logo: file(relativePath: { eq: "logo.png" }) {
+            childImageSharp {
+              fixed(width: 200, quality: 100) {
+                ...GatsbyImageSharpFixed_withWebp_noBase64
+              }
+            }
+          }
+        }
+      `}
+      render={data => <Navbar data={data} {...props} />}
+    />
+  );
+}

@@ -7,7 +7,7 @@ import { StaticQuery, graphql } from 'gatsby';
 import theme from '../styles/theme';
 import '../styles/app.scss';
 
-import NavBar from './NavBar';
+import Navbar from './Navbar';
 import Footer from './Footer';
 
 const Layout = ({ data, children }) => (
@@ -22,7 +22,7 @@ const Layout = ({ data, children }) => (
           />
         )}
       </Helmet>
-      <NavBar />
+      <Navbar />
       {children}
       <Footer />
     </>
