@@ -5,6 +5,7 @@ const LogoStyled = styled.span`
   cursor: default;
   padding: 0.5rem 0.75rem;
 `;
+
 const NavBar = () => (
   <nav className="navbar" role="navigation" aria-label="main navigation">
     <div className="navbar-brand">
@@ -12,7 +13,7 @@ const NavBar = () => (
         <LogoStyled>
           <span>
             {' '}
-            <img src={`../../images/labase.png`} />
+            <img src="../../images/labase.png" />
           </span>
         </LogoStyled>
       </a>

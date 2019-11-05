@@ -3,17 +3,12 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { ThemeProvider } from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby';
-import theme from '../styles/theme';
-import NavBar from './NavBar';
-import HeaderSection from './sections/HeaderSection';
-import WhatIsBaseSection from './sections/WhatIsBaseSection';
-import ForWhatSection from './sections/ForWhatSection';
-import EventSection from './sections/EventSection';
-import ActionSection from './sections/ActionSection';
-import WhoSection from './sections/WhoSection';
 
-import Footer from './Footer';
+import theme from '../styles/theme';
 import '../styles/app.scss';
+
+import NavBar from './NavBar';
+import Footer from './Footer';
 
 const Layout = ({ data, children }) => (
   <ThemeProvider theme={theme}>
@@ -27,18 +22,8 @@ const Layout = ({ data, children }) => (
           />
         )}
       </Helmet>
-
       <NavBar />
-      <HeaderSection />
-
-      <WhatIsBaseSection />
-      <ForWhatSection />
-      <EventSection />
-      <ActionSection />
-      <WhoSection />
-
       {children}
-
       <Footer />
     </>
   </ThemeProvider>
