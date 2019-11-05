@@ -31,9 +31,6 @@ const Layout = ({ data, children }) => (
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-};
-
-Layout.propTypes = {
   data: PropTypes.shape({
     site: PropTypes.shape({
       siteMetadata: PropTypes.shape({
