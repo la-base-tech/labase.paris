@@ -1,5 +1,4 @@
 import React from 'react';
-// import backgroungImage from '../images/imageHeader';
 
 const WhatIsBase = () => (
   <section className="hero is-dark is-fullheight">

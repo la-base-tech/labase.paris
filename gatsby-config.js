@@ -1,11 +1,39 @@
+const MAIN_SITE_URL = 'https://labase.paris';
+const LOCALHOST = 'http://localhost:8000'; // TODO: should automatically fetch that
+
+const {
+  URL: SITE_URL = MAIN_SITE_URL,
+  DEPLOY_PRIME_URL = SITE_URL,
+  CONTEXT: NODE_ENV = process.env.NODE_ENV || 'development',
+} = process.env;
+
+const isProduction = NODE_ENV === `production`;
+const isDev = NODE_ENV === `development`;
+
+let siteUrl;
+if (isDev) {
+  siteUrl = LOCALHOST;
+} else {
+  siteUrl = isProduction ? SITE_URL : DEPLOY_PRIME_URL;
+}
+
+const siteMetadata = {
+  siteUrl,
+  facebookImage: 'images/social_facebook.jpg',
+  twitterImage: 'images/social_twitter.jpg',
+};
+
 module.exports = {
-  siteMetadata: {
-    title: 'la base, accélérateur de la mobilisation',
-    description:
-      'la base est un lieu au coeur de Paris où les citoyen·ne·s se rencontrent et agissent pour le climat et donc la justice écologique et sociale',
-  },
+  siteMetadata,
   plugins: [
-    'gatsby-plugin-react-helmet',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [],
+      },
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -13,8 +41,14 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'content',
+        path: `${__dirname}/content`,
+      },
+    },
+    'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     {
       resolve: 'gatsby-plugin-manifest',

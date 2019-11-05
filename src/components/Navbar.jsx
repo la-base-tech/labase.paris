@@ -9,14 +9,14 @@ const LogoStyled = styled.span`
   padding: 0.5rem 0.75rem;
 `;
 
-const Navbar = ({ data }) => (
+const Navbar = ({ logo, items, button }) => (
   <nav className="navbar" role="navigation" aria-label="main navigation">
     <div className="navbar-brand">
       <a className="navbar-item" href="labase.paris">
         <LogoStyled>
           <span>
             {' '}
-            <GatsbyImage fixed={data.logo.childImageSharp.fixed} />
+            <GatsbyImage fixed={logo.childImageSharp.fixed} />
           </span>
         </LogoStyled>
       </a>
@@ -35,19 +35,20 @@ const Navbar = ({ data }) => (
 
     <div id="navbarBasicExample" className="navbar-menu">
       <div className="navbar-start">
-        <a className="navbar-item">Présentation</a>
-
-        <a className="navbar-item">Événements</a>
-
-        <a className="navbar-item">Les Orgas</a>
-
-        <a className="navbar-item">Contact</a>
+        {items &&
+          items.map(item => (
+            <a className="navbar-item" href={item.path} key={item.title}>
+              {item.title}
+            </a>
+          ))}
       </div>
 
       <div className="navbar-end">
         <div className="navbar-item">
           <div className="buttons">
-            <a className="button is-light">J'agis !</a>
+            <a className="button is-light" href={button.path}>
+              {button.title}
+            </a>
           </div>
         </div>
       </div>
@@ -56,12 +57,20 @@ const Navbar = ({ data }) => (
 );
 
 Navbar.propTypes = {
-  data: PropTypes.shape({
-    logo: PropTypes.shape({
-      childImageSharp: PropTypes.shape({
-        fixed: PropTypes.shape({}).isRequired,
-      }).isRequired,
+  logo: PropTypes.shape({
+    childImageSharp: PropTypes.shape({
+      fixed: PropTypes.shape({}).isRequired,
     }).isRequired,
+  }).isRequired,
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      path: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  button: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    path: PropTypes.string.isRequired,
   }).isRequired,
 };
 
@@ -70,16 +79,28 @@ export default function NavbarWrapper(props) {
     <StaticQuery
       query={graphql`
         query {
-          logo: file(relativePath: { eq: "logo.png" }) {
-            childImageSharp {
-              fixed(width: 200, quality: 100) {
-                ...GatsbyImageSharpFixed_withWebp_noBase64
+          content: markdownRemark(fields: { name: { eq: "navbar" } }) {
+            frontmatter {
+              logo {
+                childImageSharp {
+                  fixed(width: 200, quality: 100) {
+                    ...GatsbyImageSharpFixed_withWebp_noBase64
+                  }
+                }
+              }
+              items {
+                title
+                path
+              }
+              button {
+                title
+                path
               }
             }
           }
         }
       `}
-      render={data => <Navbar data={data} {...props} />}
+      render={data => <Navbar {...data.content.frontmatter} {...props} />}
     />
   );
 }
