@@ -8,3 +8,21 @@
   src: url('/fonts/CaracasStencilPro-DemiBlack.otf');
 }
 
+// Adjust navbar size for wide screens
+@media (min-width: 768px) {
+  body.has-navbar-fixed-top {
+    padding-top: $navbar-height-big;
+  }
+
+  .hero.is-fullheight-with-navbar {
+    min-height: calc(100vh - #{$navbar-height-big});
+  }
+
+  .navbar {
+    min-height: $navbar-height-big;
+  }
+
+  .navbar-brand {
+    min-height: $navbar-height-big;
+  }
+}

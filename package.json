@@ -2,6 +2,9 @@
   "name": "labase.paris",
   "version": "0.0.1",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/free-solid-svg-icons": "^5.11.2",
+    "@fortawesome/react-fontawesome": "^0.1.7",
     "bulma": "^0.8.0",
     "deep-map": "^2.0.0",
     "es6-weak-map": "^2.0.3",
