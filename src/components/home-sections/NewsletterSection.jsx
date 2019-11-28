@@ -11,18 +11,25 @@ import AnimatedCheck from '../AnimatedCheck';
 const FUNCTION_ENDPOINT = '/.netlify/functions/subscribe-newsletter';
 
 const SectionStyled = styled.section`
-  background-color: ${props => props.theme.yellow};
-
   @media (min-width: ${props => props.theme.breakpointTablet}) {
-    background-image: url(/images/home-section-newsletter.svg);
-    background-position: calc(100% - 64px) 0;
-    background-repeat: no-repeat;
-    width: 80%;
     margin: auto;
+    margin-top: -100px;
+    position: relative;
   }
 `;
 
 const ContainerStyled = styled.div`
+  background-color: ${props => props.theme.yellow};
+  @media (min-width: ${props => props.theme.breakpointTablet}) {
+    width: 80%;
+    max-width: ${960 * 0.8}px;
+    background-image: url(${props => props.image});
+    background-position: calc(100% - 64px) 0;
+    background-repeat: no-repeat;
+  }
+`;
+
+const ColumnStyled = styled.div`
   padding: 32px;
 
   @media (min-width: ${props => props.theme.breakpointTablet}) {
@@ -90,6 +97,7 @@ const AnimatedCheckContainerStyled = styled.div`
 `;
 
 const NewsletterSection = ({
+  image,
   title,
   text,
   hint,
@@ -139,10 +147,10 @@ const NewsletterSection = ({
   };
 
   return (
-    <div className="container">
-      <SectionStyled>
-        <div className="columns">
-          <ContainerStyled className="column is-two-thirds">
+    <SectionStyled id="newsletter">
+      <ContainerStyled className="container" image={image}>
+        <div className="columns is-marginless">
+          <ColumnStyled className="column is-two-thirds">
             <TitleStyled>{title}</TitleStyled>
             <TextStyled>{text}</TextStyled>
 
@@ -195,15 +203,15 @@ const NewsletterSection = ({
                 </div>
               </div>
             </FormStyled>
-          </ContainerStyled>
-          <div className="column" />
+          </ColumnStyled>
         </div>
-      </SectionStyled>
-    </div>
+      </ContainerStyled>
+    </SectionStyled>
   );
 };
 
 NewsletterSection.propTypes = {
+  image: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   hint: PropTypes.string.isRequired,
@@ -216,14 +224,15 @@ NewsletterSection.propTypes = {
   }).isRequired,
 };
 
-export default function NewsletterSectionWrapper(props) {
+export default function NewsletterSectionWrapper() {
   return (
     <StaticQuery
       query={graphql`
         query {
           content: markdownRemark(fields: { name: { eq: "page-index" } }) {
             frontmatter {
-              newsletterSection {
+              section: newsletterSection {
+                image
                 title
                 text
                 hint
@@ -240,10 +249,7 @@ export default function NewsletterSectionWrapper(props) {
         }
       `}
       render={data => (
-        <NewsletterSection
-          {...data.content.frontmatter.newsletterSection}
-          {...props}
-        />
+        <NewsletterSection {...data.content.frontmatter.section} />
       )}
     />
   );

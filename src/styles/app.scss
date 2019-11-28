@@ -2,21 +2,4 @@
 
 @import './variables.scss';
 @import '~bulma/bulma.sass';
-
-@font-face {
-  font-family: 'CaracasStencilPro';
-  src: url('/fonts/CaracasStencilPro-DemiBlack.otf');
-}
-
-h2, h3 {
-  font-weight: 900;
-  line-height: 100%;
-}
-
-h2 {
-  font-size: 64px;
-}
-
-h3 {
-  font-size: 32px;
-}
+@import './typography.scss';

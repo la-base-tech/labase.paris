@@ -1,15 +1,14 @@
 ---
-title: Navbar  # admin title
-logo: /images/logo.png
+title: Navbar # admin title
 items: 
   - title: Présentation
-    path: /
+    url: "#presentation"
   - title: Événements
-    path: /
-  - title: Les Orgas
-    path: /
+    url: "#evenements"
+  - title: Les orgas
+    url: "#associations"
   - title: Contact
-    path: /
+    url: "#footer"
 button: 
-  title: J'agis !
-  path: /
+  title: Je veux agir !
+  url: "#action"

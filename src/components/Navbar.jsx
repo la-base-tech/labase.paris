@@ -2,24 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby';
-import GatsbyImage from 'gatsby-image/withIEPolyfill';
+import Logo from './Logo';
+import Link from './Link';
 
-const LogoStyled = styled.span`
-  cursor: default;
-  padding: 0.5rem 0.75rem;
+const LogoStyled = styled(Logo)`
+  color: ${props => props.theme.white};
+  font-size: 2rem;
 `;
 
-const Navbar = ({ logo, items, button }) => (
+const ButtonStyled = styled(Link)`
+  font-weight: bold;
+`;
+
+const Navbar = ({ items, button }) => (
   <nav className="navbar" role="navigation" aria-label="main navigation">
     <div className="navbar-brand">
-      <a className="navbar-item" href="labase.paris">
-        <LogoStyled>
-          <span>
-            {' '}
-            <GatsbyImage fixed={logo.childImageSharp.fixed} />
-          </span>
-        </LogoStyled>
-      </a>
+      <Link className="navbar-item" href="/">
+        <LogoStyled />
+      </Link>
       <a
         role="button"
         className="navbar-burger burger"
@@ -33,22 +33,22 @@ const Navbar = ({ logo, items, button }) => (
       </a>
     </div>
 
-    <div id="navbarBasicExample" className="navbar-menu">
+    <div className="navbar-menu">
       <div className="navbar-start">
         {items &&
           items.map(item => (
-            <a className="navbar-item" href={item.path} key={item.title}>
+            <Link className="navbar-item" href={item.url} key={item.title}>
               {item.title}
-            </a>
+            </Link>
           ))}
       </div>
 
       <div className="navbar-end">
         <div className="navbar-item">
           <div className="buttons">
-            <a className="button is-light" href={button.path}>
+            <ButtonStyled className="button is-primary" href={button.url}>
               {button.title}
-            </a>
+            </ButtonStyled>
           </div>
         </div>
       </div>
@@ -57,20 +57,15 @@ const Navbar = ({ logo, items, button }) => (
 );
 
 Navbar.propTypes = {
-  logo: PropTypes.shape({
-    childImageSharp: PropTypes.shape({
-      fixed: PropTypes.shape({}).isRequired,
-    }).isRequired,
-  }).isRequired,
   items: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
-      path: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
     })
   ).isRequired,
   button: PropTypes.shape({
     title: PropTypes.string.isRequired,
-    path: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
   }).isRequired,
 };
 
@@ -81,20 +76,13 @@ export default function NavbarWrapper(props) {
         query {
           content: markdownRemark(fields: { name: { eq: "navbar" } }) {
             frontmatter {
-              logo {
-                childImageSharp {
-                  fixed(width: 200, quality: 100) {
-                    ...GatsbyImageSharpFixed_withWebp_noBase64
-                  }
-                }
-              }
               items {
                 title
-                path
+                url
               }
               button {
                 title
-                path
+                url
               }
             }
           }

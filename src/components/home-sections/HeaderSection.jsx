@@ -1,13 +1,45 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby';
-import GatsbyImage from 'gatsby-image/withIEPolyfill';
+import BackgroundImage from 'gatsby-background-image';
+import ReactMarkdown from 'react-markdown';
 
-const HeaderSection = ({ image }) => {
+const SectionStyled = styled(BackgroundImage)``;
+
+const TextContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding: 1rem;
+  max-width: 1200px;
+  margin: auto;
+`;
+
+const TextStyled = styled(ReactMarkdown)`
+  color: ${props => props.theme.white};
+  font-weight: 900;
+  font-size: 3rem;
+  line-height: 3.5rem;
+
+  @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
+    font-size: 4rem;
+    line-height: 4.5rem;
+  }
+`;
+
+const HeaderSection = ({ image, text }) => {
   return (
-    <section className="hero is-fullheight">
-      <GatsbyImage fluid={image.childImageSharp.fluid} />
-    </section>
+    <SectionStyled
+      id="header"
+      className="hero is-fullheight-with-navbar"
+      Tag="section"
+      fluid={image.childImageSharp.fluid}
+    >
+      <TextContainer>
+        <TextStyled source={text} />
+      </TextContainer>
+    </SectionStyled>
   );
 };
 
@@ -17,6 +49,7 @@ HeaderSection.propTypes = {
       fluid: PropTypes.shape({}).isRequired,
     }).isRequired,
   }).isRequired,
+  text: PropTypes.string.isRequired,
 };
 
 export default function HeaderSectionWrapper(props) {
@@ -26,7 +59,7 @@ export default function HeaderSectionWrapper(props) {
         query {
           content: markdownRemark(fields: { name: { eq: "page-index" } }) {
             frontmatter {
-              headerSection {
+              section: headerSection {
                 image {
                   childImageSharp {
                     fluid(maxWidth: 1000, quality: 100) {
@@ -34,13 +67,14 @@ export default function HeaderSectionWrapper(props) {
                     }
                   }
                 }
+                text
               }
             }
           }
         }
       `}
       render={data => (
-        <HeaderSection {...data.content.frontmatter.headerSection} {...props} />
+        <HeaderSection {...data.content.frontmatter.section} {...props} />
       )}
     />
   );

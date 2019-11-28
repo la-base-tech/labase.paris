@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ThemeProvider } from 'styled-components';
 
-import theme from '../styles/theme';
 import '../styles/app.scss';
 
 import SEO from './SEO';
@@ -10,14 +8,12 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 
 const Layout = ({ data, children }) => (
-  <ThemeProvider theme={theme}>
-    <>
-      <SEO pageMetadata={data.page.frontmatter.metadata} />
-      <Navbar />
-      {children}
-      <Footer />
-    </>
-  </ThemeProvider>
+  <>
+    <SEO pageMetadata={data.page.frontmatter.metadata} />
+    <Navbar />
+    {children}
+    <Footer />
+  </>
 );
 
 Layout.propTypes = {

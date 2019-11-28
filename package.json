@@ -12,7 +12,9 @@
     "deep-map": "^2.0.0",
     "es6-weak-map": "^2.0.3",
     "gatsby": "^2.17.8",
+    "gatsby-background-image": "^0.9.7",
     "gatsby-image": "^2.2.30",
+    "gatsby-link": "^2.2.25",
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-layout": "^1.1.13",
     "gatsby-plugin-manifest": "^2.2.26",
@@ -24,11 +26,13 @@
     "gatsby-source-filesystem": "^2.1.35",
     "gatsby-transformer-remark": "^2.6.32",
     "gatsby-transformer-sharp": "^2.3.2",
+    "intersection-observer": "^0.7.0",
     "node-sass": "^4.13.0",
     "prop-types": "^15.7.2",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-helmet": "^5.2.1",
+    "react-markdown": "^4.2.2",
     "styled-components": "^4.4.0",
     "validator": "^12.0.0"
   },
@@ -47,7 +51,7 @@
   "scripts": {
     "build": "gatsby build",
     "netlify:dev": "netlify dev",
-    "gatsby:dev": "gatsby develop",
+    "dev": "gatsby develop",
     "format": "prettier --write 'src/**/*.{js,jsx}'",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
     "lint": "eslint --ext js --ext jsx ."
