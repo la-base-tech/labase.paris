@@ -10,8 +10,8 @@ links:
     url: /
   - title: Newsletter
     url: "#newsletter"
-  - title: Mentions légales
-    url: /
+  # - title: Mentions légales
+  #   url: /
 addressTitle: Adresse
 address: 31 rue Bichat 75010 Paris   
 socialNetworks:
