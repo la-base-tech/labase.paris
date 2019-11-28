@@ -2,6 +2,7 @@
   "name": "labase.paris",
   "version": "0.0.1",
   "scripts": {
+    "postinstall": "cd plugins/remark-normalize-file-paths/ && yarn",
     "build": "gatsby build",
     "netlify:dev": "netlify dev",
     "dev": "gatsby develop",
