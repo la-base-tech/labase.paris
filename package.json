@@ -1,6 +1,15 @@
 {
   "name": "labase.paris",
   "version": "0.0.1",
+  "scripts": {
+    "build": "gatsby build",
+    "netlify:dev": "netlify dev",
+    "dev": "gatsby develop",
+    "serve": "gatsby serve",
+    "format": "prettier --write 'src/**/*.{js,jsx}'",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "lint": "eslint --ext js --ext jsx ."
+  },  
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-brands-svg-icons": "^5.11.2",
@@ -47,13 +56,5 @@
     "eslint-plugin-react": "^7.16.0",
     "netlify-cli": "^2.20.2",
     "prettier": "^1.18.2"
-  },
-  "scripts": {
-    "build": "gatsby build",
-    "netlify:dev": "netlify dev",
-    "dev": "gatsby develop",
-    "format": "prettier --write 'src/**/*.{js,jsx}'",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
-    "lint": "eslint --ext js --ext jsx ."
   }
 }
