@@ -7,7 +7,8 @@ metadata:
   description: la base est un lieu au coeur de Paris où les citoyen·ne·s se rencontrent et agissent pour le climat et donc la justice écologique et sociale
 
 headerSection:
-  image: /images/image-header.jpg
+  image: ../../src/images/image-header.jpg
+  # image: /images/image-header.jpg
   text: >-
     Le lieu où s'engager
     pour la justice
@@ -78,19 +79,19 @@ actionSection:
   items: 
     - text: Rejoindre la communauté de bénévoles
       button: Je rejoins
-      url: //
+      url: /
       image: /images/benevoles-illustration.svg
     - text: Faire un don pour soutenir la base
       button: Je soutiens
-      url: //
+      url: /
       image: /images/don-illustration.svg
     - text: Nous proposer un événement à organiser
       button: Je propose
-      url: //
+      url: /
       image: /images/calendrier-illustration.svg
     - text: Réserver une place au coworking
       button: Je réserve
-      url: //
+      url: /
       image: /images/coworking-2-illustration.svg
 
 organisationsSection:
@@ -98,42 +99,52 @@ organisationsSection:
   text: La base a été imaginée par dix organisations regroupées pour passer à l'étape supérieure, celle de la mobilisation permanente.
   items: 
     - title: Aternatiba Paris
-      url: //
+      url: /
       text: Alternatiba Paris est un mouvement citoyen pour le climat et la justice sociale, co-organisateur des Marches pour le climat.
-      image: /images/organisations/alternatiba-paris.png
+      image: ../../src/images/organisations/alternatiba-paris.png
+      # image: /images/organisations/alternatiba-paris.png
     - title: ANV-COP21
-      url: //
+      url: /
       text: Le Groupe Action Climat Paris est un mouvement non-violent et déterminé, radical et populaire qui agit pour relever le défi climatique.
-      image: /images/organisations/action-climat.png
+      image: ../../src/images/organisations/action-climat.png
+      # image: /images/organisations/action-climat.png
     - title: Le Consulat
-      url: //
+      url: /
       text: Le Consulat est un lieu éphémère et itinérant qui prône un art de vivre festif et engagé.
-      image: /images/organisations/le-consulat.png
+      image: ../../src/images/organisations/le-consulat.png
+      # image: /images/organisations/le-consulat.png
     - title: FAIR[e]
-      url: //
+      url: /
       text: FAIR[e] un monde équitable rassemble des consommateur·rice·s engagé·e·s en faveur du commerce équitable et de la consommation responsable.
-      image: /images/organisations/fair-e.png
+      image: ../../src/images/organisations/fair-e.png
+      # image: /images/organisations/fair-e.png
     - title: le mouvement
-      url: //
+      url: /
       text: 110 000 membres pour défendre le bien commun, faire pression sur les décideurs, et gagner des batailles dans la loi et l'opinion.
-      image: /images/organisations/le-mouvement.png
+      image: ../../src/images/organisations/le-mouvement.png
+      # image: /images/organisations/le-mouvement.png
     - title: Le Mouvement Utopia 
-      url: //
+      url: /
       text: Le Mouvement Utopia est une association d’éducation populaire qui vise à élaborer un projet de société solidaire, écologiquement soutenable et convivial.
-      image: /images/organisations/mouvement-utopia.png
+      image: ../../src/images/organisations/mouvement-utopia.png
+      # image: /images/organisations/mouvement-utopia.png
     - title: NatureRights
-      url: //
+      url: /
       text: NatureRights s'engage pour la reconnaissance des droits de la Nature et les droits des Peuples Autochtones.
-      image: /images/organisations/nature-rights.png
+      image: ../../src/images/organisations/nature-rights.png
+      # image: /images/organisations/nature-rights.png
     - title: Notre affaire à tous
-      url: //
+      url: /
       text: Notre affaire à tous est une association qui oeuvre à l’instauration d’une justice climatique, via des recours juridiques, récemment avec l’Affaire du Siècle.
-      image: /images/organisations/notre-affaire-a-tous.png
+      image: ../../src/images/organisations/notre-affaire-a-tous.png
+      # image: /images/organisations/notre-affaire-a-tous.png
     - title: PARTAGER C'EST SYMPA
-      url: //
+      url: /
       text: Vidéaste-activiste, avec les gens qui se bougent, promoteur d'avenirs justes et durables pour tou·te·s.
-      image: /images/organisations/partager-c-est-sympa.png
+      image: ../../src/images/organisations/partager-c-est-sympa.png
+      # image: /images/organisations/partager-c-est-sympa.png
     - title: 350.org
-      url: //
+      url: /
       text: Organisation qui construit un mouvement mondial exigeant des solutions pour le climat, au moyen de campagnes internet, de mobilisations citoyennes et de campagnes de communication.
-      image: /images/organisations/350-org.png
+      image: ../../src/images/organisations/350-org.png
+      # image: /images/organisations/350-org.png

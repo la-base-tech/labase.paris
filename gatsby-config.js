@@ -29,27 +29,39 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [],
-      },
-    },
-    {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'images',
         path: `${__dirname}/src/images`,
       },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'content',
+        path: `${__dirname}/static/images`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
         path: `${__dirname}/content`,
+      },
+    },
+    'remark-normalize-file-paths',
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [],
       },
     },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
+    {
+      resolve: 'gatsby-plugin-purgecss', // purges all unused/unreferenced css rules
+      options: {
+        develop: true, // Activates purging in npm run develop
+        printRejected: false,
+      },
+    },
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
