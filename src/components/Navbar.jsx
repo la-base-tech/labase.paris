@@ -10,49 +10,75 @@ const LogoStyled = styled(Logo)`
   font-size: 2rem;
 `;
 
+const NavBarContentStyled = styled.div`
+  align-items: stretch;
+  display: flex;
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 1024px;
+  margin: auto;
+`;
+
+const NavBarBrandStyled = styled.div`
+  width: 100%;
+`;
+
+const NavBarStartStyled = styled.div`
+  flex-grow: 1;
+  justify-content: center;
+`;
+
+const NavBarItemStyled = styled(Link)`
+  font-weight: 300;
+`;
+
 const ButtonStyled = styled(Link)`
   font-weight: bold;
 `;
 
+const NavBarBurgerStyled = styled.div`
+  align-self: center;
+`;
+
 const Navbar = ({ items, button }) => (
-  <nav className="navbar" role="navigation" aria-label="main navigation">
-    <div className="navbar-brand">
-      <Link className="navbar-item" href="/">
-        <LogoStyled />
-      </Link>
-      <a
-        role="button"
-        className="navbar-burger burger"
-        aria-label="menu"
-        aria-expanded="false"
-        data-target="navbarBasicExample"
-      >
-        <span aria-hidden="true" />
-        <span aria-hidden="true" />
-        <span aria-hidden="true" />
-      </a>
-    </div>
+  <nav className="navbar">
+    <NavBarContentStyled>
+      <NavBarBrandStyled className="navbar-brand">
+        <Link className="navbar-item" href="/">
+          <LogoStyled />
+        </Link>
+        <NavBarBurgerStyled className="navbar-burger burger is-transparent has-text-white">
+          <span />
+          <span />
+          <span />
+        </NavBarBurgerStyled>
+      </NavBarBrandStyled>
 
-    <div className="navbar-menu">
-      <div className="navbar-start">
-        {items &&
-          items.map(item => (
-            <Link className="navbar-item" href={item.url} key={item.title}>
-              {item.title}
-            </Link>
-          ))}
-      </div>
+      <div className="navbar-menu">
+        <NavBarStartStyled className="navbar-start">
+          {items &&
+            items.map(item => (
+              <NavBarItemStyled
+                className="navbar-item"
+                href={item.url}
+                key={item.title}
+              >
+                {item.title}
+              </NavBarItemStyled>
+            ))}
+        </NavBarStartStyled>
 
-      <div className="navbar-end">
-        <div className="navbar-item">
-          <div className="buttons">
-            <ButtonStyled className="button is-primary" href={button.url}>
-              {button.title}
-            </ButtonStyled>
+        <div className="navbar-end">
+          <div className="navbar-item">
+            <div className="buttons">
+              <ButtonStyled className="button is-primary" href={button.url}>
+                {button.title}
+              </ButtonStyled>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </NavBarContentStyled>
   </nav>
 );
 
