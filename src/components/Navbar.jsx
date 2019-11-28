@@ -21,6 +21,9 @@ const NavBarContentStyled = styled.div`
 
 const NavBarBrandStyled = styled.div`
   width: 100%;
+  @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
+    width: auto;
+  }
 `;
 
 const NavBarStartStyled = styled.div`
