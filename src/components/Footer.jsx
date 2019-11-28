@@ -2,20 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faInstagram,
-  faFacebookF,
-  faTwitter,
-} from '@fortawesome/free-brands-svg-icons';
 import Logo from './Logo';
 import Link from './Link';
-
-const mapIcons = {
-  instagram: faInstagram,
-  facebook: faFacebookF,
-  twitter: faTwitter,
-};
+import SocialNetworks from './SocialNetworks';
 
 const FooterStyled = styled.footer`
   background: ${props => props.theme.black};
@@ -44,32 +33,8 @@ const LinkStyled = styled(Link)`
   }
 `;
 
-const SocialNetworksLinksContainerStyled = styled.ul`
+const SocialNetworksStyled = styled(SocialNetworks)`
   margin-top: 1rem;
-`;
-
-const SocialNetworksLinkContainerStyled = styled.li`
-  display: inline-block;
-  &:not(:first-child) {
-    margin-left: 1rem;
-  }
-`;
-
-const LinkIconStyled = styled(Link)`
-  display: block;
-  background: ${props => props.theme.yellow};
-  border-radius: 100%;
-  color: ${props => props.theme.black};
-  text-align: center;
-  width: 3rem;
-  height: 3rem;
-  line-height: 3rem;
-  font-size: 1.3rem;
-
-  &:hover {
-    transition: all 0.2s ease;
-    transform: scale(1.1);
-  }
 `;
 
 const Footer = ({ press, links, addressTitle, address, socialNetworks }) => (
@@ -95,15 +60,7 @@ const Footer = ({ press, links, addressTitle, address, socialNetworks }) => (
         </div>
         <div className="column">
           <ColumnTitleStyled>{socialNetworks.title}</ColumnTitleStyled>
-          <SocialNetworksLinksContainerStyled>
-            {socialNetworks.items.map((item, index) => (
-              <SocialNetworksLinkContainerStyled key={index}>
-                <LinkIconStyled href={item.url} title={item.title}>
-                  <FontAwesomeIcon icon={mapIcons[item.icon]} />
-                </LinkIconStyled>
-              </SocialNetworksLinkContainerStyled>
-            ))}
-          </SocialNetworksLinksContainerStyled>
+          <SocialNetworksStyled items={socialNetworks.items} />
         </div>
       </div>
     </div>

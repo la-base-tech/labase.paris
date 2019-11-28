@@ -6,9 +6,25 @@ items:
   - title: Événements
     url: "#evenements"
   - title: Les orgas
+    titleMobile: Les organisations
     url: "#associations"
   - title: Contact
     url: "#footer"
+  - title: Newsletter
+    url: "#newsletter"
+    mobileOnly: true
 button: 
   title: Je veux agir !
   url: "#action"
+socialNetworks: 
+  title: Suivez-nous
+  items:
+    - title: Facebook
+      icon: facebook
+      url: https://www.facebook.com/labase.paris
+    - title: Twitter
+      icon: twitter
+      url: https://twitter.com/labase_climat
+    - title: Instagram
+      icon: instagram
+      url: https://www.instagram.com/labaseparis/  
