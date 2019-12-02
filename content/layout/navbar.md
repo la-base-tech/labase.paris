@@ -1,6 +1,9 @@
 ---
 title: Navbar # admin title
 items: 
+  - title: Newsletter
+    url: "#newsletter"
+    mobileOnly: true
   - title: Présentation
     url: "#presentation"
   - title: Événements
@@ -10,9 +13,6 @@ items:
     url: "#associations"
   - title: Contact
     url: "#footer"
-  - title: Newsletter
-    url: "#newsletter"
-    mobileOnly: true
 button: 
   title: Je veux agir !
   url: "#action"
