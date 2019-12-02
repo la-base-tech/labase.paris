@@ -47,6 +47,8 @@ const NavBarContentStyled = styled.div`
 
 const NavBarBrandStyled = styled.div`
   width: 100%;
+  padding: 0 0.75rem;
+
   @media (min-width: ${({ theme }) => theme.breakpointDesktop}) {
     width: auto;
   }
@@ -60,6 +62,8 @@ const NavBarStartStyled = styled.div`
 `;
 
 const NavBarMenuStyled = styled.div`
+  padding: 0 0.75rem;
+
   @media (max-width: ${props => props.theme.breakpointDesktop}) {
     &.is-active {
       box-shadow: none;
@@ -75,10 +79,26 @@ const NavBarMenuStyled = styled.div`
 
 const ButtonStyled = styled(Link)`
   font-weight: bold;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 `;
 
 const NavBarBurgerStyled = styled.div`
-  align-self: center;
+  width: calc(1.5rem + 16px);
+  -webkit-tap-highlight-color: transparent;
+
+  > span {
+    left: auto !important;
+    right: 0.75rem;
+  }
+
+  &:hover {
+    background-color: transparent;
+  }
+
+  &:focus {
+    outline: none;
+  }
 
   &.is-active {
     color: ${props => props.theme.black} !important;
@@ -105,7 +125,8 @@ const Navbar = ({ items, button, socialNetworks }) => {
 
   return (
     <NavBarStyled
-      className={`navbar ${navbarMenuActive ? 'is-fixed-top is-expanded' : ''}`}
+      id="navbar"
+      className={`navbar is-fixed-top ${navbarMenuActive ? 'is-expanded' : ''}`}
     >
       <NavBarContentStyled>
         <NavBarBrandStyled

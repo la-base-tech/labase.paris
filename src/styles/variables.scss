@@ -1,18 +1,23 @@
 @import './theme.scss';
 
-$family-sans-serif: 'Montserrat', sans-serif;
+// theme
 $primary: $yellow;
-$body-color: $black;
+$primary-invert: $black; 
+$grey-darker: $black; 
+$link: $primary;
+$scheme-main: $black; 
+$dark: $black;
+
+// global
+$body-background-color: $white;
+$text: $black;
 $radius: 0;
+$family-sans-serif: 'Montserrat', sans-serif;
 
 // navbar
-$navbar-background-color: $black;
 $navbar-item-hover-background-color	: transparent;
-$navbar-item-hover-color: $yellow;
-$navbar-burger-color: $white;
-$navbar-height: 2.5rem;
-$navbar-height-big: 3rem;
 $navbar-item-color: $white;
+$navbar-height: 4.75rem;
 
 // layout
 $widescreen-enabled: false;

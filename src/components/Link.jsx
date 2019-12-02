@@ -7,9 +7,17 @@ function scrollToElement(elementId) {
   if (!el) {
     return;
   }
-  el.scrollIntoView({
-    behavior: 'smooth',
-  });
+
+  let topOfElement = el.offsetTop;
+
+  // Get navbar height
+  const navbar = document.getElementById('navbar');
+
+  if (navbar) {
+    topOfElement -= navbar.offsetHeight;
+  }
+
+  window.scroll({ top: topOfElement, behavior: 'smooth' });
 }
 
 const BaseLink = ({ children, ...rest }) => <a {...rest}>{children}</a>;

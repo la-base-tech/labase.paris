@@ -13,6 +13,9 @@ const SEO = ({ globalMetadata, pageMetadata }) => {
       htmlAttributes={{
         lang: 'fr',
       }}
+      bodyAttributes={{
+        class: 'has-navbar-fixed-top',
+      }}
       title={title}
     >
       <meta name="description" content={description} />
