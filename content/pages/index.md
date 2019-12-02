@@ -10,8 +10,8 @@ headerSection:
   image: ../../src/images/image-header.jpg
   # image: /images/image-header.jpg
   text: >-
-    Le lieu où s'engager
-    pour la justice
+    Le lieu où s'engager<br>
+    pour la justice<br>
     climatique et sociale
 
 newsletterSection: 
@@ -28,42 +28,40 @@ newsletterSection:
 presentationSection: 
   image: /images/labase-illustration.svg
   title: >-
-    La base,
-    c’est quoi ?
+    La base, c’est quoi ?
   text: >- 
-    La base située au **31 rue Bichat 75010**, est le repaire de 10 associations ayant pour objectif de **mobiliser les citoyen•nes à la justice climatique et sociale**. Abordant ce sujet de pleins de points de vue, la base propose des conférences, des tables rondes, des soirées pour sensibiliser un public parfois convaincu et parfois non. La base est ouverte jusqu'à mars 2020 et c'est donner pour objectif de **sensibiliser tous les citoyen•nes de 7 à 77 ans**.
-
-    **L'adresse :** 31 rue Bichat, 75011 Paris
+    La base située au <mark>31 rue Bichat 75010</mark>, est le repaire de 10 associations ayant pour objectif de <mark>mobiliser les citoyen•nes à la justice climatique et sociale</mark>. Abordant ce sujet de pleins de points de vue, la base propose des conférences, des tables rondes, des soirées pour sensibiliser un public parfois convaincu et parfois non. La base est ouverte jusqu'à mars 2020 et c'est donner pour objectif de <mark>sensibiliser tous les citoyen•nes de 7 à 77 ans</mark>.<br>
+    <br>
+    **L'adresse :** <mark>31 rue Bichat, 75011 Paris</mark>
 
 presentationBisSection: 
   title: "En pratique c’est :"
   items: 
     - text: >-
-        Un bar associatif et
+        Un bar associatif et<br>
         des évènements
       image: /images/bar-event-illustration.svg
     - text: >-
-        Un espace 
+        Un espace<br>
         de coworking
       image: /images/coworking-illustration.svg
     - text: >-
-        Une communauté
+        Une communauté<br>
         engagée
       image: /images/community-illustration.svg
 
 objectivesSection: 
   title: >-
-    La base, 
-    c’est pour quoi ?
+    La base, c’est pour quoi ?
   items:
     - title: Sensibiliser
-      text: Pour catalyser les énergies, fédérer les initiatives, transformer **les envies en action**, il faut qu’elles puissent se rencontrer, se fertiliser. La base est le lieu d’accélération de la mobilisation pour la justice climatique et sociale.
+      text: Pour catalyser les énergies, fédérer les initiatives, transformer <mark>les envies en action</mark>, il faut qu’elles puissent se rencontrer, se fertiliser. La base est le lieu d’accélération de la mobilisation pour la justice climatique et sociale.
       image: /images/sensibiliser-illustration.svg
     - title: Mobiliser
-      text: Manifester pour **éveiller les consciences**, annoncer les catastrophes écologiques et économiques à venir, montrer qu’il existe partout des **alternatives pour vivre plus sobrement**, n’ont pas (encore) suffi à déclencher le sursaut nécessaire. Pourtant, il ne nous reste que deux ans pour réorganiser nos modes de vies et éviter d’atteindre les seuils d’emballement climatique irréversibles.
+      text: Manifester pour <mark>éveiller les consciences</mark>, annoncer les catastrophes écologiques et économiques à venir, montrer qu’il existe partout des <mark>alternatives pour vivre plus sobrement</mark>, n’ont pas (encore) suffi à déclencher le sursaut nécessaire. Pourtant, il ne nous reste que deux ans pour réorganiser nos modes de vies et éviter d’atteindre les seuils d’emballement climatique irréversibles.
       image: /images/mobiliser-illustration.svg
     - title: Agir
-      text: Depuis l'été 2018, des centaines de milliers de personnes sont descendues dans la rue pour exiger des mesures capables de **répondre à l’urgence climatique et sociale**. Le mouvement pour le climat et la justice sociale est arrivé à un niveau inédit de mobilisation. Pour passer à la vitesse supérieure, nous avons besoin de lieux de rendez-vous, de catalyseurs, de bases. C'est l'ambition de la base.
+      text: Depuis l'été 2018, des centaines de milliers de personnes sont descendues dans la rue pour exiger des mesures capables de <mark>répondre à l’urgence climatique et sociale</mark>. Le mouvement pour le climat et la justice sociale est arrivé à un niveau inédit de mobilisation. Pour passer à la vitesse supérieure, nous avons besoin de lieux de rendez-vous, de catalyseurs, de bases. C'est l'ambition de la base.
       image: /images/agir-illustration.svg
 
 eventSection: 

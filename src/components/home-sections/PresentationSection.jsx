@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
-import ReactMarkdown from 'react-markdown/with-html';
 import styled from 'styled-components';
+import Markdown from '../Markdown';
 
 const SectionStyled = styled.section`
   margin-top: 2rem;
@@ -25,7 +25,7 @@ const PresentationSection = ({ image, title, text }) => (
       <ColumnStyled className="columns is-vcentered">
         <div className="column">
           <TitleStyled className="is-hidden-mobile">{title}</TitleStyled>
-          <ReactMarkdown source={text} />
+          <Markdown>{text}</Markdown>
         </div>
         <div className="column">
           <TitleStyled className="is-hidden-tablet">{title}</TitleStyled>

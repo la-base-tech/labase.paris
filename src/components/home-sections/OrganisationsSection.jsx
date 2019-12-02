@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 import GatsbyImage from 'gatsby-image';
-import ReactMarkdown from 'react-markdown';
 import styled from 'styled-components';
 import Link from '../Link';
+import Markdown from '../Markdown';
 
 const SectionStyled = styled.section`
   background: ${props => props.theme.yellow};
@@ -14,11 +14,11 @@ const TitleStyled = styled.h2`
   margin-bottom: 2rem;
 `;
 
-const TextStyled = styled(ReactMarkdown)`
+const TextStyled = styled(Markdown)`
   margin-bottom: 2rem;
 `;
 
-const ItemTextStyled = styled(ReactMarkdown)`
+const ItemTextStyled = styled(Markdown)`
   font-size: 0.7rem;
 `;
 
@@ -33,7 +33,7 @@ const Section = ({ title, text, items }) => (
   <SectionStyled className="section" id="associations">
     <div className="container">
       <TitleStyled>{title}</TitleStyled>
-      <TextStyled source={text} />
+      <TextStyled>{text}</TextStyled>
       <div className="columns is-multiline is-centered is-mobile">
         {items.map((item, index) => (
           <div
@@ -43,7 +43,9 @@ const Section = ({ title, text, items }) => (
             <LinkStyled href={item.url}>
               <GatsbyImage fluid={item.image.childImageSharp.fluid} />
             </LinkStyled>
-            <ItemTextStyled source={item.text} className="is-hidden-mobile" />
+            <ItemTextStyled className="is-hidden-mobile">
+              {item.text}
+            </ItemTextStyled>
           </div>
         ))}
       </div>

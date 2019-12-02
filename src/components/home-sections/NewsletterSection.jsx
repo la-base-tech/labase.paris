@@ -5,7 +5,6 @@ import { StaticQuery, graphql } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import isEmail from 'validator/lib/isEmail';
-
 import AnimatedCheck from '../AnimatedCheck';
 
 const FUNCTION_ENDPOINT = '/.netlify/functions/subscribe-newsletter';

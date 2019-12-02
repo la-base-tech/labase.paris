@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
-import ReactMarkdown from 'react-markdown';
 import styled from 'styled-components';
 import FacebookEventsWidget from '../FacebookEventsWidget';
 import Link from '../Link';
+import Markdown from '../Markdown';
 
 const SectionStyled = styled.section`
   background: ${props => props.theme.black};
@@ -15,7 +15,7 @@ const TitleStyled = styled.h2`
   color: ${props => props.theme.yellow};
 `;
 
-const TextStyled = styled(ReactMarkdown)`
+const TextStyled = styled(Markdown)`
   margin-bottom: 2rem;
   color: ${props => props.theme.white};
 `;
@@ -31,7 +31,7 @@ const Section = ({ title, text, facebookUrl, button }) => (
         <div className="column is-three-fifths">
           <TitleStyled>{title}</TitleStyled>
           <div className="is-hidden-mobile">
-            <TextStyled source={text} />
+            <TextStyled>{text}</TextStyled>
             <ButtonStyled href={button.url} className="button is-primary">
               {button.title}
             </ButtonStyled>

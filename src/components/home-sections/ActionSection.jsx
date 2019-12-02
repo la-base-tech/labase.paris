@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
-import ReactMarkdown from 'react-markdown';
 import styled from 'styled-components';
 import Link from '../Link';
+import Markdown from '../Markdown';
 
 const TitleStyled = styled.h2`
   margin-bottom: 2rem;
@@ -28,7 +28,7 @@ const ActionSection = ({ title, items }) => (
         {items.map((item, index) => (
           <div className="column has-text-centered" key={index}>
             <ImageStyled src={item.image} alt={item.button} />
-            <ReactMarkdown source={item.text} />
+            <Markdown>{item.text}</Markdown>
             <ButtonStyled
               href={item.url}
               className={`button is-primary ${index % 2 && ' is-inverted'}`}

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby';
 import BackgroundImage from 'gatsby-background-image';
-import ReactMarkdown from 'react-markdown';
+import Markdown from '../Markdown';
 
 const SectionStyled = styled(BackgroundImage)``;
 
@@ -16,7 +16,7 @@ const TextContainer = styled.div`
   margin: auto;
 `;
 
-const TextStyled = styled(ReactMarkdown)`
+const TextStyled = styled(Markdown)`
   color: ${props => props.theme.white};
   font-weight: 900;
   font-size: 3rem;
@@ -37,7 +37,7 @@ const HeaderSection = ({ image, text }) => {
       fluid={image.childImageSharp.fluid}
     >
       <TextContainer>
-        <TextStyled source={text} />
+        <TextStyled>{text}</TextStyled>
       </TextContainer>
     </SectionStyled>
   );

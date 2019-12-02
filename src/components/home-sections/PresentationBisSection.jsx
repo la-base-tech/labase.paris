@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
-import ReactMarkdown from 'react-markdown/with-html';
 import styled from 'styled-components';
+import Markdown from '../Markdown';
 
 const SectionStyled = styled.section``;
 
@@ -10,7 +10,7 @@ const TitleStyled = styled.h3`
   margin-bottom: 2rem;
 `;
 
-const ItemTextStyled = styled(ReactMarkdown)`
+const ItemTextStyled = styled(Markdown)`
   font-size: 1.1rem;
 `;
 
@@ -22,7 +22,9 @@ const Section = ({ title, items }) => (
         {items.map((item, index) => (
           <div className="column" key={index}>
             <img src={item.image} alt={item.text} />
-            <ItemTextStyled className="has-text-centered" source={item.text} />
+            <ItemTextStyled className="has-text-centered">
+              {item.text}
+            </ItemTextStyled>
           </div>
         ))}
       </div>

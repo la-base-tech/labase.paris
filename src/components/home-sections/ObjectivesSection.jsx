@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
-import ReactMarkdown from 'react-markdown/with-html';
 import styled from 'styled-components';
+import Markdown from '../Markdown';
 
 const TitleStyled = styled.h2`
   margin-bottom: 2rem;
@@ -31,7 +31,7 @@ const Section = ({ title, items }) => (
           </div>
           <div className="column">
             <ItemTitleStyled>{item.title}</ItemTitleStyled>
-            <ReactMarkdown source={item.text} />
+            <Markdown>{item.text}</Markdown>
           </div>
         </ItemColumnsStyled>
       ))}
