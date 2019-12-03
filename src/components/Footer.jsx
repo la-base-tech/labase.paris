@@ -49,7 +49,9 @@ const Footer = ({ press, links, addressTitle, address, socialNetworks }) => (
           <ul>
             {links.map((link, index) => (
               <li key={index}>
-                <LinkStyled href={link.url}>{link.title}</LinkStyled>
+                <LinkStyled href={link.url} download={link.download}>
+                  {link.title}
+                </LinkStyled>
               </li>
             ))}
           </ul>

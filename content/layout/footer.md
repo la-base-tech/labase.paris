@@ -7,7 +7,7 @@ press:
 links:
   - title: Dossier de presse
     download: true
-    url: /
+    url: /files/dossier-presse.pdf
   - title: Newsletter
     url: "#newsletter"
   # - title: Mentions légales
