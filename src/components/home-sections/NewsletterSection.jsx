@@ -12,7 +12,7 @@ const FUNCTION_ENDPOINT = '/.netlify/functions/subscribe-newsletter';
 const SectionStyled = styled.section`
   @media (min-width: ${props => props.theme.breakpointTablet}) {
     margin: auto;
-    margin-top: -100px;
+    margin-top: -40px;
     position: relative;
   }
 `;
