@@ -77,19 +77,19 @@ actionSection:
   items: 
     - text: Rejoindre la communauté de bénévoles
       button: Je rejoins
-      url: /
+      url: https://docs.google.com/forms/d/e/1FAIpQLSfv5Ucl0Jk6q5SazpVdvEZ4s_SRLUEdclWaBrZz6sCurPVMBg/viewform
       image: /images/benevoles-illustration.svg
     - text: Faire un don pour soutenir la base
       button: Je soutiens
-      url: /
+      url: https://www.helloasso.com/associations/groupe-d-action-neo-green/formulaires/1
       image: /images/don-illustration.svg
     - text: Nous proposer un événement à organiser
       button: Je propose
-      url: /
+      url: https://docs.google.com/forms/d/e/1FAIpQLSfi3Lzvs_2xdeh9i29goYlVsP5yB2CKtB-uKCjkKaR0aQLUEA/viewform
       image: /images/calendrier-illustration.svg
     - text: Réserver une place au coworking
       button: Je réserve
-      url: /
+      url: https://docs.google.com/forms/d/e/1FAIpQLScejNv22IoaC1k_OcZENmB8hVrlidFVKomppqzPsU87zMRjIA/viewform
       image: /images/coworking-2-illustration.svg
 
 organisationsSection:
