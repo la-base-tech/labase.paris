@@ -29,6 +29,10 @@ const LinkStyled = styled(Link)`
   }
 `;
 
+const GatsbyImageStyled = styled(GatsbyImage)`
+  mix-blend-mode: multiply;
+`;
+
 const Section = ({ title, text, items }) => (
   <SectionStyled className="section" id="associations">
     <div className="container">
@@ -41,7 +45,7 @@ const Section = ({ title, text, items }) => (
             key={index}
           >
             <LinkStyled href={item.url}>
-              <GatsbyImage fluid={item.image.childImageSharp.fluid} />
+              <GatsbyImageStyled fluid={item.image.childImageSharp.fluid} />
             </LinkStyled>
             <ItemTextStyled className="is-hidden-mobile">
               {item.text}
