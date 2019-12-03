@@ -20,6 +20,14 @@ const ButtonStyled = styled(Link)`
   font-weight: bold;
 `;
 
+const TextStyled = styled(Markdown)`
+  @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
+    height: 4.5rem;
+    display: flex;
+    align-items: center;
+  }
+`;
+
 const ActionSection = ({ title, items }) => (
   <section className="section" id="action">
     <div className="container">
@@ -28,7 +36,7 @@ const ActionSection = ({ title, items }) => (
         {items.map((item, index) => (
           <div className="column has-text-centered" key={index}>
             <ImageStyled src={item.image} alt={item.button} />
-            <Markdown>{item.text}</Markdown>
+            <TextStyled>{item.text}</TextStyled>
             <ButtonStyled
               href={item.url}
               className={`button is-primary ${index % 2 && ' is-inverted'}`}
