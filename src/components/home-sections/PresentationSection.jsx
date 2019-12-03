@@ -29,7 +29,9 @@ const PresentationSection = ({ image, title, text }) => (
         </div>
         <div className="column">
           <TitleStyled className="is-hidden-tablet">{title}</TitleStyled>
-          <img src={image} alt={title} />
+          <div className="has-text-centered">
+            <img src={image} alt={title} />
+          </div>
         </div>
       </ColumnStyled>
     </div>

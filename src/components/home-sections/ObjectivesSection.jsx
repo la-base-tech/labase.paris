@@ -26,7 +26,7 @@ const Section = ({ title, items }) => (
       <TitleStyled>{title}</TitleStyled>
       {items.map((item, index) => (
         <ItemColumnsStyled className="columns is-vcentered" key={index}>
-          <div className="column">
+          <div className="column has-text-centered">
             <img src={item.image} alt={item.title} />
           </div>
           <div className="column">

@@ -20,7 +20,7 @@ const Section = ({ title, items }) => (
       <TitleStyled>{title}</TitleStyled>
       <div className="columns">
         {items.map((item, index) => (
-          <div className="column" key={index}>
+          <div className="column has-text-centered" key={index}>
             <img src={item.image} alt={item.text} />
             <ItemTextStyled className="has-text-centered">
               {item.text}
