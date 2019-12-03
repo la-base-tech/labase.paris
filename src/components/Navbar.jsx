@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { ThemeContext } from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby';
 import Logo from './Logo';
 import Link from './Link';
@@ -121,7 +121,40 @@ const SocialNetworksStyled = styled(SocialNetworks)`
 `;
 
 const Navbar = ({ items, button, socialNetworks }) => {
+  const theme = useContext(ThemeContext);
   const [navbarMenuActive, setNavbarActive] = useState(false);
+
+  if (typeof document !== 'undefined') {
+    const htmlEl = document.querySelector('html');
+    // Disable scroll when the menu is active
+    if (navbarMenuActive) {
+      htmlEl.style.overflow = 'hidden';
+    } else {
+      htmlEl.style.overflow = '';
+    }
+  }
+
+  if (typeof window !== 'undefined') {
+    // Extract desktop breakpoint from theme
+    const breakpointDesktop = Number.parseInt(
+      theme.breakpointDesktop.replace('px', ''),
+      10
+    );
+
+    // Disable menu when the window is resizing
+    useEffect(() => {
+      const handleResize = () => {
+        const windowWidth = window.innerWidth;
+        if (navbarMenuActive && windowWidth > breakpointDesktop) {
+          setNavbarActive(false);
+        }
+      };
+      window.addEventListener('resize', handleResize);
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    });
+  }
 
   return (
     <NavBarStyled
