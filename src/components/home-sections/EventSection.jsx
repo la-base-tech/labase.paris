@@ -27,8 +27,14 @@ const ButtonStyled = styled(Link)`
 const FacebookEventWidgetWrapperStyled = styled.div`
   position: relative;
   display: flex;
-  width: 100%;
-  height: 100%;
+  height: 80vh;
+  max-height: 500px;
+
+  @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+  }
 `;
 
 const Section = ({ title, text, facebookUrl, button }) => (
