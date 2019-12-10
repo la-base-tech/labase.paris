@@ -23,6 +23,7 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'react/jsx-props-no-spreading': 'off',
     'react/no-array-index-key': 'off',
+    'jsx-a11y/iframe-has-title': 'off',
   },
   settings: {
     'import/core-modules': [],

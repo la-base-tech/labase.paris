@@ -6,27 +6,29 @@ const WidgetWrapperStyled = styled.div`
   width: 100%;
   height: 100%;
   overflow: hidden;
+
+  > iframe {
+    height: 100%;
+    width: 100%;
+    display: flex;
+  }
 `;
 
-const FacebookEventsWidget = ({ pageUrl }) => (
-  <WidgetWrapperStyled>
-    <div
-      className="fb-page"
-      data-href={pageUrl}
-      data-tabs="events"
-      data-width=""
-      data-height=""
-      data-small-header="true"
-      data-adapt-container-width="true"
-      data-hide-cover="true"
-      data-show-facepile="false"
-    >
-      <blockquote cite={pageUrl} className="fb-xfbml-parse-ignore">
-        <a href={pageUrl}>La base</a>
-      </blockquote>
-    </div>
-  </WidgetWrapperStyled>
-);
+const FacebookEventsWidget = ({ pageUrl }) => {
+  const encodedPageUrl = encodeURIComponent(pageUrl);
+  return (
+    <WidgetWrapperStyled>
+      <iframe
+        src={`https://www.facebook.com/plugins/page.php?href=${encodedPageUrl}&tabs=events&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=false`}
+        style={{
+          border: 'none',
+          overflow: 'hidden',
+        }}
+        allow="encrypted-media"
+      />
+    </WidgetWrapperStyled>
+  );
+};
 
 FacebookEventsWidget.propTypes = {
   pageUrl: PropTypes.string.isRequired,
