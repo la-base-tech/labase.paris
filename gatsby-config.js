@@ -89,7 +89,7 @@ module.exports = {
         anonymize: true,
         respectDNT: true,
       },
-    },    
+    },
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {
