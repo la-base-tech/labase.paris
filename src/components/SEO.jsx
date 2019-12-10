@@ -5,8 +5,7 @@ import { StaticQuery, graphql } from 'gatsby';
 
 const SEO = ({ globalMetadata, pageMetadata }) => {
   const { title, description } = pageMetadata;
-  const imageFacebookUrl = `${globalMetadata.siteUrl}/${globalMetadata.facebookImage}`;
-  const imageTwitterUrl = `${globalMetadata.siteUrl}/${globalMetadata.twitterImage}`;
+  const image = `${globalMetadata.siteUrl}/${globalMetadata.socialShareImage}`;
 
   return (
     <Helmet
@@ -21,10 +20,9 @@ const SEO = ({ globalMetadata, pageMetadata }) => {
       <meta name="description" content={description} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={imageFacebookUrl} />
+      <meta property="og:image" content={image} />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={imageTwitterUrl} />
     </Helmet>
   );
 };
@@ -32,8 +30,7 @@ const SEO = ({ globalMetadata, pageMetadata }) => {
 SEO.propTypes = {
   globalMetadata: PropTypes.shape({
     siteUrl: PropTypes.string.isRequired,
-    facebookImage: PropTypes.string.isRequired,
-    twitterImage: PropTypes.string.isRequired,
+    socialShareImage: PropTypes.string.isRequired,
   }).isRequired,
   pageMetadata: PropTypes.shape({
     title: PropTypes.string.isRequired,
@@ -49,8 +46,7 @@ export default function SEOWrapper(props) {
           site {
             siteMetadata {
               siteUrl
-              twitterImage
-              facebookImage
+              socialShareImage
             }
           }
         }

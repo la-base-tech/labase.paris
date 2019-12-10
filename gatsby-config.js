@@ -19,8 +19,7 @@ if (isDev) {
 
 const siteMetadata = {
   siteUrl,
-  facebookImage: 'images/social_facebook.jpg',
-  twitterImage: 'images/social_twitter.jpg',
+  socialShareImage: '/images/social-share.jpg',
 };
 
 module.exports = {
