@@ -10,7 +10,7 @@
     "format": "prettier --write 'src/**/*.{js,jsx}'",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
     "lint": "eslint --ext js --ext jsx ."
-  },  
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-brands-svg-icons": "^5.11.2",
@@ -24,6 +24,7 @@
     "gatsby-background-image": "^0.9.7",
     "gatsby-image": "^2.2.31",
     "gatsby-link": "^2.2.25",
+    "gatsby-plugin-google-analytics": "^2.1.31",
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-layout": "^1.1.14",
     "gatsby-plugin-manifest": "^2.2.26",

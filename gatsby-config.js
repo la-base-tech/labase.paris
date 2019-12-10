@@ -82,6 +82,16 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // Note: the plugin should be able to get the NODE_ENV but because Gatsby
+        // override the NODE_ENV when building, it gets ignored.
+        trackingId: isProduction ? 'UA-133560102-1' : null,
+        anonymize: true,
+        respectDNT: true,
+      },
+    },    
+    {
       resolve: `gatsby-plugin-styled-components`,
       options: {
         fileName: false,
