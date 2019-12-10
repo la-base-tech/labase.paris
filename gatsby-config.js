@@ -53,6 +53,15 @@ module.exports = {
       },
     },
     'gatsby-plugin-react-helmet',
+    {
+      resolve: 'gatsby-plugin-styled-components',
+      options: {
+        // By default, the displayName of a component will be prefixed with the filename
+        // in order to make the component name as unique as possible.
+        fileName: false,
+        displayName: false,
+      },
+    },
     'gatsby-plugin-sass',
     {
       resolve: 'gatsby-plugin-purgecss', // purges all unused/unreferenced css rules
@@ -78,22 +87,6 @@ module.exports = {
       options: {
         fonts: ['Montserrat:300,600,800,900'],
         display: 'swap',
-      },
-    },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        // Note: the plugin should be able to get the NODE_ENV but because Gatsby
-        // override the NODE_ENV when building, it gets ignored.
-        trackingId: isProduction ? 'UA-133560102-1' : null,
-        anonymize: true,
-        respectDNT: true,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-styled-components`,
-      options: {
-        fileName: false,
       },
     },
     {
