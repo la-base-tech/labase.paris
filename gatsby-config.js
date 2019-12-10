@@ -10,12 +10,18 @@ const {
 const isProduction = NODE_ENV === `production`;
 const isDev = NODE_ENV === `development`;
 
+// eslint-disable-next-line no-console
+console.log(`building gatsby app in ${NODE_ENV} env `);
+
 let siteUrl;
 if (isDev) {
   siteUrl = LOCALHOST;
 } else {
   siteUrl = isProduction ? SITE_URL : DEPLOY_PRIME_URL;
 }
+
+// eslint-disable-next-line no-console
+console.log(`deploying on ${siteUrl}`);
 
 const siteMetadata = {
   siteUrl,
