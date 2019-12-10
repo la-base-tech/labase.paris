@@ -24,6 +24,13 @@ const ButtonStyled = styled(Link)`
   font-weight: bold;
 `;
 
+const FacebookEventWidgetWrapperStyled = styled.div`
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+`
+
 const Section = ({ title, text, facebookUrl, button }) => (
   <SectionStyled className="section" id="evenements">
     <div className="container">
@@ -38,7 +45,9 @@ const Section = ({ title, text, facebookUrl, button }) => (
           </div>
         </div>
         <div className="column">
+          <FacebookEventWidgetWrapperStyled>
           <FacebookEventsWidget pageUrl={facebookUrl} />
+          </FacebookEventWidgetWrapperStyled>
         </div>
       </div>
     </div>
