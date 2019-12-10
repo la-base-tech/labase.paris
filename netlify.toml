@@ -3,6 +3,9 @@
   publish = "public/"
   functions = "functions"
 
+[context.production]
+  environment = { NODE_ENV = "production" }
+
 [[redirects]]
   from = "https://labase-paris.netlify.com"
   to = "https://labase.paris"
