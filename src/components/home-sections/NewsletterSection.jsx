@@ -10,6 +10,7 @@ import AnimatedCheck from '../AnimatedCheck';
 const FUNCTION_ENDPOINT = '/.netlify/functions/subscribe-newsletter';
 
 const SectionStyled = styled.section`
+  margin-top: -40px;
   @media (min-width: ${props => props.theme.breakpointTablet}) {
     margin: auto;
     margin-top: -40px;

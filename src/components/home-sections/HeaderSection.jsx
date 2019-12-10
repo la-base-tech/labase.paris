@@ -8,18 +8,20 @@ import Markdown from '../Markdown';
 const SectionStyled = styled(BackgroundImage)``;
 
 const TextContainer = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: left;
   padding: 1rem;
   max-width: 1200px;
   margin: auto;
+  top: -20px;
 `;
 
 const TextStyled = styled(Markdown)`
   color: ${props => props.theme.white};
   font-weight: 900;
-  font-size: 3rem;
+  font-size: 2.5rem;
   line-height: 3.5rem;
 
   @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
