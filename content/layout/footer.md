@@ -3,7 +3,7 @@ title: Footer  # admin title
 
 press: 
   title: Contact presse
-  email: clemence@labase.paris
+  email: contact@labase.paris
 links:
   - title: Dossier de presse
     download: true
