@@ -229,28 +229,24 @@ export default function NewsletterSectionWrapper() {
     <StaticQuery
       query={graphql`
         query {
-          content: markdownRemark(fields: { name: { eq: "page-index" } }) {
-            frontmatter {
-              section: newsletterSection {
-                image
-                title
-                text
-                hint
-                input {
-                  placeholder
-                }
-                button {
-                  title
-                }
-                errorMessage
+          content: yaml(fields: { name: { eq: "page-index" } }) {
+            section: newsletterSection {
+              image
+              title
+              text
+              hint
+              input {
+                placeholder
               }
+              button {
+                title
+              }
+              errorMessage
             }
           }
         }
       `}
-      render={data => (
-        <NewsletterSection {...data.content.frontmatter.section} />
-      )}
+      render={data => <NewsletterSection {...data.content.section} />}
     />
   );
 }

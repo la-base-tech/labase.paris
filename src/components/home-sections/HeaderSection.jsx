@@ -59,25 +59,21 @@ export default function HeaderSectionWrapper(props) {
     <StaticQuery
       query={graphql`
         query {
-          content: markdownRemark(fields: { name: { eq: "page-index" } }) {
-            frontmatter {
-              section: headerSection {
-                image {
-                  childImageSharp {
-                    fluid(maxWidth: 1000, quality: 100) {
-                      ...GatsbyImageSharpFluid_withWebp
-                    }
+          content: yaml(fields: { name: { eq: "page-index" } }) {
+            section: headerSection {
+              image {
+                childImageSharp {
+                  fluid(maxWidth: 1000, quality: 100) {
+                    ...GatsbyImageSharpFluid_withWebp
                   }
                 }
-                text
               }
+              text
             }
           }
         }
       `}
-      render={data => (
-        <HeaderSection {...data.content.frontmatter.section} {...props} />
-      )}
+      render={data => <HeaderSection {...data.content.section} {...props} />}
     />
   );
 }

@@ -79,20 +79,18 @@ export default function SectionWrapper() {
     <StaticQuery
       query={graphql`
         query {
-          content: markdownRemark(fields: { name: { eq: "page-index" } }) {
-            frontmatter {
-              section: organisationsSection {
+          content: yaml(fields: { name: { eq: "page-index" } }) {
+            section: organisationsSection {
+              title
+              text
+              items {
                 title
+                url
                 text
-                items {
-                  title
-                  url
-                  text
-                  image {
-                    childImageSharp {
-                      fluid(maxWidth: 364, quality: 100) {
-                        ...GatsbyImageSharpFluid_withWebp
-                      }
+                image {
+                  childImageSharp {
+                    fluid(maxWidth: 364, quality: 100) {
+                      ...GatsbyImageSharpFluid_withWebp
                     }
                   }
                 }
@@ -101,7 +99,7 @@ export default function SectionWrapper() {
           }
         }
       `}
-      render={data => <Section {...data.content.frontmatter.section} />}
+      render={data => <Section {...data.content.section} />}
     />
   );
 }

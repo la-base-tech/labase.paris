@@ -6,7 +6,7 @@ const NotFoundPage = ({ data }) => (
   <section className="hero is-fullheight-with-navbar">
     <div className="hero-body">
       <div className="container has-text-centered">
-        <div>{data.text}</div>
+        <div>{data.page.text}</div>
       </div>
     </div>
   </section>
@@ -24,14 +24,12 @@ export default NotFoundPage;
 
 export const pageQuery = graphql`
   query {
-    page: markdownRemark(fields: { name: { eq: "page-404" } }) {
-      frontmatter {
-        metadata {
-          title
-          description
-        }
-        text
+    page: yaml(fields: { name: { eq: "page-404" } }) {
+      metadata {
+        title
+        description
       }
+      text
     }
   }
 `;
