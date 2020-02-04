@@ -47,7 +47,7 @@ export default function SectionWrapper() {
     <StaticQuery
       query={graphql`
         query {
-          content: yaml(fields: { name: { eq: "page-index" } }) {
+          content: yaml(fields: { name: { eq: "page-home" } }) {
             section: presentationBisSection {
               title
               items {

@@ -5,7 +5,6 @@
     "node": "13.7.x"
   },
   "scripts": {
-    "postinstall": "cd plugins/remark-normalize-file-paths/ && yarn",
     "build": "gatsby build",
     "netlify:dev": "netlify dev",
     "dev": "gatsby develop",

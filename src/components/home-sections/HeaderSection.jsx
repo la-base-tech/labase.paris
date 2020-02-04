@@ -59,7 +59,7 @@ export default function HeaderSectionWrapper(props) {
     <StaticQuery
       query={graphql`
         query {
-          content: yaml(fields: { name: { eq: "page-index" } }) {
+          content: yaml(fields: { name: { eq: "page-home" } }) {
             section: headerSection {
               image {
                 childImageSharp {

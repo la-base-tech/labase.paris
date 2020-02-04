@@ -27,7 +27,7 @@ export default IndexPage;
 
 export const pageQuery = graphql`
   query {
-    page: yaml(fields: { name: { eq: "page-index" } }) {
+    page: yaml(fields: { name: { eq: "page-home" } }) {
       metadata {
         title
         description

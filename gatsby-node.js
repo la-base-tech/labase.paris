@@ -10,7 +10,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
     const type = parts.shift();
     const isPage = type === 'pages';
-    const name = `${isPage ? 'page-' : ''}${parts.join('-') || 'index'}`;
+    const name = `${isPage ? 'page-' : ''}${parts.pop()}`;
 
     // Add field name
     createNodeField({
