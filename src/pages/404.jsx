@@ -23,7 +23,7 @@ NotFoundPage.propTypes = {
 export default NotFoundPage;
 
 export const pageQuery = graphql`
-  query {
+  query NotFoundPageQuery {
     page: yaml(fields: { name: { eq: "page-404" } }) {
       metadata {
         title

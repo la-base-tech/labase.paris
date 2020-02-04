@@ -26,7 +26,7 @@ const IndexPage = () => (
 export default IndexPage;
 
 export const pageQuery = graphql`
-  query {
+  query HomePageQuery {
     page: yaml(fields: { name: { eq: "page-home" } }) {
       metadata {
         title
