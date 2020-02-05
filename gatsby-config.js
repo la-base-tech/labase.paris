@@ -103,7 +103,9 @@ module.exports = {
       options: {
         // Note: the plugin should be able to get the NODE_ENV but because Gatsby
         // override the NODE_ENV when building, it gets ignored.
-        trackingId: isProduction ? 'UA-133560102-1' : null,
+        trackingId: isProduction
+          ? process.env.GOOGLE_ANALYTICS_TRACKING_ID
+          : null,
         anonymize: true,
         respectDNT: true,
       },
