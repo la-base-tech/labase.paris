@@ -21,6 +21,7 @@
     "@fortawesome/react-fontawesome": "0.1.8",
     "bulma": "0.8.0",
     "cross-fetch": "3.0.4",
+    "dotenv": "8.2.0",
     "es6-weak-map": "2.0.3",
     "gatsby": "2.19.12",
     "gatsby-background-image": "0.9.14",

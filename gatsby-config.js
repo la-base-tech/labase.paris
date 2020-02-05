@@ -1,3 +1,7 @@
+const dotenv = require('dotenv');
+
+dotenv.config();
+
 const MAIN_SITE_URL = 'https://labase.paris';
 const LOCALHOST = 'http://localhost:8000'; // TODO: should automatically fetch that
 
