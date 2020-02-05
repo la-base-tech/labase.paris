@@ -46,16 +46,15 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-transformer-yaml',
+      options: {
+        typeName: 'Yaml',
+      },
+    },
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/content`,
-      },
-    },
-    'remark-normalize-file-paths',
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [],
       },
     },
     'gatsby-plugin-react-helmet',

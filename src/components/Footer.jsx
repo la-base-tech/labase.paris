@@ -100,32 +100,30 @@ export default function FooterWrapper() {
     <StaticQuery
       query={graphql`
         query {
-          content: markdownRemark(fields: { name: { eq: "footer" } }) {
-            frontmatter {
-              press {
+          content: yaml(fields: { name: { eq: "footer" } }) {
+            press {
+              title
+              email
+            }
+            links {
+              title
+              download
+              url
+            }
+            addressTitle
+            address
+            socialNetworks {
+              title
+              items {
                 title
-                email
-              }
-              links {
-                title
-                download
+                icon
                 url
-              }
-              addressTitle
-              address
-              socialNetworks {
-                title
-                items {
-                  title
-                  icon
-                  url
-                }
               }
             }
           }
         }
       `}
-      render={data => <Footer {...data.content.frontmatter} />}
+      render={data => <Footer {...data.content} />}
     />
   );
 }

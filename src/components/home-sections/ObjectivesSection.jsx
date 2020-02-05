@@ -55,21 +55,19 @@ export default function SectionWrapper() {
     <StaticQuery
       query={graphql`
         query {
-          content: markdownRemark(fields: { name: { eq: "page-index" } }) {
-            frontmatter {
-              section: objectivesSection {
+          content: yaml(fields: { name: { eq: "page-home" } }) {
+            section: objectivesSection {
+              title
+              items {
                 title
-                items {
-                  title
-                  text
-                  image
-                }
+                text
+                image
               }
             }
           }
         }
       `}
-      render={data => <Section {...data.content.frontmatter.section} />}
+      render={data => <Section {...data.content.section} />}
     />
   );
 }

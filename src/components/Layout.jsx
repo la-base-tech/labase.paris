@@ -9,7 +9,7 @@ import Footer from './Footer';
 
 const Layout = ({ data, children }) => (
   <>
-    <SEO pageMetadata={data.page.frontmatter.metadata} />
+    <SEO pageMetadata={data.page.metadata} />
     <Navbar />
     {children}
     <Footer />
@@ -20,11 +20,9 @@ Layout.propTypes = {
   children: PropTypes.node.isRequired,
   data: PropTypes.shape({
     page: PropTypes.shape({
-      frontmatter: PropTypes.shape({
-        metadata: PropTypes.shape({
-          title: PropTypes.string.isRequired,
-          description: PropTypes.string.isRequired,
-        }).isRequired,
+      metadata: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
       }).isRequired,
     }).isRequired,
   }).isRequired,

@@ -1,5 +1,3 @@
----
-title: Navbar # admin title
 items: 
   - title: Newsletter
     url: "#newsletter"

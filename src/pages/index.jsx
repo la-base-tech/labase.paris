@@ -26,13 +26,11 @@ const IndexPage = () => (
 export default IndexPage;
 
 export const pageQuery = graphql`
-  query {
-    page: markdownRemark(fields: { name: { eq: "page-index" } }) {
-      frontmatter {
-        metadata {
-          title
-          description
-        }
+  query HomePageQuery {
+    page: yaml(fields: { name: { eq: "page-home" } }) {
+      metadata {
+        title
+        description
       }
     }
   }

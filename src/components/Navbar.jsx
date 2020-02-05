@@ -270,31 +270,29 @@ export default function NavbarWrapper(props) {
     <StaticQuery
       query={graphql`
         query {
-          content: markdownRemark(fields: { name: { eq: "navbar" } }) {
-            frontmatter {
+          content: yaml(fields: { name: { eq: "navbar" } }) {
+            items {
+              title
+              titleMobile
+              mobileOnly
+              url
+            }
+            button {
+              title
+              url
+            }
+            socialNetworks {
+              title
               items {
                 title
-                titleMobile
-                mobileOnly
+                icon
                 url
-              }
-              button {
-                title
-                url
-              }
-              socialNetworks {
-                title
-                items {
-                  title
-                  icon
-                  url
-                }
               }
             }
           }
         }
       `}
-      render={data => <Navbar {...data.content.frontmatter} {...props} />}
+      render={data => <Navbar {...data.content} {...props} />}
     />
   );
 }

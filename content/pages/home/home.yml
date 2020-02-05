@@ -1,14 +1,9 @@
----
-title: Home # admin title
-
-# Page metadata
 metadata: 
   title: la base, accélérateur de la mobilisation
   description: la base est un lieu au coeur de Paris où les citoyen·ne·s se rencontrent et agissent pour le climat et donc la justice écologique et sociale
 
 headerSection:
-  image: ../../src/images/image-header.jpg
-  # image: /images/image-header.jpg
+  image: ./images/hero.jpg
   text: >-
     Le lieu où s'engager<br>
     pour la justice<br>
@@ -99,50 +94,40 @@ organisationsSection:
     - title: Aternatiba Paris
       url: https://alternatiba.eu/paris/
       text: Alternatiba Paris est un mouvement citoyen pour le climat et la justice sociale, co-organisateur des Marches pour le climat.
-      image: ../../src/images/organisations/alternatiba-paris.png
-      # image: /images/organisations/alternatiba-paris.png
+      image: ./images/organisations/alternatiba-paris.png
     - title: ANV-COP21
       url: https://www.facebook.com/ActionClimatParis/
       text: Le Groupe Action Climat Paris est un mouvement non-violent et déterminé, radical et populaire qui agit pour relever le défi climatique.
-      image: ../../src/images/organisations/action-climat.png
-      # image: /images/organisations/action-climat.png
+      image: ./images/organisations/action-climat.png
     - title: Le Consulat
       url: https://www.leconsulat.org/
       text: Le Consulat est un lieu éphémère et itinérant qui prône un art de vivre festif et engagé.
-      image: ../../src/images/organisations/le-consulat.png
-      # image: /images/organisations/le-consulat.png
+      image: ./images/organisations/le-consulat.png
     - title: FAIR[e]
       url: http://www.faire-equitable.org/
       text: FAIR[e] un monde équitable rassemble des consommateur·rice·s engagé·e·s en faveur du commerce équitable et de la consommation responsable.
-      image: ../../src/images/organisations/fair-e.png
-      # image: /images/organisations/fair-e.png
+      image: ./images/organisations/fair-e.png
     - title: le mouvement
       url: https://lemouvement.ong/
       text: 110 000 membres pour défendre le bien commun, faire pression sur les décideurs, et gagner des batailles dans la loi et l'opinion.
-      image: ../../src/images/organisations/le-mouvement.png
-      # image: /images/organisations/le-mouvement.png
+      image: ./images/organisations/le-mouvement.png
     - title: Le Mouvement Utopia 
       url: https://mouvementutopia.org/site/
       text: Le Mouvement Utopia est une association d’éducation populaire qui vise à élaborer un projet de société solidaire, écologiquement soutenable et convivial.
-      image: ../../src/images/organisations/mouvement-utopia.png
-      # image: /images/organisations/mouvement-utopia.png
+      image: ./images/organisations/mouvement-utopia.png
     - title: NatureRights
       url: http://www.naturerights.com/blog/
       text: NatureRights s'engage pour la reconnaissance des droits de la Nature et les droits des Peuples Autochtones.
-      image: ../../src/images/organisations/nature-rights.png
-      # image: /images/organisations/nature-rights.png
+      image: ./images/organisations/nature-rights.png
     - title: Notre affaire à tous
       url: https://notreaffaireatous.org/
       text: Notre affaire à tous est une association qui oeuvre à l’instauration d’une justice climatique, via des recours juridiques, récemment avec l’Affaire du Siècle.
-      image: ../../src/images/organisations/notre-affaire-a-tous.png
-      # image: /images/organisations/notre-affaire-a-tous.png
+      image: ./images/organisations/notre-affaire-a-tous.png
     - title: PARTAGER C'EST SYMPA
       url: https://www.facebook.com/PartagerCestSympa/
       text: Vidéaste-activiste, avec les gens qui se bougent, promoteur d'avenirs justes et durables pour tou·te·s.
-      image: ../../src/images/organisations/partager-c-est-sympa.png
-      # image: /images/organisations/partager-c-est-sympa.png
+      image: ./images/organisations/partager-c-est-sympa.png
     - title: 350.org
       url: https://350.org/
       text: Organisation qui construit un mouvement mondial exigeant des solutions pour le climat, au moyen de campagnes internet, de mobilisations citoyennes et de campagnes de communication.
-      image: ../../src/images/organisations/350-org.png
-      # image: /images/organisations/350-org.png
+      image: ./images/organisations/350-org.png
