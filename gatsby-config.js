@@ -111,6 +111,14 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-facebook-pixel',
+      options: {
+        pixelId: isProduction
+          ? process.env.FACEBOOK_PIXEL_ID
+          : process.env.FACEBOOK_PIXEL_ID,
+      },
+    },
+    {
       resolve: 'gatsby-plugin-layout',
       options: {
         component: require.resolve('./src/components/Layout.jsx'),
