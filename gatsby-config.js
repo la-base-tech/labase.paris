@@ -6,16 +6,26 @@ const MAIN_SITE_URL = 'https://labase.paris';
 const LOCALHOST = 'http://localhost:8000'; // TODO: should automatically fetch that
 
 const {
+  NODE_ENV = 'development',
+  APP_ENV = 'development',
   URL: SITE_URL = MAIN_SITE_URL,
   DEPLOY_PRIME_URL = SITE_URL,
-  CONTEXT: NODE_ENV = process.env.NODE_ENV || 'development',
 } = process.env;
 
-const isProduction = NODE_ENV === `production`;
+const isProduction = APP_ENV === `production`;
 const isDev = NODE_ENV === `development`;
 
 // eslint-disable-next-line no-console
-console.log(`building gatsby app in ${NODE_ENV} env `);
+console.log(`NODE_ENV ${NODE_ENV}`);
+
+// eslint-disable-next-line no-console
+console.log(`APP_ENV ${APP_ENV}`);
+
+// eslint-disable-next-line no-console
+console.log(`isProduction ${isProduction}`);
+
+// eslint-disable-next-line no-console
+console.log(`isDev ${isDev}`);
 
 let siteUrl;
 if (isDev) {

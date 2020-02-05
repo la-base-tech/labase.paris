@@ -1,4 +1,7 @@
+const dotenv = require('dotenv');
 const fetch = require('cross-fetch');
+
+dotenv.config();
 
 const SENDINBLUE_API_ENDPOINT = 'https://api.sendinblue.com/v3/';
 const { SENDINBLUE_API_KEY, SENDINBLUE_LIST_ID } = process.env;
