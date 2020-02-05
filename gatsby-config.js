@@ -1,3 +1,7 @@
+const dotenv = require('dotenv');
+
+dotenv.config();
+
 const MAIN_SITE_URL = 'https://labase.paris';
 const LOCALHOST = 'http://localhost:8000'; // TODO: should automatically fetch that
 
@@ -99,9 +103,19 @@ module.exports = {
       options: {
         // Note: the plugin should be able to get the NODE_ENV but because Gatsby
         // override the NODE_ENV when building, it gets ignored.
-        trackingId: isProduction ? 'UA-133560102-1' : null,
+        trackingId: isProduction
+          ? process.env.GOOGLE_ANALYTICS_TRACKING_ID
+          : null,
         anonymize: true,
         respectDNT: true,
+      },
+    },
+    {
+      resolve: 'gatsby-facebook-pixel',
+      options: {
+        pixelId: isProduction
+          ? process.env.FACEBOOK_PIXEL_ID
+          : process.env.FACEBOOK_PIXEL_ID,
       },
     },
     {
