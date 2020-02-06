@@ -7,12 +7,17 @@ import Status from '../components/crowdfunding-page/Status';
 import DonateForm from '../components/crowdfunding-page/DonateForm';
 import Markdown from '../components/Markdown';
 import YoutubeEmbed from '../components/YoutubeEmbed';
+import Link from '../components/Link';
 
 const SectionTitleStyled = styled.h2`
   font-weight: 900;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   font-size: 1.5rem;
   line-height: 2rem;
+
+  &.has-subtitle {
+    margin-bottom: 1rem;
+  }
 
   @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
     font-size: 2rem;
@@ -20,7 +25,47 @@ const SectionTitleStyled = styled.h2`
   }
 `;
 
+const SectionSubtitleStyled = styled.h3`
+  font-weight: bold;
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+
+  @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
+    font-size: 1.4rem;
+    line-height: 1.9rem;
+  }
+`;
+
 const SectionTextStyled = styled(Markdown)``;
+
+const Section3Text2Styled = styled(SectionTextStyled)`
+  font-size: 0.9rem;
+  h4 {
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    font-size: 0.7rem;
+    line-height: 1rem;
+
+    p + & {
+      margin-top: 1rem;
+    }
+  }
+
+  p + h4 {
+    margin-top: 1rem;
+  }
+
+  h4 + p {
+    margin-top: 0 !important;
+  }
+`;
+
+const ButtonStyled = styled(Link)`
+  padding: 1rem 2rem !important;
+  margin-top: 1rem;
+  font-weight: bold;
+`;
 
 const CrowdfundingPage = ({ data }) => (
   <>
@@ -48,6 +93,31 @@ const CrowdfundingPage = ({ data }) => (
         <YoutubeEmbed {...data.page.section2.video} />
       </div>
     </section>
+
+    {/* section 3 */}
+    <section className="section">
+      <div className="container">
+        <SectionTitleStyled className="has-subtitle">
+          {data.page.section3.title}
+        </SectionTitleStyled>
+        <SectionSubtitleStyled>
+          {data.page.section3.subtitle}
+        </SectionSubtitleStyled>
+        <div className="columns">
+          <div className="column is-two-thirds">
+            <SectionTextStyled>{data.page.section3.text}</SectionTextStyled>
+            <ButtonStyled href="#" className="button is-primary">
+              {data.page.section3.button.title}
+            </ButtonStyled>
+          </div>
+          <div className="column is-hidden-mobile">
+            <Section3Text2Styled>
+              {data.page.section3.text2}
+            </Section3Text2Styled>
+          </div>
+        </div>
+      </div>
+    </section>
   </>
 );
 
@@ -63,6 +133,15 @@ CrowdfundingPage.propTypes = {
           youtubeId: PropTypes.string.isRequired,
           title: PropTypes.string.isRequired,
         }).isRequired,
+        button: PropTypes.shape({
+          title: PropTypes.string.isRequired,
+        }).isRequired,
+      }).isRequired,
+      section3: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        subtitle: PropTypes.string.isRequired,
+        text: PropTypes.string.isRequired,
+        text2: PropTypes.string.isRequired,
         button: PropTypes.shape({
           title: PropTypes.string.isRequired,
         }).isRequired,
@@ -89,6 +168,15 @@ export const pageQuery = graphql`
           youtubeId
           title
         }
+        button {
+          title
+        }
+      }
+      section3 {
+        title
+        subtitle
+        text
+        text2
         button {
           title
         }
