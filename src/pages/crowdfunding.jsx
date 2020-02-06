@@ -6,37 +6,12 @@ import GatsbyImage from 'gatsby-image';
 import Hero from '../components/crowdfunding-page/Hero';
 import Status from '../components/crowdfunding-page/Status';
 import DonateForm from '../components/crowdfunding-page/DonateForm';
+import Carousel from '../components/crowdfunding-page/Carousel';
+import SectionTitle from '../components/crowdfunding-page/SectionTitle';
+import SectionSubtitle from '../components/crowdfunding-page/SectionSubtitle';
 import Markdown from '../components/Markdown';
 import YoutubeEmbed from '../components/YoutubeEmbed';
 import Link from '../components/Link';
-
-const SectionTitleStyled = styled.h2`
-  font-weight: 900;
-  margin-bottom: 2rem;
-  font-size: 1.5rem;
-  line-height: 2rem;
-
-  &.has-subtitle {
-    margin-bottom: 1rem;
-  }
-
-  @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
-    font-size: 2rem;
-    line-height: 2.5rem;
-  }
-`;
-
-const SectionSubtitleStyled = styled.h3`
-  font-weight: bold;
-  margin-bottom: 2rem;
-  font-size: 1.2rem;
-  line-height: 1.5rem;
-
-  @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
-    font-size: 1.4rem;
-    line-height: 1.9rem;
-  }
-`;
 
 const SectionTextStyled = styled(Markdown)``;
 
@@ -85,7 +60,7 @@ const CrowdfundingPage = ({ data }) => (
       <div className="container">
         <div className="columns">
           <div className="column">
-            <SectionTitleStyled>{data.page.section1.title}</SectionTitleStyled>
+            <SectionTitle>{data.page.section1.title}</SectionTitle>
             <SectionTextStyled>{data.page.section1.text}</SectionTextStyled>
           </div>
           <div className="column">
@@ -105,12 +80,10 @@ const CrowdfundingPage = ({ data }) => (
     {/* section 3 */}
     <section className="section">
       <div className="container">
-        <SectionTitleStyled className="has-subtitle">
+        <SectionTitle className="has-subtitle">
           {data.page.section3.title}
-        </SectionTitleStyled>
-        <SectionSubtitleStyled>
-          {data.page.section3.subtitle}
-        </SectionSubtitleStyled>
+        </SectionTitle>
+        <SectionSubtitle>{data.page.section3.subtitle}</SectionSubtitle>
         <div className="columns">
           <div className="column is-two-thirds">
             <SectionTextStyled>{data.page.section3.text}</SectionTextStyled>
@@ -127,10 +100,12 @@ const CrowdfundingPage = ({ data }) => (
       </div>
     </section>
 
+    <Carousel />
+
     {/* section 4 */}
     <section className="section">
       <div className="container">
-        <SectionTitleStyled>{data.page.section4.title}</SectionTitleStyled>
+        <SectionTitle>{data.page.section4.title}</SectionTitle>
         <ColumnsReverseMobileStyled className="columns">
           <div className="column is-two-fifths">
             <SectionTextStyled>{data.page.section4.text}</SectionTextStyled>
@@ -150,7 +125,7 @@ const CrowdfundingPage = ({ data }) => (
     {/* section 5 */}
     <section className="section">
       <div className="container">
-        <SectionTitleStyled>{data.page.section5.title}</SectionTitleStyled>
+        <SectionTitle>{data.page.section5.title}</SectionTitle>
         <ColumnsReverseMobileStyled className="columns">
           <div className="column">
             <SectionTextStyled>{data.page.section5.text1}</SectionTextStyled>
@@ -180,7 +155,7 @@ const CrowdfundingPage = ({ data }) => (
     {/* section 6 */}
     <section className="section">
       <div className="container">
-        <SectionTitleStyled>{data.page.section6.title}</SectionTitleStyled>
+        <SectionTitle>{data.page.section6.title}</SectionTitle>
         <ColumnsReverseMobileStyled className="columns">
           <div className="column">
             <SectionTextStyled>{data.page.section6.text}</SectionTextStyled>
