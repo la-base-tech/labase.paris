@@ -7,10 +7,10 @@ import SEO from './SEO';
 import Navbar from './Navbar';
 import Footer from './Footer';
 
-const Layout = ({ data, children }) => (
+const Layout = ({ data, children, location }) => (
   <>
     <SEO pageMetadata={data.page.metadata} />
-    <Navbar />
+    <Navbar currentPath={location.pathname} />
     {children}
     <Footer />
   </>
@@ -25,6 +25,9 @@ Layout.propTypes = {
         description: PropTypes.string.isRequired,
       }).isRequired,
     }).isRequired,
+  }).isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
   }).isRequired,
 };
 

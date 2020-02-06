@@ -75,7 +75,7 @@ const ButtonStyled = styled(Link)`
   padding-right: 1.5rem;
 `;
 
-const Navbar = ({ button }) => {
+const Navbar = ({ button, currentPath }) => {
   return (
     <NavBarStyled id="navbar" className="navbar is-fixed-top">
       <NavBarContentStyled>
@@ -86,15 +86,17 @@ const Navbar = ({ button }) => {
         </NavBarBrandStyled>
 
         <NavBarMenuStyled className="navbar-menu">
-          <div className="navbar-end is-hidden-touch">
-            <div className="navbar-item">
-              <div className="buttons">
-                <ButtonStyled className="button is-primary" href={button.url}>
-                  {button.title}
-                </ButtonStyled>
+          {currentPath !== button.url && (
+            <div className="navbar-end is-hidden-touch">
+              <div className="navbar-item">
+                <div className="buttons">
+                  <ButtonStyled className="button is-primary" href={button.url}>
+                    {button.title}
+                  </ButtonStyled>
+                </div>
               </div>
             </div>
-          </div>
+          )}
         </NavBarMenuStyled>
       </NavBarContentStyled>
     </NavBarStyled>
@@ -106,6 +108,7 @@ Navbar.propTypes = {
     title: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired,
   }).isRequired,
+  currentPath: PropTypes.string.isRequired,
 };
 
 export default function NavbarWrapper(props) {
