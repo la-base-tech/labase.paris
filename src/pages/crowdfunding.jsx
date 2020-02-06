@@ -1,10 +1,11 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import Hero from '../components/crowdfunding-page/Hero';
 import DonateForm from '../components/crowdfunding-page/DonateForm';
 
 const CrowdfundingPage = () => (
   <>
-    <div>crowdfunding page</div>
+    <Hero />
     <DonateForm />
   </>
 );
