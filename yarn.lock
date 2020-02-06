@@ -12602,7 +12602,7 @@ prompts@^2.3.0:
     kleur "^3.0.3"
     sisteransi "^1.0.3"
 
-prop-types@15.7.2, prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@15.7.2, prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -12913,6 +12913,20 @@ react-hot-loader@^4.12.18:
     react-lifecycles-compat "^3.0.4"
     shallowequal "^1.1.0"
     source-map "^0.7.3"
+
+react-intersection-observer@8.25.2:
+  version "8.25.2"
+  resolved "https://registry.yarnpkg.com/react-intersection-observer/-/react-intersection-observer-8.25.2.tgz#be165f4827dc8f1927ab68ecb837efe913d94909"
+  integrity sha512-KymKTOQK0TxQFW/Km80oS8VVOZAX8nt74fsYEGw6pqBLSJlqBXEhdFpyPcBa08GiGnup8lrFRkSY4JioP+pqww==
+  dependencies:
+    tiny-invariant "^1.0.6"
+
+react-interval@2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/react-interval/-/react-interval-2.1.1.tgz#5de76277c62c1a6679e3f761690516ce82393350"
+  integrity sha512-ElqbAlARY9mkcCPxdwbn5deX1Dx6oKEbIWy4Voubbf6+8oVLPdXHxX5fEALkGerIom0T+WBYzdumjrSkgPlEzA==
+  dependencies:
+    prop-types "^15.6.0"
 
 react-is@^16.7.0, react-is@^16.8.1:
   version "16.8.3"
@@ -15023,6 +15037,11 @@ timsort@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/timsort/-/timsort-0.3.0.tgz#405411a8e7e6339fe64db9a234de11dc31e02bd4"
   integrity sha1-QFQRqOfmM5/mTbmiNN4R3DHgK9Q=
+
+tiny-invariant@^1.0.6:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/tiny-invariant/-/tiny-invariant-1.1.0.tgz#634c5f8efdc27714b7f386c35e6760991d230875"
+  integrity sha512-ytxQvrb1cPc9WBEI/HSeYYoGD0kWnGEOR8RY6KomWLBVhqz0RgTwVO9dLrGz7dC+nN9llyI7OKAgRq8Vq4ZBSw==
 
 tinycolor2@^1.4.1:
   version "1.4.1"

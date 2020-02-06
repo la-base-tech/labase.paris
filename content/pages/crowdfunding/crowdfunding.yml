@@ -55,6 +55,44 @@ section3:
   button: 
     title: Je participe
 
+carousel:
+  - image: ./images/carousel/1.jpg
+    title: 107 000 personnes
+    subtitle: lors de la Marche du Siècle.
+  - image: ./images/carousel/2.jpg 
+    title: 1104 bénévoles
+    subtitle: qui font vivre la base
+  - image: ./images/carousel/3.jpg
+    title: 2 000 personnes
+    subtitle: en soutien aux activistes en procès
+  - image: ./images/carousel/4.jpg
+    title: 1240 litres
+    subtitle: de bières consommées    
+  - image: ./images/carousel/5.jpg
+    title: XX
+    subtitle: organisations hébergées
+  - image: ./images/carousel/6.jpg
+    title: 201 luttes recensées
+    subtitle: par Super Local
+  - image: ./images/carousel/7.jpg
+    title: Alain Damasio 
+    subtitle: écricain de science-fictions
+  - image: ./images/carousel/8.jpg 
+    title: 9 224 adhérents·es
+    subtitle: qui aiment la base
+  - image: ./images/carousel/9.jpg
+    title: Fakear
+    subtitle: auteur-compositeur    
+  - image: ./images/carousel/10.jpg
+    title: 172  événements
+    subtitle: conférences, ateliers, formations ...    
+  - image: ./images/carousel/11.jpg
+    title: Corinne Morel-Darleux 
+    subtitle: auteure et femme politique
+  - image: ./images/carousel/11.jpg
+    title: Fatime Ouassak 
+    subtitle: membre de Front de Mères
+
 section4:
   title: Une année de mobilisation sans précédent
   text: >-
