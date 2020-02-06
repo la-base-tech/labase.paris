@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
+import GatsbyImage from 'gatsby-image';
 import Hero from '../components/crowdfunding-page/Hero';
 import Status from '../components/crowdfunding-page/Status';
 import DonateForm from '../components/crowdfunding-page/DonateForm';
@@ -67,6 +68,13 @@ const ButtonStyled = styled(Link)`
   font-weight: bold;
 `;
 
+const Section4ColumnsStyled = styled.div`
+  @media (max-width: ${({ theme }) => theme.breakpointTabletBefore}) {
+    flex-direction: column-reverse;
+    display: flex;
+  }
+`;
+
 const CrowdfundingPage = ({ data }) => (
   <>
     <Hero />
@@ -118,6 +126,28 @@ const CrowdfundingPage = ({ data }) => (
         </div>
       </div>
     </section>
+
+    {/* section 4 */}
+    <section className="section">
+      <div className="container">
+        <SectionTitleStyled className="has-subtitle">
+          {data.page.section4.title}
+        </SectionTitleStyled>
+        <Section4ColumnsStyled className="columns">
+          <div className="column is-two-fifths">
+            <SectionTextStyled>{data.page.section4.text}</SectionTextStyled>
+            <ButtonStyled href="#" className="button is-primary">
+              {data.page.section4.button.title}
+            </ButtonStyled>
+          </div>
+          <div className="column">
+            <GatsbyImage
+              fluid={data.page.section4.image.childImageSharp.fluid}
+            />
+          </div>
+        </Section4ColumnsStyled>
+      </div>
+    </section>
   </>
 );
 
@@ -142,6 +172,18 @@ CrowdfundingPage.propTypes = {
         subtitle: PropTypes.string.isRequired,
         text: PropTypes.string.isRequired,
         text2: PropTypes.string.isRequired,
+        button: PropTypes.shape({
+          title: PropTypes.string.isRequired,
+        }).isRequired,
+      }).isRequired,
+      section4: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        text: PropTypes.string.isRequired,
+        image: PropTypes.shape({
+          childImageSharp: PropTypes.shape({
+            fluid: PropTypes.shape({}).isRequired,
+          }).isRequired,
+        }).isRequired,
         button: PropTypes.shape({
           title: PropTypes.string.isRequired,
         }).isRequired,
@@ -177,6 +219,20 @@ export const pageQuery = graphql`
         subtitle
         text
         text2
+        button {
+          title
+        }
+      }
+      section4 {
+        title
+        text
+        image {
+          childImageSharp {
+            fluid(maxWidth: 2000, quality: 100) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
         button {
           title
         }
