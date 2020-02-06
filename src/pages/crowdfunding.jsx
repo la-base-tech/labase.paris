@@ -68,7 +68,7 @@ const ButtonStyled = styled(Link)`
   font-weight: bold;
 `;
 
-const Section4ColumnsStyled = styled.div`
+const ColumnsReverseMobileStyled = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpointTabletBefore}) {
     flex-direction: column-reverse;
     display: flex;
@@ -130,10 +130,8 @@ const CrowdfundingPage = ({ data }) => (
     {/* section 4 */}
     <section className="section">
       <div className="container">
-        <SectionTitleStyled className="has-subtitle">
-          {data.page.section4.title}
-        </SectionTitleStyled>
-        <Section4ColumnsStyled className="columns">
+        <SectionTitleStyled>{data.page.section4.title}</SectionTitleStyled>
+        <ColumnsReverseMobileStyled className="columns">
           <div className="column is-two-fifths">
             <SectionTextStyled>{data.page.section4.text}</SectionTextStyled>
             <ButtonStyled href="#" className="button is-primary">
@@ -145,7 +143,57 @@ const CrowdfundingPage = ({ data }) => (
               fluid={data.page.section4.image.childImageSharp.fluid}
             />
           </div>
-        </Section4ColumnsStyled>
+        </ColumnsReverseMobileStyled>
+      </div>
+    </section>
+
+    {/* section 5 */}
+    <section className="section">
+      <div className="container">
+        <SectionTitleStyled>{data.page.section5.title}</SectionTitleStyled>
+        <ColumnsReverseMobileStyled className="columns">
+          <div className="column">
+            <SectionTextStyled>{data.page.section5.text1}</SectionTextStyled>
+          </div>
+          <div className="column">
+            <GatsbyImage
+              fluid={data.page.section5.image1.childImageSharp.fluid}
+            />
+          </div>
+        </ColumnsReverseMobileStyled>
+        <div className="columns">
+          <div className="column">
+            <GatsbyImage
+              fluid={data.page.section5.image2.childImageSharp.fluid}
+            />
+          </div>
+          <div className="column">
+            <SectionTextStyled>{data.page.section5.text2}</SectionTextStyled>
+            <ButtonStyled href="#" className="button is-primary is-inverted">
+              {data.page.section5.button.title}
+            </ButtonStyled>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* section 6 */}
+    <section className="section">
+      <div className="container">
+        <SectionTitleStyled>{data.page.section6.title}</SectionTitleStyled>
+        <ColumnsReverseMobileStyled className="columns">
+          <div className="column">
+            <SectionTextStyled>{data.page.section6.text}</SectionTextStyled>
+            <ButtonStyled href="#" className="button is-primary">
+              {data.page.section6.button.title}
+            </ButtonStyled>
+          </div>
+          <div className="column">
+            <GatsbyImage
+              fluid={data.page.section6.image.childImageSharp.fluid}
+            />
+          </div>
+        </ColumnsReverseMobileStyled>
       </div>
     </section>
   </>
@@ -177,6 +225,36 @@ CrowdfundingPage.propTypes = {
         }).isRequired,
       }).isRequired,
       section4: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        text: PropTypes.string.isRequired,
+        image: PropTypes.shape({
+          childImageSharp: PropTypes.shape({
+            fluid: PropTypes.shape({}).isRequired,
+          }).isRequired,
+        }).isRequired,
+        button: PropTypes.shape({
+          title: PropTypes.string.isRequired,
+        }).isRequired,
+      }).isRequired,
+      section5: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        text1: PropTypes.string.isRequired,
+        image1: PropTypes.shape({
+          childImageSharp: PropTypes.shape({
+            fluid: PropTypes.shape({}).isRequired,
+          }).isRequired,
+        }).isRequired,
+        text2: PropTypes.string.isRequired,
+        image2: PropTypes.shape({
+          childImageSharp: PropTypes.shape({
+            fluid: PropTypes.shape({}).isRequired,
+          }).isRequired,
+        }).isRequired,
+        button: PropTypes.shape({
+          title: PropTypes.string.isRequired,
+        }).isRequired,
+      }).isRequired,
+      section6: PropTypes.shape({
         title: PropTypes.string.isRequired,
         text: PropTypes.string.isRequired,
         image: PropTypes.shape({
@@ -229,6 +307,42 @@ export const pageQuery = graphql`
         image {
           childImageSharp {
             fluid(maxWidth: 2000, quality: 100) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+        button {
+          title
+        }
+      }
+      section5 {
+        title
+        text1
+        image1 {
+          childImageSharp {
+            fluid(maxWidth: 1000, quality: 100) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+        text2
+        image2 {
+          childImageSharp {
+            fluid(maxWidth: 1000, quality: 100) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+        button {
+          title
+        }
+      }
+      section6 {
+        title
+        text
+        image {
+          childImageSharp {
+            fluid(maxWidth: 1000, quality: 100) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }
