@@ -4,6 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { useForm } from 'react-hook-form';
+import validator from 'email-validator';
 import StepContainer from './common/StepContainer';
 import Input from './common/Input';
 
@@ -110,6 +111,8 @@ const InformationsStep = ({ data, onPrevious, onNext }) => {
                 placeholder="Mon prénom"
                 ref={register({
                   required: true,
+                  minLength: 2,
+                  maxLength: 50,
                 })}
                 onEnterKeyDown={submitForm}
               />
@@ -124,6 +127,8 @@ const InformationsStep = ({ data, onPrevious, onNext }) => {
                 placeholder="Mon nom"
                 ref={register({
                   required: true,
+                  minLength: 2,
+                  maxLength: 50,
                 })}
                 onEnterKeyDown={submitForm}
               />
@@ -138,6 +143,8 @@ const InformationsStep = ({ data, onPrevious, onNext }) => {
             placeholder="Mon email"
             ref={register({
               required: true,
+              maxLength: 150,
+              validate: value => validator.validate(value),
             })}
             onEnterKeyDown={submitForm}
           />

@@ -23,6 +23,7 @@
     "cross-fetch": "3.0.4",
     "date-fns": "2.9.0",
     "dotenv": "8.2.0",
+    "email-validator": "2.0.4",
     "es6-weak-map": "2.0.3",
     "gatsby": "2.19.12",
     "gatsby-background-image": "0.9.14",
