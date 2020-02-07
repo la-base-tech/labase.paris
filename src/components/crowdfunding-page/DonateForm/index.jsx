@@ -13,7 +13,7 @@ const ContainerStyled = styled.div`
 `;
 
 const DonateForm = () => (
-  <ContainerStyled>
+  <ContainerStyled id="form">
     <PaymentIntentManager>
       <Elements locale="fr">
         <StepsContainer />

@@ -66,7 +66,7 @@ const Hero = ({ image, title, subtitle, button }) => {
         <div>
           <SubtitleStyled>{subtitle}</SubtitleStyled>
           <TitleStyled>{title}</TitleStyled>
-          <ButtonStyled href="#" className="button is-primary">
+          <ButtonStyled href="#crowdfunding" className="button is-primary">
             {button.title}
           </ButtonStyled>
         </div>

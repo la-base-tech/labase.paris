@@ -87,7 +87,11 @@ const CrowdfundingPage = ({ data }) => (
         <div className="columns">
           <div className="column is-two-thirds">
             <SectionTextStyled>{data.page.section3.text}</SectionTextStyled>
-            <ButtonStyled href="#" className="button is-primary">
+            <ButtonStyled
+              href="#form"
+              className="button is-primary"
+              targetMiddle
+            >
               {data.page.section3.button.title}
             </ButtonStyled>
           </div>
@@ -109,7 +113,11 @@ const CrowdfundingPage = ({ data }) => (
         <ColumnsReverseMobileStyled className="columns">
           <div className="column is-two-fifths">
             <SectionTextStyled>{data.page.section4.text}</SectionTextStyled>
-            <ButtonStyled href="#" className="button is-primary">
+            <ButtonStyled
+              href="#form"
+              className="button is-primary"
+              targetMiddle
+            >
               {data.page.section4.button.title}
             </ButtonStyled>
           </div>
@@ -144,7 +152,11 @@ const CrowdfundingPage = ({ data }) => (
           </div>
           <div className="column">
             <SectionTextStyled>{data.page.section5.text2}</SectionTextStyled>
-            <ButtonStyled href="#" className="button is-primary is-inverted">
+            <ButtonStyled
+              href="#form"
+              className="button is-primary is-inverted"
+              targetMiddle
+            >
               {data.page.section5.button.title}
             </ButtonStyled>
           </div>
@@ -159,7 +171,11 @@ const CrowdfundingPage = ({ data }) => (
         <ColumnsReverseMobileStyled className="columns">
           <div className="column">
             <SectionTextStyled>{data.page.section6.text}</SectionTextStyled>
-            <ButtonStyled href="#" className="button is-primary">
+            <ButtonStyled
+              href="#form"
+              className="button is-primary"
+              targetMiddle
+            >
               {data.page.section6.button.title}
             </ButtonStyled>
           </div>

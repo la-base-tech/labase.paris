@@ -78,7 +78,7 @@ const Status = () => {
   const dayLeftCount = differenceInCalendarDays(dateEnd, now);
 
   return (
-    <ContainerStyled>
+    <ContainerStyled id="crowdfunding">
       <WrapperStyled className="container">
         <div className="columns">
           <ColumnStyled className="column">
