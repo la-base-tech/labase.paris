@@ -78,9 +78,13 @@ const ProgressBarValueStyled = styled.div`
 `;
 
 const Status = () => {
-  const { total, amount, contributors, percentage, dayLeftCount } = useContext(
-    StatusContext
-  );
+  const {
+    objective,
+    amount,
+    contributors,
+    percentage,
+    dayLeftCount,
+  } = useContext(StatusContext);
 
   return (
     <ContainerStyled id="crowdfunding">
@@ -88,7 +92,7 @@ const Status = () => {
         <div className="columns is-mobile">
           <ColumnStyled className="column">
             <ColumnTitleStyled>{amount}€</ColumnTitleStyled>
-            <ColumnSubtitleStyled>sur {total}€</ColumnSubtitleStyled>
+            <ColumnSubtitleStyled>sur {objective}€</ColumnSubtitleStyled>
           </ColumnStyled>
           <ColumnStyled className="column">
             <ColumnTitleStyled>{dayLeftCount} jours</ColumnTitleStyled>
