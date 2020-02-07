@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { differenceInCalendarDays } from 'date-fns';
 
@@ -69,11 +69,26 @@ const ProgressBarValueStyled = styled.div`
 
 const Status = () => {
   const total = 100000;
-  const amount = 30000;
-  const contributorCount = 24;
+
+  const [contributors, setContributors] = useState(null);
+  const [amount, setAmount] = useState(null);
+
+  useEffect(() => {
+    fetch('/.netlify/functions/get-crowdfunding-stats')
+      .then(response => response.json())
+      .then(data => {
+        if (data.contributors) {
+          setContributors(data.contributors);
+        }
+        if (data.amount) {
+          setAmount(data.amount);
+        }
+      });
+  }, []);
+
   const dateEnd = new Date(2020, 2, 31, 23, 59); // 31/03/2029 23:59
 
-  const percentage = Math.ceil((amount / total) * 100);
+  const percentage = !amount ? 0 : Math.ceil((amount / total) * 100);
   const now = new Date();
   const dayLeftCount = differenceInCalendarDays(dateEnd, now);
 
@@ -90,7 +105,9 @@ const Status = () => {
             <ColumnSubtitleStyled>pour participer</ColumnSubtitleStyled>
           </ColumnStyled>
           <ColumnStyled className="column">
-            <ColumnTitleStyled>{contributorCount} personnes</ColumnTitleStyled>
+            <ColumnTitleStyled>
+              {contributors || '-'} personnes
+            </ColumnTitleStyled>
             <ColumnSubtitleStyled>ont contribué</ColumnSubtitleStyled>
           </ColumnStyled>
         </div>

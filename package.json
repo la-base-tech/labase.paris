@@ -25,6 +25,7 @@
     "dotenv": "8.2.0",
     "email-validator": "2.0.4",
     "es6-weak-map": "2.0.3",
+    "faunadb": "2.11.1",
     "gatsby": "2.19.12",
     "gatsby-background-image": "0.9.14",
     "gatsby-image": "2.2.40",
