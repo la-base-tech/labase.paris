@@ -5,7 +5,7 @@ import { StaticQuery, graphql } from 'gatsby';
 
 const SEO = ({ globalMetadata, pageMetadata }) => {
   const { title, description } = pageMetadata;
-  const image = `${globalMetadata.siteUrl}/${globalMetadata.socialShareImage}`;
+  const image = `${globalMetadata.siteUrl}${globalMetadata.socialShareImage}`;
 
   return (
     <Helmet
