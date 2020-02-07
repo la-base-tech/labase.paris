@@ -30,6 +30,18 @@ section2:
     title: Voir les objectifs du crowdfunding
 
 section3: 
+  title: 100 000 euros pour (sur)vivre et passer la 2nde
+  text: >-
+    Pour donner un futur à la base encore plus incroyable, nous avons besoin de 100 000 euros. Les premiers 50 000 euros permettent d’avoir un lieu mais pas de le faire vivre. Avec 75 000 euros, nous pouvons alors l’animer et le transformer (vive les travaux !). Avec 100 000 euros, la base peut consacrer des ressources pour passer la 2nde dans la diffusion de ses valeurs et de sa vision du monde.
+
+
+    Mobiliser, transformer, agir : ce sont les citoyennes et les citoyens qui font et qui financent en grande partie la base. Cette indépendance est le gage de notre liberté de parole et d’action, en toutes circonstances.
+
+  image: ./images/section6.jpg
+  button:
+    title: Je soutiens
+
+section4: 
   title: Pour une 2eme année de mobilisation à la base
   subtitle: "En mars 2019, la base ouvrait pour un an d’expérimentation. Son objectif : accélérer la mobilisation citoyenne pour le climat et la justice sociale."
   text: >-
@@ -95,7 +107,7 @@ carousel:
     title: Fatime Ouassak 
     subtitle: membre de Front de Mères
 
-section4:
+section5:
   title: Une année de mobilisation sans précédent
   text: >-
     Ouverte depuis mars 2019, la base est un véritable soutien à la mobilisation citoyenne pour le climat et la justice sociale. **Lieu d’organisation** des marches climat, **espace événementiel** de formation et d'engagement, **bureaux** pour de nombreuses organisations engagées, lieu de **soutien aux activistes** en procès, salle de **briefing** pour des actions de désobéissance civile non-violente, **seconde maison pour les militants·es**, adresse que l’on partage pour faire **la fête**...
@@ -105,7 +117,7 @@ section4:
   button: 
     title: Je veux que ça continue
 
-section5: 
+section6: 
   title: En 2019, de l’argent pour mobiliser, transformer et agir
   text1: >-
     La base fonctionne à la fois grâce à son bar associatif, les loyers de ses résident·es ainsi que les dons des citoyennes et des citoyens. La communauté de la base et ses multiples espaces fonctionnent grâce une petite équipe de salarié·es et de nombreux bénévoles. Pour que le lieu vive, nous réalisons les travaux avec beaucoup de débrouille. En plus de cela, nous avons un loyer qui est une part importante de nos coûts. Tous ces éléments sont essentiels pour que nous continuons à organiser des événements qui touche toujours plus de monde et continuer à accélérer la mobilisation citoyenne pour le climat et la justice sociale !
@@ -115,15 +127,3 @@ section5:
   image2: ./images/section5-2.jpg
   button:
     title: Je donne
-
-section6: 
-  title: 100 000 euros pour (sur)vivre et passer la 2nde
-  text: >-
-    Pour donner un futur à la base encore plus incroyable, nous avons besoin de 100 000 euros. Les premiers 50 000 euros permettent d’avoir un lieu mais pas de le faire vivre. Avec 75 000 euros, nous pouvons alors l’animer et le transformer (vive les travaux !). Avec 100 000 euros, la base peut consacrer des ressources pour passer la 2nde dans la diffusion de ses valeurs et de sa vision du monde.
-
-
-    Mobiliser, transformer, agir : ce sont les citoyennes et les citoyens qui font et qui financent en grande partie la base. Cette indépendance est le gage de notre liberté de parole et d’action, en toutes circonstances.
-
-  image: ./images/section6.jpg
-  button:
-    title: Je soutiens
