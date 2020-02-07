@@ -83,7 +83,7 @@ actionSection:
       image: /images/benevoles-illustration.svg
     - text: Faire un don pour soutenir la base
       button: Je soutiens
-      url: https://www.helloasso.com/associations/groupe-d-action-neo-green/formulaires/1
+      url: /don/
       image: /images/don-illustration.svg
     - text: Nous proposer un événement à organiser
       button: Je propose
