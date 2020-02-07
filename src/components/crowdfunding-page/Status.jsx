@@ -7,7 +7,6 @@ const ContainerStyled = styled.div`
 `;
 
 const WrapperStyled = styled.div`
-  max-width: 1200px;
   margin: auto;
   padding: 1rem;
 
@@ -26,6 +25,10 @@ const ColumnTitleStyled = styled.div`
   font-size: 1rem;
 
   @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
+    font-size: 1.5rem;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpointDesktop}) {
     font-size: 2rem;
   }
 `;
@@ -76,7 +79,7 @@ const Status = () => {
 
   return (
     <ContainerStyled>
-      <WrapperStyled>
+      <WrapperStyled className="container">
         <div className="columns">
           <ColumnStyled className="column">
             <ColumnTitleStyled>{amount}€</ColumnTitleStyled>

@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby';
 import BackgroundImage from 'gatsby-background-image';
 import Link from '../Link';
+import Markdown from '../Markdown';
 
 const SectionStyled = styled(BackgroundImage)``;
 
@@ -13,20 +14,24 @@ const ContentContainer = styled.div`
   align-items: center;
   justify-content: left;
   padding: 1rem;
-  max-width: 1200px;
   margin: auto;
   top: -20px;
 `;
 
-const TitleStyled = styled.div`
+const TitleStyled = styled(Markdown)`
   color: ${({ theme }) => theme.white};
   font-weight: 900;
   font-size: 2rem;
   line-height: 2.5rem;
 
   @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
-    font-size: 4rem;
-    line-height: 4.5rem;
+    font-size: 2.7rem;
+    line-height: 3rem;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpointDesktop}) {
+    font-size: 3.4rem;
+    line-height: 4rem;
   }
 `;
 
@@ -57,7 +62,7 @@ const Hero = ({ image, title, subtitle, button }) => {
       Tag="section"
       fluid={image.childImageSharp.fluid}
     >
-      <ContentContainer>
+      <ContentContainer className="container">
         <div>
           <SubtitleStyled>{subtitle}</SubtitleStyled>
           <TitleStyled>{title}</TitleStyled>
