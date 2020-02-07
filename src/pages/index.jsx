@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
+import CrowdfundingSection from '../components/home-sections/CrowdfundingSection';
 import HeaderSection from '../components/home-sections/HeaderSection';
 import NewsletterSection from '../components/home-sections/NewsletterSection';
 import PresentationSection from '../components/home-sections/PresentationSection';
@@ -12,6 +13,7 @@ import OrganisationsSection from '../components/home-sections/OrganisationsSecti
 
 const IndexPage = () => (
   <>
+    <CrowdfundingSection />
     <HeaderSection />
     <NewsletterSection />
     <PresentationSection />

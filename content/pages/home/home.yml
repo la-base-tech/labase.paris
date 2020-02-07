@@ -2,6 +2,13 @@ metadata:
   title: la base, accélérateur de la mobilisation
   description: la base est un lieu au coeur de Paris où les citoyen·ne·s se rencontrent et agissent pour le climat et donc la justice écologique et sociale
 
+crowdfundingSection:
+  title: Assure un avenir à la base
+  text: Soutiens le QG de la mobilisation citoyenne et participe au crowdfunding
+  image: ./images/crowdfunding.png
+  button: 
+    title: Je soutiens
+
 headerSection:
   image: ./images/hero.jpg
   text: >-
