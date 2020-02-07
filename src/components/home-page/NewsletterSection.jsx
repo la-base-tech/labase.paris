@@ -5,9 +5,11 @@ import { StaticQuery, graphql } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import isEmail from 'validator/lib/isEmail';
+import { post as apiPost, API_URL } from '../../api';
 import AnimatedCheck from '../AnimatedCheck';
 
-const FUNCTION_ENDPOINT = '/.netlify/functions/subscribe-newsletter';
+const API_ENDPOINT = 'actions/subscribe';
+const FORM_ENDPOINT = API_URL + API_ENDPOINT;
 
 const SectionStyled = styled.section`
   margin-top: -40px;
@@ -127,16 +129,9 @@ const NewsletterSection = ({
 
     setFormLoading(true);
 
-    const formDomEl = e.target;
-    const action = formDomEl.getAttribute('action');
-
     try {
-      await fetch(action, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: JSON.stringify({
-          email,
-        }),
+      await apiPost(API_ENDPOINT, {
+        email,
       });
       setFormSent(true);
     } catch (error) {
@@ -156,7 +151,7 @@ const NewsletterSection = ({
 
             <HintStyled>{hint}</HintStyled>
 
-            <FormStyled onSubmit={handleSubmit} action={FUNCTION_ENDPOINT}>
+            <FormStyled onSubmit={handleSubmit} action={FORM_ENDPOINT}>
               <div className="columns">
                 <div className="column">
                   <InputControlStyled className="control has-icons-right">

@@ -6,16 +6,26 @@ const MAIN_SITE_URL = 'https://labase.paris';
 const LOCALHOST = 'http://localhost:8000'; // TODO: should automatically fetch that
 
 const {
+  NODE_ENV = 'development',
+  APP_ENV = 'development',
   URL: SITE_URL = MAIN_SITE_URL,
   DEPLOY_PRIME_URL = SITE_URL,
-  CONTEXT: NODE_ENV = process.env.NODE_ENV || 'development',
 } = process.env;
 
-const isProduction = NODE_ENV === `production`;
+const isProduction = APP_ENV === `production`;
 const isDev = NODE_ENV === `development`;
 
 // eslint-disable-next-line no-console
-console.log(`building gatsby app in ${NODE_ENV} env `);
+console.log(`NODE_ENV ${NODE_ENV}`);
+
+// eslint-disable-next-line no-console
+console.log(`APP_ENV ${APP_ENV}`);
+
+// eslint-disable-next-line no-console
+console.log(`isProduction ${isProduction}`);
+
+// eslint-disable-next-line no-console
+console.log(`isDev ${isDev}`);
 
 let siteUrl;
 if (isDev) {
@@ -23,6 +33,16 @@ if (isDev) {
 } else {
   siteUrl = isProduction ? SITE_URL : DEPLOY_PRIME_URL;
 }
+
+// Prepare API URL
+process.env.GATSBY_API_URL = isProduction
+  ? process.env.GATSBY_API_URL_PRODUCTION
+  : process.env.GATSBY_API_URL_DEVELOPMENT;
+
+// Prepare Stripe Key
+process.env.GATSBY_STRIPE_PUBLISHABLE_KEY = isProduction
+  ? process.env.GATSBY_STRIPE_PUBLISHABLE_KEY_PRODUCTION
+  : process.env.GATSBY_STRIPE_PUBLISHABLE_KEY_DEVELOPMENT;
 
 // eslint-disable-next-line no-console
 console.log(`deploying on ${siteUrl}`);
@@ -75,7 +95,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-purgecss', // purges all unused/unreferenced css rules
       options: {
-        develop: true, // Activates purging in npm run develop
+        develop: false, // Activates purging in npm run develop
         printRejected: false,
       },
     },
@@ -85,8 +105,8 @@ module.exports = {
         name: 'gatsby-starter-default',
         short_name: 'starter',
         start_url: '/',
-        background_color: '#fbeffc',
-        theme_color: '#e30e9d',
+        background_color: '#000000',
+        theme_color: '#FFE500',
         display: 'minimal-ui',
         icon: 'src/images/icon.png', // This path is relative to the root of the site.
       },

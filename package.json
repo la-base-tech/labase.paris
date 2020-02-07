@@ -6,7 +6,6 @@
   },
   "scripts": {
     "build": "gatsby build",
-    "netlify:dev": "netlify dev",
     "dev": "gatsby develop",
     "serve": "gatsby serve",
     "format": "prettier --write 'src/**/*.{js,jsx}'",
@@ -21,7 +20,9 @@
     "@fortawesome/react-fontawesome": "0.1.8",
     "bulma": "0.8.0",
     "cross-fetch": "3.0.4",
+    "date-fns": "2.9.0",
     "dotenv": "8.2.0",
+    "email-validator": "2.0.4",
     "es6-weak-map": "2.0.3",
     "gatsby": "2.19.12",
     "gatsby-background-image": "0.9.14",
@@ -42,12 +43,20 @@
     "gatsby-transformer-yaml": "2.2.24",
     "intersection-observer": "0.7.0",
     "node-sass": "4.13.1",
+    "polished": "3.4.4",
     "prop-types": "15.7.2",
     "react": "16.12.0",
     "react-dom": "16.12.0",
     "react-helmet": "5.2.1",
+    "react-hook-form": "4.8.2",
+    "react-intersection-observer": "8.25.2",
+    "react-interval": "2.1.1",
     "react-markdown": "4.3.1",
+    "react-stripe-elements": "^6.0.1",
+    "react-transition-group": "4.3.0",
     "react-use-dimensions": "1.2.1",
+    "smoothscroll-polyfill": "^0.4.4",
+    "stripe": "8.14.0",
     "styled-components": "5.0.0",
     "validator": "12.2.0"
   },
@@ -61,7 +70,6 @@
     "eslint-plugin-jsx-a11y": "6.2.3",
     "eslint-plugin-prettier": "3.1.2",
     "eslint-plugin-react": "7.18.3",
-    "netlify-cli": "2.31.0",
     "prettier": "1.19.1"
   }
 }

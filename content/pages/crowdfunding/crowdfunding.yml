@@ -1,0 +1,129 @@
+metadata: 
+  title: Soutiens le QG pour le climat et la justice sociale
+  description: Après un an réussi, la base doit continuer à accélérer la mobilisation citoyenne.
+
+hero:
+  image: ./images/hero.jpg
+  title: >-
+    Soutiens le QG pour le climat<br>
+    et la justice sociale
+  subtitle: Après un an réussi, la base doit continuer à accélérer la mobilisation citoyenne.
+  button: 
+    title: Je découvre
+
+section1:
+  title: Le 15 mars 2020 marquera la fin du bail de la base.
+  text: >-
+    Cette première année d’expérimentation a permis de démontrer qu’elle est **indispensable pour des dizaines d’associations militantes et des milliers de personnes.** 
+    
+
+    Cette communauté se mobilise quotidiennement pour **relever le plus grand défi de l’histoire de l’humanité :** limiter le dérèglement climatique et développer un monde plus juste et plus soutenable.
+    
+
+    Pour que ça continue, **participe au crowdfunding.**
+
+section2: 
+  video:
+    youtubeId: FSyTJuhtUsE
+    title: Crowdfunding de la base
+  button:
+    title: Voir les objectifs du crowdfunding
+
+section3: 
+  title: 100 000 euros pour (sur)vivre et passer la 2nde
+  text: >-
+    Pour donner un futur à la base encore plus incroyable, nous avons besoin de 100 000 euros. Les premiers 50 000 euros permettent d’avoir un lieu mais pas de le faire vivre. Avec 75 000 euros, nous pouvons alors l’animer et le transformer (vive les travaux !). Avec 100 000 euros, la base peut consacrer des ressources pour passer la 2nde dans la diffusion de ses valeurs et de sa vision du monde.
+
+
+    Mobiliser, transformer, agir : ce sont les citoyennes et les citoyens qui font et qui financent en grande partie la base. Cette indépendance est le gage de notre liberté de parole et d’action, en toutes circonstances.
+
+  image: ./images/paliers.png
+  button:
+    title: Je soutiens
+
+section4: 
+  title: Pour une 2eme année de mobilisation à la base
+  subtitle: "En mars 2019, la base ouvrait pour un an d’expérimentation. Son objectif : accélérer la mobilisation citoyenne pour le climat et la justice sociale."
+  text: >-
+    Malgré une année de mobilisation sans précédent, l’urgence climatique et les injustices sociales n’ont jamais été aussi présentes. Plus que jamais, nous devons nous mobiliser pour faire pression sur les responsables politiques et privés qui détruisent le climat et exacerbent les fractures sociales.
+    <br>
+    **La base se doit donc de continuer** et même de faire mieux :
+    **faisons voir les alternatives** en proposant des ateliers de réparations, **touchons d’autres publics** en organisant des événements dans d’autres lieux, **offrons notre soutien à davantages d’organisations** avec un espace plus grand et repensé	, ... Tant de choses sont encore à construire, à amplifier, à co-créer.
+  
+    Participez à cette nouvelle aventure !
+  text2: >-
+    #### Et si demain à la base
+    
+    — vous pouviez faire réparer votre électroménager.<br>
+    — vous pouviez acheter des fruits et légumes locaux et bio.<br>
+    — vous pouviez apprendre à rapiécer vos vêtements.
+
+    
+    #### Et si demain, la base pourrait
+
+    — être de nouveau le lieu d’organisation de nouvelles mobilisations importantes pour la justice climatique et sociale.<br>
+    — vous pourriez vous former à lutter contre des projets climaticides ?<br>
+    
+
+    Ensemble, nous sommes une force immense ! Participez à écrire la nouvelle page de l'histoire de l’humanité.
+  button: 
+    title: Je participe
+
+carousel:
+  - image: ./images/carousel/1.jpg
+    title: 107 000 personnes
+    subtitle: lors de la Marche du Siècle.
+  - image: ./images/carousel/2.jpg 
+    title: 1104 bénévoles
+    subtitle: qui font vivre la base
+  - image: ./images/carousel/3.jpg
+    title: 2 000 personnes
+    subtitle: en soutien aux activistes en procès
+  - image: ./images/carousel/4.jpg
+    title: 9 636 litres
+    subtitle: de bières consommées    
+  - image: ./images/carousel/5.jpg
+    title: "37"
+    subtitle: organisations hébergées
+  - image: ./images/carousel/6.jpg
+    title: 201 luttes recensées
+    subtitle: par Super Local
+  - image: ./images/carousel/7.jpg
+    title: Alain Damasio 
+    subtitle: écricain de science-fictions
+  - image: ./images/carousel/8.jpg 
+    title: 9 224 adhérents·es
+    subtitle: qui aiment la base
+  - image: ./images/carousel/9.jpg
+    title: Fakear
+    subtitle: auteur-compositeur    
+  - image: ./images/carousel/10.jpg
+    title: 172  événements
+    subtitle: conférences, ateliers, formations ...    
+  - image: ./images/carousel/11.jpg
+    title: Corinne Morel-Darleux 
+    subtitle: auteure et femme politique
+  - image: ./images/carousel/11.jpg
+    title: Fatime Ouassak 
+    subtitle: membre de Front de Mères
+
+section5:
+  title: Une année de mobilisation sans précédent
+  text: >-
+    Ouverte depuis mars 2019, la base est un véritable soutien à la mobilisation citoyenne pour le climat et la justice sociale. **Lieu d’organisation** des marches climat, **espace événementiel** de formation et d'engagement, **bureaux** pour de nombreuses organisations engagées, lieu de **soutien aux activistes** en procès, salle de **briefing** pour des actions de désobéissance civile non-violente, **seconde maison pour les militants·es**, adresse que l’on partage pour faire **la fête**...
+
+    La base a de nombreuses portes d’entrée mais un seul véritable objectif : **accélérer la mobilisation citoyenne.**
+  image: ./images/section5.jpg
+  button: 
+    title: Je veux que ça continue
+
+section6: 
+  title: En 2019, de l’argent pour mobiliser, transformer et agir
+  text1: >-
+    La base fonctionne à la fois grâce à son bar associatif, les loyers de ses résident·es ainsi que les dons des citoyennes et des citoyens. La communauté de la base et ses multiples espaces fonctionnent grâce une petite équipe de salarié·es et de nombreux bénévoles. Pour que le lieu vive, nous réalisons les travaux avec beaucoup de débrouille. En plus de cela, nous avons un loyer qui est une part importante de nos coûts. Tous ces éléments sont essentiels pour que nous continuons à organiser des événements qui touche toujours plus de monde et continuer à accélérer la mobilisation citoyenne pour le climat et la justice sociale !
+  image1: ./images/section6-1.jpg
+  text2: >-
+    En 2019, nous n’avons reçu aucune subvention. Ceux sont les dons des particuliers qui ont largement contribués à notre financement. Cela nous a permi d’avoir une totale liberté de parole et d’action.
+  image2: ./images/section6-2.jpg
+  button:
+    title: Je donne

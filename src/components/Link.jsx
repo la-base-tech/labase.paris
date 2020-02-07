@@ -2,22 +2,42 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import GatsbyLink from 'gatsby-link';
 
-function scrollToElement(elementId) {
+function scrollToElement(elementId, targetMiddle) {
   const el = document.querySelector(elementId);
   if (!el) {
     return;
   }
 
-  let topOfElement = el.offsetTop;
+  const { scrollY } = window;
+  const elementRect = el.getBoundingClientRect();
+  let newScrollPosition;
 
   // Get navbar height
   const navbar = document.getElementById('navbar');
 
-  if (navbar) {
-    topOfElement -= navbar.offsetHeight;
+  // Scroll to middle
+  if (targetMiddle && elementRect.height < window.innerHeight) {
+    let windowHeight = window.innerHeight;
+
+    newScrollPosition = scrollY + elementRect.top;
+
+    if (navbar) {
+      newScrollPosition -= navbar.offsetHeight;
+      windowHeight -= navbar.offsetHeight;
+    }
+
+    newScrollPosition -= windowHeight / 2 - elementRect.height / 2;
+
+    // Scroll to top
+  } else {
+    newScrollPosition = scrollY + elementRect.top;
+
+    if (navbar) {
+      newScrollPosition -= navbar.offsetHeight;
+    }
   }
 
-  window.scroll({ top: topOfElement, behavior: 'smooth' });
+  window.scroll({ top: newScrollPosition, behavior: 'smooth' });
 }
 
 const BaseLink = ({ children, ...rest }) => <a {...rest}>{children}</a>;
@@ -26,7 +46,14 @@ BaseLink.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-const EnhancedLink = ({ href, children, download, onClick, ...rest }) => {
+const EnhancedLink = ({
+  href,
+  children,
+  download,
+  onClick,
+  targetMiddle,
+  ...rest
+}) => {
   const isAnchor = href.substr(0, 1) === '#';
 
   if (isAnchor) {
@@ -35,7 +62,7 @@ const EnhancedLink = ({ href, children, download, onClick, ...rest }) => {
       if (onClick) {
         onClick(e);
       }
-      scrollToElement(href);
+      scrollToElement(href, targetMiddle);
     };
 
     return (
@@ -74,11 +101,13 @@ EnhancedLink.propTypes = {
   children: PropTypes.node.isRequired,
   download: PropTypes.bool,
   onClick: PropTypes.func,
+  targetMiddle: PropTypes.bool,
 };
 
 EnhancedLink.defaultProps = {
   download: false,
   onClick: null,
+  targetMiddle: null,
 };
 
 export default EnhancedLink;
