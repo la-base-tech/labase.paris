@@ -85,7 +85,7 @@ const Status = () => {
     });
   }, []);
 
-  const dateEnd = new Date(2020, 2, 31, 23, 59); // 31/03/2029 23:59
+  const dateEnd = new Date(2020, 2, 22, 23, 59); // 22/03/2029 23:59
 
   const percentage = !amount ? 0 : Math.ceil((amount / total) * 100);
   const now = new Date();
