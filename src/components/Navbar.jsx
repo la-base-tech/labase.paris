@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { StaticQuery, graphql } from 'gatsby';
 import Logo from './Logo';
 import Link from './Link';
 
@@ -75,7 +74,7 @@ const ButtonStyled = styled(Link)`
   padding-right: 1.5rem;
 `;
 
-const Navbar = ({ button, currentPath }) => {
+const Navbar = ({ currentPath }) => {
   return (
     <NavBarStyled id="navbar" className="navbar is-fixed-top">
       <NavBarContentStyled>
@@ -86,17 +85,26 @@ const Navbar = ({ button, currentPath }) => {
         </NavBarBrandStyled>
 
         <NavBarMenuStyled className="navbar-menu">
-          {currentPath !== button.url && (
-            <div className="navbar-end is-hidden-touch">
-              <div className="navbar-item">
-                <div className="buttons">
-                  <ButtonStyled className="button is-primary" href={button.url}>
-                    {button.title}
+          <div className="navbar-end is-hidden-touch">
+            <div className="navbar-item">
+              <div className="buttons">
+                {currentPath !== '/don/' && (
+                  <ButtonStyled className="button is-primary" href="/don/">
+                    Crowdfunding
                   </ButtonStyled>
-                </div>
+                )}
+                {currentPath === '/don/' && (
+                  <ButtonStyled
+                    className="button is-primary"
+                    href="#form"
+                    targetMiddle
+                  >
+                    Je donne
+                  </ButtonStyled>
+                )}
               </div>
             </div>
-          )}
+          </div>
         </NavBarMenuStyled>
       </NavBarContentStyled>
     </NavBarStyled>
@@ -104,27 +112,7 @@ const Navbar = ({ button, currentPath }) => {
 };
 
 Navbar.propTypes = {
-  button: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired,
-  }).isRequired,
   currentPath: PropTypes.string.isRequired,
 };
 
-export default function NavbarWrapper(props) {
-  return (
-    <StaticQuery
-      query={graphql`
-        query {
-          content: yaml(fields: { name: { eq: "navbar" } }) {
-            button {
-              title
-              url
-            }
-          }
-        }
-      `}
-      render={data => <Navbar {...data.content} {...props} />}
-    />
-  );
-}
+export default Navbar;
