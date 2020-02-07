@@ -5,10 +5,7 @@
     "node": "13.7.x"
   },
   "scripts": {
-    "build": "yarn build:app && yarn build:lambda",
-    "build:app": "gatsby build",
-    "build:lambda": "netlify-lambda build functions",
-    "netlify:dev": "netlify dev",
+    "build": "gatsby build",
     "dev": "gatsby develop",
     "serve": "gatsby serve",
     "format": "prettier --write 'src/**/*.{js,jsx}'",
@@ -27,7 +24,6 @@
     "dotenv": "8.2.0",
     "email-validator": "2.0.4",
     "es6-weak-map": "2.0.3",
-    "faunadb": "2.11.1",
     "gatsby": "2.19.12",
     "gatsby-background-image": "0.9.14",
     "gatsby-image": "2.2.40",
@@ -46,7 +42,6 @@
     "gatsby-transformer-sharp": "2.3.14",
     "gatsby-transformer-yaml": "2.2.24",
     "intersection-observer": "0.7.0",
-    "netlify-lambda": "1.6.3",
     "node-sass": "4.13.1",
     "polished": "3.4.4",
     "prop-types": "15.7.2",
@@ -75,7 +70,6 @@
     "eslint-plugin-jsx-a11y": "6.2.3",
     "eslint-plugin-prettier": "3.1.2",
     "eslint-plugin-react": "7.18.3",
-    "netlify-cli": "2.31.0",
     "prettier": "1.19.1"
   }
 }

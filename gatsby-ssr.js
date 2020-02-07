@@ -5,14 +5,11 @@ import { ThemeProvider } from 'styled-components';
 import { StripeProvider } from './src/components/Stripe';
 import theme from './src/styles/theme.module.scss';
 
-const stripePublishableKey =
-  process.env.APP_ENV === 'production'
-    ? process.env.GATSBY_STRIPE_PUBLISHABLE_KEY_PRODUCTION
-    : process.env.GATSBY_STRIPE_PUBLISHABLE_KEY_DEVELOPMENT;
-
 export const wrapRootElement = ({ element }) => (
   <ThemeProvider theme={theme}>
-    <StripeProvider apiKey={stripePublishableKey}>{element}</StripeProvider>
+    <StripeProvider apiKey={process.env.GATSBY_STRIPE_PUBLISHABLE_KEY}>
+      {element}
+    </StripeProvider>
   </ThemeProvider>
 );
 

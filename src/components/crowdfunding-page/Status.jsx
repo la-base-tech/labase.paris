@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { differenceInCalendarDays } from 'date-fns';
+import api from '../../api';
 
 const ContainerStyled = styled.div`
   background: ${({ theme }) => theme.black};
@@ -74,16 +75,14 @@ const Status = () => {
   const [amount, setAmount] = useState(null);
 
   useEffect(() => {
-    fetch('/.netlify/functions/get-crowdfunding-stats')
-      .then(response => response.json())
-      .then(data => {
-        if (data.contributors) {
-          setContributors(data.contributors);
-        }
-        if (data.amount) {
-          setAmount(data.amount);
-        }
-      });
+    api('stats/crowdfunding').then(data => {
+      if (data.contributors) {
+        setContributors(data.contributors);
+      }
+      if (data.amount) {
+        setAmount(data.amount);
+      }
+    });
   }, []);
 
   const dateEnd = new Date(2020, 2, 31, 23, 59); // 31/03/2029 23:59

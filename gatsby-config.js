@@ -34,6 +34,16 @@ if (isDev) {
   siteUrl = isProduction ? SITE_URL : DEPLOY_PRIME_URL;
 }
 
+// Prepare API URL
+process.env.GATSBY_API_URL = isProduction
+  ? process.env.GATSBY_API_URL_PRODUCTION
+  : process.env.GATSBY_API_URL_DEVELOPMENT;
+
+// Prepare Stripe Key
+process.env.GATSBY_STRIPE_PUBLISHABLE_KEY = isProduction
+  ? process.env.GATSBY_STRIPE_PUBLISHABLE_KEY_PRODUCTION
+  : process.env.GATSBY_STRIPE_PUBLISHABLE_KEY_DEVELOPMENT;
+
 // eslint-disable-next-line no-console
 console.log(`deploying on ${siteUrl}`);
 

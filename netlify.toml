@@ -1,7 +1,6 @@
 [build]
   command = "yarn build"
   publish = "public/"
-  functions = "built-lambda"  
   environment = { APP_ENV = "development" }
 
 [context.production]

@@ -1,17 +1,11 @@
 import React, { createContext } from 'react';
 import PropTypes from 'prop-types';
-
-const FUNCTION_ENDPOINT = '/.netlify/functions/stripe-payment-intent';
+import { post as apiPost } from '../../../api';
 
 export const Context = createContext({});
 
 async function createOrUpdatePaymentIntent(data) {
-  const result = await fetch(FUNCTION_ENDPOINT, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: JSON.stringify(data),
-  });
-  const response = await result.json();
+  const response = await apiPost('stripe/payment-intent', data);
   return response.paymentIntent;
 }
 
