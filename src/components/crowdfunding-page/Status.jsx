@@ -24,19 +24,29 @@ const ColumnTitleStyled = styled.div`
   color: ${({ theme }) => theme.white};
   font-weight: 900;
   font-size: 1rem;
+  line-height: 1rem;
+  min-height: 2rem;
+  display: flex;
+  align-items: center;
 
   @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
     font-size: 1.5rem;
+    line-height: 1.5rem;
   }
 
   @media (min-width: ${({ theme }) => theme.breakpointDesktop}) {
     font-size: 2rem;
+    line-height: 2rem;
   }
 `;
 
 const ColumnSubtitleStyled = styled.div`
   color: ${({ theme }) => theme.white};
   font-size: 0.8rem;
+  line-height: 1rem;
+  min-height: 2rem;
+  display: flex;
+  align-items: center;
 
   @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
     font-size: 1rem;
@@ -94,7 +104,7 @@ const Status = () => {
   return (
     <ContainerStyled id="crowdfunding">
       <WrapperStyled className="container">
-        <div className="columns">
+        <div className="columns is-mobile">
           <ColumnStyled className="column">
             <ColumnTitleStyled>{amount}€</ColumnTitleStyled>
             <ColumnSubtitleStyled>sur {total}€</ColumnSubtitleStyled>
