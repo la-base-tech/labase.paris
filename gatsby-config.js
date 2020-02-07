@@ -49,7 +49,7 @@ console.log(`deploying on ${siteUrl}`);
 
 const siteMetadata = {
   siteUrl,
-  socialShareImage: '/images/social-share.jpg',
+  socialShareImage: '/images/social.jpg',
 };
 
 module.exports = {
