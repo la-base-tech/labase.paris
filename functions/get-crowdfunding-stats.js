@@ -7,22 +7,18 @@ const client = require('./utils/faunadbClient');
 
 const q = faunadb.query;
 
-const { APP_ENV } = process.env;
+const appEnv = process.env.APP_ENV;
 
 exports.handler = async () => {
-  console.log(process.env);
-  console.log(APP_ENV);
   const response = await client.query(
-    q.Paginate(q.Match(q.Index('stats_by_environment'), APP_ENV))
+    q.Paginate(q.Match(q.Index('stats_by_environment'), appEnv))
   );
 
-  console.log(response.data);
   const getStatsDataQuery = response.data.map(ref => {
     return q.Get(ref);
   });
 
   const stats = await client.query(getStatsDataQuery);
-  console.log(stats);
 
   const statsObj = stats
     .map(stat => {
@@ -35,8 +31,6 @@ exports.handler = async () => {
       acc[name] = value;
       return acc;
     }, {});
-
-  console.log(statsObj);
 
   return {
     statusCode: 200,

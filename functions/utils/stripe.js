@@ -1,13 +1,14 @@
 const Stripe = require('stripe');
 
+const appEnv = process.env.APP_ENV;
+
 const {
   STRIPE_SECRET_KEY_DEVELOPMENT,
   STRIPE_SECRET_KEY_PRODUCTION,
-  APP_ENV,
 } = process.env;
 
 const stripeSecretKey =
-  APP_ENV === 'production'
+  appEnv === 'production'
     ? STRIPE_SECRET_KEY_PRODUCTION
     : STRIPE_SECRET_KEY_DEVELOPMENT;
 
