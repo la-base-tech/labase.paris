@@ -71,7 +71,7 @@ carousel:
     title: 1240 litres
     subtitle: de bières consommées    
   - image: ./images/carousel/5.jpg
-    title: XX
+    title: "10"
     subtitle: organisations hébergées
   - image: ./images/carousel/6.jpg
     title: 201 luttes recensées
