@@ -21,13 +21,13 @@ const AmountButtonStyled = styled.button`
   background: transparent;
   color: ${({ theme }) => theme.black};
   text-align: center;
-  font-size: 1rem;
+  font-size: 0.8rem;
+  font-weight: bold;
   border: 1px solid ${({ theme }) => theme.black};
-  padding: 0.25rem 0.5rem;
+  padding: 0.2rem 0.4rem;
   @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
     padding: 0.5rem 0.75rem;
   }
-  font-weight: bold;
 
   &:not(:first-child) {
     margin-left: 0.5rem;
@@ -64,7 +64,7 @@ const InputEuroStyled = styled.span`
 `;
 
 const AmountStep = ({ data, onNext }) => {
-  const fixedAmounts = [5, 10, 25, 50];
+  const fixedAmounts = [5, 10, 25, 50, 100];
 
   const initialFixedAmount = fixedAmounts.includes(data.amount)
     ? data.amount
