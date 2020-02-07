@@ -61,7 +61,7 @@ const StepsContainer = () => {
 
     setSlideDirection('left');
     setStep(currentStepIndex + 1);
-    // updatePaymentIntent(updatedData);
+    updatePaymentIntent(updatedData);
   };
 
   const updateDataAndLoadPreviousStep = newData => {
@@ -75,7 +75,7 @@ const StepsContainer = () => {
 
     setSlideDirection('right');
     setStep(currentStepIndex - 1);
-    // updatePaymentIntent(updatedData);
+    updatePaymentIntent(updatedData);
   };
 
   const renderStep = () => {
