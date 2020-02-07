@@ -2,7 +2,7 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-const stripe = require('./stripe');
+const stripe = require('./utils/stripe');
 
 exports.handler = async event => {
   try {
