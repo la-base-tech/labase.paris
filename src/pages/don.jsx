@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import GatsbyImage from 'gatsby-image';
 import Hero from '../components/crowdfunding-page/Hero';
 import Status from '../components/crowdfunding-page/Status';
+import StatusProvider from '../components/crowdfunding-page/Status/Provider';
 import DonateForm from '../components/crowdfunding-page/DonateForm';
 import Carousel from '../components/crowdfunding-page/Carousel';
 import SectionTitle from '../components/crowdfunding-page/SectionTitle';
@@ -51,7 +52,7 @@ const ColumnsReverseMobileStyled = styled.div`
 `;
 
 const CrowdfundingPage = ({ data }) => (
-  <>
+  <StatusProvider>
     <Hero />
     <Status />
 
@@ -187,7 +188,7 @@ const CrowdfundingPage = ({ data }) => (
         </div>
       </div>
     </section>
-  </>
+  </StatusProvider>
 );
 
 CrowdfundingPage.propTypes = {

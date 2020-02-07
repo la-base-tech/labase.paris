@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
-import { differenceInCalendarDays } from 'date-fns';
-import api from '../../api';
+import StatusContext from './Context';
 
 const ContainerStyled = styled.div`
   background: ${({ theme }) => theme.black};
@@ -79,27 +78,9 @@ const ProgressBarValueStyled = styled.div`
 `;
 
 const Status = () => {
-  const total = 100000;
-
-  const [contributors, setContributors] = useState(null);
-  const [amount, setAmount] = useState(null);
-
-  useEffect(() => {
-    api('stats/crowdfunding').then(data => {
-      if (data.contributors) {
-        setContributors(data.contributors);
-      }
-      if (data.amount) {
-        setAmount(data.amount);
-      }
-    });
-  }, []);
-
-  const dateEnd = new Date(2020, 2, 22, 23, 59); // 22/03/2029 23:59
-
-  const percentage = !amount ? 0 : Math.ceil((amount / total) * 100);
-  const now = new Date();
-  const dayLeftCount = differenceInCalendarDays(dateEnd, now);
+  const { total, amount, contributors, percentage, dayLeftCount } = useContext(
+    StatusContext
+  );
 
   return (
     <ContainerStyled id="crowdfunding">

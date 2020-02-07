@@ -5,6 +5,7 @@ import { CardElement } from 'react-stripe-elements';
 import { useStripe } from '../../../Stripe';
 import StepContainer from './common/StepContainer';
 import { Context as PaymentIntentContext } from '../PaymentIntentManager';
+import StatusContext from '../../Status/Context';
 
 const TextStyled = styled.p`
   font-size: 0.8rem;
@@ -55,6 +56,7 @@ const PaymentStep = ({ data, onPrevious, onNext }) => {
     PaymentIntentContext
   );
   const theme = useContext(ThemeContext);
+  const status = useContext(StatusContext);
 
   const getFormUnknownError = code => {
     return templateReplace(errors.unknown, { errorCode: code });
@@ -119,6 +121,11 @@ const PaymentStep = ({ data, onPrevious, onNext }) => {
 
       // Success
       resetPaymentIntent();
+
+      // Update stats
+      status.addAmount(data.amount);
+      status.addContributor();
+
       onNext();
     } catch (err) {
       // eslint-disable-next-line no-console
