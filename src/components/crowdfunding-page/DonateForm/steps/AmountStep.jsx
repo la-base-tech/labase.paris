@@ -150,7 +150,7 @@ const AmountStep = ({ data, onNext }) => {
             </AmountButtonStyled>
           ))}
         </ButtonsContainerStyled>
-        <div>Montant libre</div>
+        <div>Laisse libre cours à ta générosité</div>
 
         <InputControlStyled className="control has-icons-right">
           <Input
