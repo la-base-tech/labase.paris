@@ -32,7 +32,7 @@ const MainButtonStyled = styled.button`
     padding-right: 2em;
   }
 
-  &.is-loading::after {
+  &&.is-loading::after {
     border-color: transparent transparent ${({ theme }) => theme.yellow}
       ${({ theme }) => theme.yellow} !important;
   }

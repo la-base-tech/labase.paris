@@ -47,7 +47,7 @@ function templateReplace(str, params) {
 
 const PaymentStep = ({ data, onPrevious, onNext }) => {
   const { stripe, elements } = useStripe();
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [cardError, setCardError] = useState(null);
   const [formError, setFormError] = useState(null);
   const [cardComplete, setCardComplete] = useState(false);
