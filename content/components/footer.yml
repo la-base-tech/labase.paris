@@ -5,10 +5,6 @@ links:
   - title: Dossier de presse
     download: true
     url: /files/dossier-presse.pdf
-  - title: Newsletter
-    url: "#newsletter"
-  # - title: Mentions légales
-  #   url: /
 addressTitle: Adresse
 address: 31 rue Bichat 75010 Paris   
 socialNetworks:
