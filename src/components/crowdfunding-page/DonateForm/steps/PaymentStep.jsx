@@ -119,7 +119,7 @@ const PaymentStep = ({ data, onPrevious, onNext }) => {
         return;
       }
 
-      // Success
+      // Reset payment intent to allow other donations
       resetPaymentIntent();
 
       // Update stats
@@ -127,6 +127,23 @@ const PaymentStep = ({ data, onPrevious, onNext }) => {
       status.addContributor();
 
       onNext();
+
+      // Send to gtag
+      if (typeof gtag === 'function') {
+        window.gtag('event', 'purchase', {
+          transaction_id: paymentIntent.id,
+          value: Number.parseFloat(data.amount).toFixed(2),
+          currency: 'EUR',
+          items: [
+            {
+              id: '1',
+              name: 'Don',
+              quantity: 1,
+              price: Number.parseFloat(data.amount).toFixed(2),
+            },
+          ],
+        });
+      }
     } catch (err) {
       // eslint-disable-next-line no-console
       console.log(err);
