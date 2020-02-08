@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import styled, { ThemeContext } from 'styled-components';
-import StepContainer from './common/StepContainer';
 import AnimatedCheck from '../../../AnimatedCheck';
+import StepContainer from './common/StepContainer';
 
 const AnimatedCheckContainerStyled = styled.div`
   display: flex;
