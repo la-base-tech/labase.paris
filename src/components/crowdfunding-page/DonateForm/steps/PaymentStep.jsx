@@ -28,12 +28,6 @@ const FormErrorStyled = styled.div`
   font-weight: bold;
 `;
 
-const AmountStyled = styled.div`
-  margin-top: 2rem;
-  font-weight: bold;
-  font-size: 1.2rem;
-`;
-
 const errors = {
   unknown:
     'Une erreur inconnue est survenue (code : {{ errorCode }}), veuillez réessayer plus tard. Vous ne serez pas débité.',
@@ -180,6 +174,7 @@ const PaymentStep = ({ data, onPrevious, onNext }) => {
         isSubmit: true,
         isLoading,
       }}
+      amount={data.amount}
     >
       <TextStyled>
         Le paiement et vos informations sont sécurisés par Stripe
@@ -205,8 +200,6 @@ const PaymentStep = ({ data, onPrevious, onNext }) => {
         />
         <CardErrorStyled>{cardError}</CardErrorStyled>
         {formError && <FormErrorStyled>{formError}</FormErrorStyled>}
-
-        <AmountStyled>Mon don : {data.amount}€</AmountStyled>
       </form>
     </StepContainer>
   );
