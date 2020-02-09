@@ -52,7 +52,8 @@ const SubtitleStyled = styled.div`
   font-size: 1rem;
 
   @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
-    font-size: 2rem;
+    font-size: 1.5rem;
+    line-height: 1.6rem;
   }
 `;
 
