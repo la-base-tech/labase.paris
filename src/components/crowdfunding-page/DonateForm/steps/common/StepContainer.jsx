@@ -12,6 +12,10 @@ const ContentContainer = styled.div`
   height: 240px;
   display: flex;
   align-items: center;
+
+  > div {
+    width: 100%;
+  }
 `;
 
 const TitleStyled = styled.h3`
