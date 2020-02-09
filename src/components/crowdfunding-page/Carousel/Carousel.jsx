@@ -11,7 +11,11 @@ const ContainerStyled = styled.div`
   width: 100%;
   max-height: 100%;
   overflow: hidden;
-  padding-bottom: ${(9 / 16) * 100}%;
+  padding-bottom: ${(559 / 414) * 100}%;
+
+  @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
+    padding-bottom: ${(9 / 16) * 100}%;
+  }
 `;
 
 const ControlStyled = styled.div`
@@ -27,16 +31,26 @@ const ControlStyled = styled.div`
 `;
 
 const LeftControlStyled = styled(ControlStyled)`
-  left: 1.5rem;
+  left: 0.5rem;
+
+  @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
+    left: 1.5rem;
+  }
 `;
 
 const RightControlStyled = styled(ControlStyled)`
-  right: 1.5rem;
+  right: 0.5rem;
+  @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
+    right: 1.5rem;
+  }
 `;
 
 const ControlIconStyled = styled(FontAwesomeIcon)`
-  font-size: 2rem;
   color: ${({ theme }) => theme.white};
+  font-size: 1.5rem;
+  @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
+    font-size: 2rem;
+  }
 `;
 
 const CustomCarousel = ({ slides, ...rest }) => {
@@ -54,7 +68,7 @@ const CustomCarousel = ({ slides, ...rest }) => {
           index={index}
         />
       ))}
-      <div className="is-hidden-mobile">
+      <div>
         <LeftControlStyled onClick={() => loadPreviousSlide(true)}>
           <ControlIconStyled icon={faArrowLeft} />
         </LeftControlStyled>

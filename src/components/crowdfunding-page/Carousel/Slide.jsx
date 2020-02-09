@@ -11,7 +11,7 @@ const ContentStyled = styled.div`
   color: ${({ theme }) => theme.white};
   display: flex;
   align-items: center;
-  padding: 1rem;
+  padding: 2rem 3rem 2rem 3rem;
 
   @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
     padding: 2rem 15rem 2rem 5rem;
@@ -21,10 +21,18 @@ const ContentStyled = styled.div`
 const MainTitleStyled = styled.div`
   font-weight: bold;
   margin-bottom: 1rem;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
 
   @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
     font-size: 1rem;
+  }
+`;
+
+const TextContainerStyled = styled.div`
+  height: 8rem;
+
+  @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
+    height: 11rem;
   }
 `;
 
@@ -62,14 +70,12 @@ const CustomSlide = ({ title, subtitle, image, index, ...rest }) => {
       <BackgroundImage image={image}>
         <ContentStyled>
           <div>
-            <MainTitleStyled className="is-hidden-mobile">
-              12 mois en 12 points
-            </MainTitleStyled>
-            <TitleStyled>{title}</TitleStyled>
-            <SubtitleStyled>{subtitle}</SubtitleStyled>
-            <IndexStyled className="is-hidden-mobile">
-              {indexFormatted} —–– 12
-            </IndexStyled>
+            <MainTitleStyled>12 mois en 12 points</MainTitleStyled>
+            <TextContainerStyled>
+              <TitleStyled>{title}</TitleStyled>
+              <SubtitleStyled>{subtitle}</SubtitleStyled>
+            </TextContainerStyled>
+            <IndexStyled>{indexFormatted} —–– 12</IndexStyled>
           </div>
         </ContentStyled>
       </BackgroundImage>
