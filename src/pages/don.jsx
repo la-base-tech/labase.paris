@@ -4,9 +4,7 @@ import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import GatsbyImage from 'gatsby-image';
 import Hero from '../components/crowdfunding-page/Hero';
-import Status from '../components/crowdfunding-page/Status';
 import StatusProvider from '../components/crowdfunding-page/Status/Provider';
-import DonateForm from '../components/crowdfunding-page/DonateForm';
 import Carousel from '../components/crowdfunding-page/Carousel';
 import SectionTitle from '../components/crowdfunding-page/SectionTitle';
 import SectionSubtitle from '../components/crowdfunding-page/SectionSubtitle';
@@ -54,27 +52,19 @@ const ColumnsReverseMobileStyled = styled.div`
 const CrowdfundingPage = ({ data }) => (
   <StatusProvider>
     <Hero />
-    <Status />
 
     {/* section 1 */}
     <section className="section">
       <div className="container">
+        <SectionTitle>{data.page.section1.title}</SectionTitle>
         <div className="columns">
           <div className="column">
-            <SectionTitle>{data.page.section1.title}</SectionTitle>
             <SectionTextStyled>{data.page.section1.text}</SectionTextStyled>
           </div>
-          <div className="column">
-            <DonateForm />
+          <div className="column is-three-fifths">
+            <YoutubeEmbed {...data.page.section2.video} />
           </div>
         </div>
-      </div>
-    </section>
-
-    {/* section 2 */}
-    <section className="section">
-      <div className="container">
-        <YoutubeEmbed {...data.page.section2.video} />
       </div>
     </section>
 
