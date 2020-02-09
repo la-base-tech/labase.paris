@@ -33,6 +33,13 @@ const SuccessStep = ({ data }) => {
         <AmountStyled>ton don de {data.amount}€ !</AmountStyled> Tu receveras
         sous peu un email de confirmation.
       </TextStyled>
+      <img
+        height="1"
+        width="1"
+        style={{ display: 'none' }}
+        alt=""
+        src="https://px.ads.linkedin.com/collect/?pid=1836012&conversionId=1836553&fmt=gif"
+      />
     </StepContainer>
   );
 };
