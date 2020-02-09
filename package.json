@@ -8,6 +8,7 @@
     "build": "gatsby build",
     "dev": "gatsby develop",
     "serve": "gatsby serve",
+    "clean": "gatsby clean",
     "format": "prettier --write 'src/**/*.{js,jsx}'",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
     "lint": "eslint --ext js --ext jsx ."
