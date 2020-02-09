@@ -2,6 +2,8 @@ import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import styled, { ThemeContext } from 'styled-components';
 import { CardElement } from 'react-stripe-elements';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLock } from '@fortawesome/free-solid-svg-icons';
 import { useStripe } from '../../../Stripe';
 import StepContainer from './common/StepContainer';
 import { Context as PaymentIntentContext } from '../PaymentIntentManager';
@@ -26,6 +28,10 @@ const CardErrorStyled = styled.div`
 const FormErrorStyled = styled.div`
   color: ${({ theme }) => theme.red};
   font-weight: bold;
+`;
+
+const LockIconStyled = styled(FontAwesomeIcon)`
+  opacity: 0.5;
 `;
 
 const errors = {
@@ -177,7 +183,8 @@ const PaymentStep = ({ data, onPrevious, onNext }) => {
       amount={data.amount}
     >
       <TextStyled>
-        Le paiement et vos informations sont sécurisés par Stripe
+        Le paiement et vos informations sont sécurisés par Stripe{' '}
+        <LockIconStyled icon={faLock} />
       </TextStyled>
       <form>
         <CardElementStyled
