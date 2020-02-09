@@ -5,9 +5,9 @@ import { CardElement } from 'react-stripe-elements';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
 import { useStripe } from '../../../Stripe';
-import StepContainer from './common/StepContainer';
-import { Context as PaymentIntentContext } from '../PaymentIntentManager';
 import StatusContext from '../../Status/Context';
+import { Context as PaymentIntentContext } from '../PaymentIntentManager';
+import StepContainer from './common/StepContainer';
 
 const TextStyled = styled.p`
   font-size: 0.8rem;
