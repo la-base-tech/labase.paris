@@ -107,13 +107,13 @@ const SubtitleStyled = styled.div`
 
 const Hero = ({ image, title, subtitle }) => {
   const { showButton, hideButton } = useContext(NavbarContext);
-  const [ref, inView] = useInView({
+  const [ref, inView, entry] = useInView({
     threshold: 0.2,
   });
 
   if (inView) {
     hideButton();
-  } else {
+  } else if (entry) {
     showButton();
   }
 

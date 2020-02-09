@@ -40,13 +40,13 @@ const ButtonStyled = styled(Link)`
 
 const Section = ({ title, text, button, image }) => {
   const { showButton, hideButton } = useContext(NavbarContext);
-  const [ref, inView] = useInView({
+  const [ref, inView, entry] = useInView({
     threshold: 0.2,
   });
 
   if (inView) {
     hideButton();
-  } else {
+  } else if (entry) {
     showButton();
   }
 
