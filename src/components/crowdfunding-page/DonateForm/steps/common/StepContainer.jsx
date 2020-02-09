@@ -10,6 +10,8 @@ const ContainerStyled = styled.div`
 
 const ContentContainer = styled.div`
   height: 240px;
+  display: flex;
+  align-items: center;
 `;
 
 const TitleStyled = styled.h3`
@@ -55,7 +57,9 @@ const StepContainer = ({
   <ContainerStyled>
     {title && <TitleStyled>{title}</TitleStyled>}
 
-    <ContentContainer>{children}</ContentContainer>
+    <ContentContainer>
+      <div>{children}</div>
+    </ContentContainer>
 
     <Summary amount={amount} />
 
