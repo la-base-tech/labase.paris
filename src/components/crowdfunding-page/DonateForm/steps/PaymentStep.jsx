@@ -2,10 +2,12 @@ import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import styled, { ThemeContext } from 'styled-components';
 import { CardElement } from 'react-stripe-elements';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLock } from '@fortawesome/free-solid-svg-icons';
 import { useStripe } from '../../../Stripe';
-import StepContainer from './common/StepContainer';
-import { Context as PaymentIntentContext } from '../PaymentIntentManager';
 import StatusContext from '../../Status/Context';
+import { Context as PaymentIntentContext } from '../PaymentIntentManager';
+import StepContainer from './common/StepContainer';
 
 const TextStyled = styled.p`
   font-size: 0.8rem;
@@ -28,10 +30,8 @@ const FormErrorStyled = styled.div`
   font-weight: bold;
 `;
 
-const AmountStyled = styled.div`
-  margin-top: 2rem;
-  font-weight: bold;
-  font-size: 1.2rem;
+const LockIconStyled = styled(FontAwesomeIcon)`
+  opacity: 0.5;
 `;
 
 const errors = {
@@ -169,7 +169,7 @@ const PaymentStep = ({ data, onPrevious, onNext }) => {
 
   return (
     <StepContainer
-      title="Mon don"
+      title="Mon paiement"
       buttonPrevious={{
         title: 'Précédent',
         onClick: () => onPrevious(),
@@ -180,9 +180,11 @@ const PaymentStep = ({ data, onPrevious, onNext }) => {
         isSubmit: true,
         isLoading,
       }}
+      amount={data.amount}
     >
       <TextStyled>
-        Le paiement et vos informations sont sécurisés par Stripe
+        Le paiement et vos informations sont sécurisés par Stripe{' '}
+        <LockIconStyled icon={faLock} />
       </TextStyled>
       <form>
         <CardElementStyled
@@ -205,8 +207,6 @@ const PaymentStep = ({ data, onPrevious, onNext }) => {
         />
         <CardErrorStyled>{cardError}</CardErrorStyled>
         {formError && <FormErrorStyled>{formError}</FormErrorStyled>}
-
-        <AmountStyled>Mon don : {data.amount}€</AmountStyled>
       </form>
     </StepContainer>
   );

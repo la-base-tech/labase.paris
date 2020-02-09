@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Logo from './Logo';
-import Link from './Link';
+import Logo from '../Logo';
+import Link from '../Link';
+import NavbarContext from './Context';
+import NavbarProvider from './Provider';
+
+export { NavbarContext as Context };
+export { NavbarProvider as Provider };
 
 const LogoStyled = styled(Logo)`
   color: ${props => props.theme.white};
@@ -33,27 +38,25 @@ const NavBarStyled = styled.nav`
 `;
 
 const NavBarContentStyled = styled.div`
-  @media (min-width: ${({ theme }) => theme.breakpointDesktop}) {
-    align-items: stretch;
-    display: flex;
-    flex-shrink: 0;
-    width: 100%;
-    max-width: 1024px;
-    margin: auto;
-  }
+  align-items: stretch;
+  display: flex;
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 1024px;
+  margin: auto;
 `;
 
 const NavBarBrandStyled = styled.div`
-  width: 100%;
+  width: auto;
   padding: 0 0.75rem;
-
-  @media (min-width: ${({ theme }) => theme.breakpointDesktop}) {
-    width: auto;
-  }
 `;
 
 const NavBarMenuStyled = styled.div`
   padding: 0 0.75rem;
+  display: flex;
+  align-items: stretch;
+  flex-grow: 1;
+  flex-shrink: 0;
 
   @media (max-width: ${props => props.theme.breakpointDesktop}) {
     &.is-active {
@@ -68,6 +71,22 @@ const NavBarMenuStyled = styled.div`
   }
 `;
 
+const NavbarEndStyled = styled.div`
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-end;
+  margin-left: auto;
+`;
+
+const NavbarItemStyled = styled.div`
+  align-items: center;
+  display: none;
+
+  &.is-visible {
+    display: flex;
+  }
+`;
+
 const ButtonStyled = styled(Link)`
   font-weight: bold;
   padding-left: 1.5rem;
@@ -75,36 +94,40 @@ const ButtonStyled = styled(Link)`
 `;
 
 const Navbar = ({ currentPath }) => {
+  const { buttonVisible } = useContext(NavbarContext);
+
   return (
     <NavBarStyled id="navbar" className="navbar is-fixed-top">
       <NavBarContentStyled>
-        <NavBarBrandStyled className={`navbar-brand}`}>
-          <Link className="navbar-item" href="/">
+        <NavBarBrandStyled className="navbar-brand">
+          <Link className="navbar-item is-paddingless" href="/">
             <LogoStyled />
           </Link>
         </NavBarBrandStyled>
 
         <NavBarMenuStyled className="navbar-menu">
-          <div className="navbar-end is-hidden-touch">
-            <div className="navbar-item">
-              <div className="buttons">
-                {currentPath !== '/don/' && (
-                  <ButtonStyled className="button is-primary" href="/don/">
-                    Crowdfunding
-                  </ButtonStyled>
-                )}
-                {currentPath === '/don/' && (
-                  <ButtonStyled
-                    className="button is-primary"
-                    href="#form"
-                    targetMiddle
-                  >
-                    Je donne
-                  </ButtonStyled>
-                )}
-              </div>
-            </div>
-          </div>
+          <NavbarEndStyled className="navbar-end">
+            <NavbarItemStyled
+              className={`navbar-item is-paddingless ${
+                buttonVisible ? 'is-visible' : ''
+              }`}
+            >
+              {currentPath !== '/don/' && (
+                <ButtonStyled className="button is-primary" href="/don/">
+                  Je donne
+                </ButtonStyled>
+              )}
+              {currentPath === '/don/' && (
+                <ButtonStyled
+                  className="button is-primary"
+                  href="#form"
+                  targetMiddle
+                >
+                  Je donne
+                </ButtonStyled>
+              )}
+            </NavbarItemStyled>
+          </NavbarEndStyled>
         </NavBarMenuStyled>
       </NavBarContentStyled>
     </NavBarStyled>

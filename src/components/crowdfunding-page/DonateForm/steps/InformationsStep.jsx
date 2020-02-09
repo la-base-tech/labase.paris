@@ -47,12 +47,6 @@ const LabelStyled = styled.label`
   font-size: 0.9rem;
 `;
 
-const AmountStyled = styled.div`
-  margin-top: 1rem;
-  font-weight: bold;
-  font-size: 1.2rem;
-`;
-
 const InformationsStep = ({ data, onPrevious, onNext }) => {
   const {
     register,
@@ -96,6 +90,7 @@ const InformationsStep = ({ data, onPrevious, onNext }) => {
         title: 'Suivant',
         onClick: submitForm,
       }}
+      amount={data.amount}
     >
       <TextStyled>
         Les informations serviront à éditer la facture et procéder au paiement.
@@ -156,10 +151,6 @@ const InformationsStep = ({ data, onPrevious, onNext }) => {
           </LabelStyled>
         </CheckboxControlStyled>
       </FormStyled>
-
-      <AmountStyled className="is-hidden-mobile">
-        Mon don : {data.amount}€
-      </AmountStyled>
     </StepContainer>
   );
 };

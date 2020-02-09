@@ -1,23 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import styled from 'styled-components';
+import styled from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby';
 import Carousel from '../../Carousel';
 import CustomCarousel from './Carousel';
-import SectionTitle from '../SectionTitle';
+
+const SectionStyled = styled.section`
+  @media (max-width: ${({ theme }) => theme.breakpointTabletBefore}) {
+    padding: 3rem 0;
+  }
+`;
 
 const CarouselContainer = ({ slides }) => {
   return (
-    <section className="section">
+    <SectionStyled className="section">
       <div className="container">
-        <SectionTitle className="is-hidden-tablet">
-          12 mois en 12 points
-        </SectionTitle>
         <Carousel slideCount={slides.length} timeout={5000}>
           <CustomCarousel slides={slides} />
         </Carousel>
       </div>
-    </section>
+    </SectionStyled>
   );
 };
 

@@ -6,8 +6,8 @@ import api from '../../../api';
 
 const StatusProvider = ({ children }) => {
   const objective = 100000;
-  const [contributors, setContributors] = useState(null);
-  const [amount, setAmount] = useState(null);
+  const [contributors, setContributors] = useState(100);
+  const [amount, setAmount] = useState(30000);
 
   const updateStats = async () => {
     const data = await api('stats/crowdfunding');

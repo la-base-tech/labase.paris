@@ -8,33 +8,32 @@ import Input from './common/Input';
 
 const FormStyled = styled.form``;
 
+const FixedAmountTitleStyled = styled.div`
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+`;
+
 const ButtonsContainerStyled = styled.div`
-  display: flex;
-  margin-top: 1rem;
   margin-bottom: 3rem;
 `;
 
+const AmountColumnStyled = styled.div`
+  padding-top: var(--columnGap);
+  padding-bottom: var(--columnGap);
+`;
+
 const AmountButtonStyled = styled.button`
-  flex-basis: 0;
-  flex-grow: 1;
-  flex-shrink: 1;
   background: transparent;
   color: ${({ theme }) => theme.black};
   text-align: center;
   font-size: 0.8rem;
   font-weight: bold;
   border: 1px solid ${({ theme }) => theme.black};
-  padding: 0.2rem 0.4rem;
+  width: 100%;
+  padding: 0.6rem 0.4rem;
+
   @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
-    padding: 0.5rem 0.75rem;
-  }
-
-  &:not(:first-child) {
-    margin-left: 0.5rem;
-
-    @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
-      margin-left: 1rem;
-    }
+    padding: 1rem 0.75rem;
   }
 
   &:hover:not(.is-active) {
@@ -47,12 +46,20 @@ const AmountButtonStyled = styled.button`
     background: ${({ theme }) => theme.black};
     color: ${({ theme }) => theme.yellow};
   }
+
+  &:focus {
+    outline: 0;
+  }
+`;
+
+const CustomAmountTitleStyled = styled.div`
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
 `;
 
 const InputControlStyled = styled.div`
   width: 100%;
   max-width: 200px;
-  margin-top: 1rem;
   input {
     font-weight: bold;
   }
@@ -64,7 +71,7 @@ const InputEuroStyled = styled.span`
 `;
 
 const AmountStep = ({ data, onNext }) => {
-  const fixedAmounts = [5, 10, 25, 50, 100];
+  const fixedAmounts = [5, 10, 15, 25, 50, 100];
 
   const initialFixedAmount = fixedAmounts.includes(data.amount)
     ? data.amount
@@ -72,14 +79,11 @@ const AmountStep = ({ data, onNext }) => {
   const initialCustomAmount = (!initialFixedAmount && data.amount) || null;
 
   const [fixedAmount, setFixedAmount] = useState(initialFixedAmount);
+  const [amount, setAmount] = useState(
+    initialFixedAmount || initialCustomAmount
+  );
 
-  const {
-    register,
-    handleSubmit,
-    errors,
-    getValues,
-    triggerValidation,
-  } = useForm({
+  const { register, handleSubmit, errors, triggerValidation } = useForm({
     mode: 'onChange',
     reValidateMode: 'onChange',
     defaultValues: {
@@ -88,14 +92,8 @@ const AmountStep = ({ data, onNext }) => {
   });
 
   const getData = () => {
-    // Get the form data
-    const values = getValues();
-
-    // Prepare custom amount
-    const customAmount = Number.parseInt(values.customAmount, 10);
-
     return {
-      amount: fixedAmount || customAmount,
+      amount,
     };
   };
 
@@ -115,13 +113,22 @@ const AmountStep = ({ data, onNext }) => {
     callOnNext();
   };
 
-  const onClickFixedAmount = amount => {
-    onNext({ amount });
+  const onClickFixedAmount = value => {
+    setFixedAmount(value);
+    setAmount(value);
   };
 
   const onCustomAmountFocus = () => {
     // Reset fixed amount
-    setFixedAmount(null);
+    if (fixedAmount) {
+      setFixedAmount(null);
+      setAmount(null);
+    }
+  };
+
+  const onCustomAmountChange = e => {
+    const { value } = e.currentTarget;
+    setAmount(value || null);
   };
 
   const submitForm = async () => {
@@ -135,22 +142,28 @@ const AmountStep = ({ data, onNext }) => {
         title: 'Continuer',
         onClick: onClickNext,
       }}
+      amount={amount}
     >
       <FormStyled onSubmit={handleSubmit(submitForm)}>
-        <div>Je participe à hauteur de</div>
-        <ButtonsContainerStyled>
+        <FixedAmountTitleStyled>
+          Je participe à hauteur de
+        </FixedAmountTitleStyled>
+        <ButtonsContainerStyled className="columns is-mobile is-multiline is-variable is-1">
           {fixedAmounts.map(anAmount => (
-            <AmountButtonStyled
-              type="button"
-              key={anAmount}
-              className={`${fixedAmount === anAmount ? 'is-active' : ''}`}
-              onClick={() => onClickFixedAmount(anAmount)}
-            >
-              {anAmount}€
-            </AmountButtonStyled>
+            <AmountColumnStyled className="column is-one-third" key={anAmount}>
+              <AmountButtonStyled
+                type="button"
+                className={`${fixedAmount === anAmount ? 'is-active' : ''}`}
+                onClick={() => onClickFixedAmount(anAmount)}
+              >
+                {anAmount}€
+              </AmountButtonStyled>
+            </AmountColumnStyled>
           ))}
         </ButtonsContainerStyled>
-        <div>Laisse libre cours à ta générosité</div>
+        <CustomAmountTitleStyled>
+          ou je choisis de donner
+        </CustomAmountTitleStyled>
 
         <InputControlStyled className="control has-icons-right">
           <Input
@@ -159,7 +172,7 @@ const AmountStep = ({ data, onNext }) => {
             }`}
             type="number"
             name="customAmount"
-            placeholder="15"
+            placeholder="--"
             ref={register({
               validate: value => {
                 const reg = /^[0-9]+$/;
@@ -172,9 +185,12 @@ const AmountStep = ({ data, onNext }) => {
             })}
             onEnterKeyDown={submitForm}
             onFocus={onCustomAmountFocus}
+            onChange={onCustomAmountChange}
             step="1"
             min="1"
             max="9999"
+            autoComplete="off"
+            spellCheck="false"
           />
           <InputEuroStyled className="icon is-small is-right">
             €

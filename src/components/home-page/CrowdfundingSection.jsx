@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 import GatsbyImage from 'gatsby-image';
 import styled from 'styled-components';
+import { useInView } from 'react-intersection-observer';
 import Link from '../Link';
+import { Context as NavbarContext } from '../Navbar';
 
 const ContainerStyled = styled.section`
   background: ${props => props.theme.yellow};
@@ -36,24 +38,40 @@ const ButtonStyled = styled(Link)`
   font-weight: bold;
 `;
 
-const Section = ({ title, text, button, image }) => (
-  <ContainerStyled className="section">
-    <div className="container">
-      <div className="columns is-vcentered">
-        <div className="column">
-          <TitleStyled>{title}</TitleStyled>
-          <TextStyled>{text}</TextStyled>
-          <ButtonStyled href="/don/" className="button is-primary is-inverted">
-            {button.title}
-          </ButtonStyled>
-        </div>
-        <div className="column is-hidden-mobile">
-          <GatsbyImage fluid={image.childImageSharp.fluid} />
+const Section = ({ title, text, button, image }) => {
+  const { showButton, hideButton } = useContext(NavbarContext);
+  const [ref, inView, entry] = useInView({
+    threshold: 0.2,
+  });
+
+  if (inView) {
+    hideButton();
+  } else if (entry) {
+    showButton();
+  }
+
+  return (
+    <ContainerStyled className="section" ref={ref}>
+      <div className="container">
+        <div className="columns is-vcentered">
+          <div className="column">
+            <TitleStyled>{title}</TitleStyled>
+            <TextStyled>{text}</TextStyled>
+            <ButtonStyled
+              href="/don/"
+              className="button is-primary is-inverted"
+            >
+              {button.title}
+            </ButtonStyled>
+          </div>
+          <div className="column is-hidden-mobile">
+            <GatsbyImage fluid={image.childImageSharp.fluid} />
+          </div>
         </div>
       </div>
-    </div>
-  </ContainerStyled>
-);
+    </ContainerStyled>
+  );
+};
 
 Section.propTypes = {
   title: PropTypes.string.isRequired,

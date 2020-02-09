@@ -2,6 +2,7 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Elements } from '../../Stripe';
+import Status from '../Status';
 import PaymentIntentManager from './PaymentIntentManager';
 import StepsContainer from './StepsContainer';
 
@@ -14,6 +15,7 @@ const ContainerStyled = styled.div`
 
 const DonateForm = () => (
   <ContainerStyled id="form">
+    <Status />
     <PaymentIntentManager>
       <Elements locale="fr">
         <StepsContainer />

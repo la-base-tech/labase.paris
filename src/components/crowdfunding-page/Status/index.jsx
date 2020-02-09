@@ -4,61 +4,45 @@ import StatusContext from './Context';
 
 const ContainerStyled = styled.div`
   background: ${({ theme }) => theme.black};
+  padding: 1rem;
 `;
 
 const WrapperStyled = styled.div`
   margin: auto;
-  padding: 1rem;
-
-  @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
-    padding: 2rem;
-  }
 `;
 
-const ColumnStyled = styled.div`
-  text-align: center;
-`;
+const ColumnStyled = styled.div``;
 
 const ColumnTitleStyled = styled.div`
   color: ${({ theme }) => theme.white};
   font-weight: 900;
-  font-size: 1rem;
+  font-size: 0.6rem;
   line-height: 1rem;
-  min-height: 2rem;
-  display: flex;
-  align-items: center;
 
   @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
-    font-size: 1.5rem;
-    line-height: 1.5rem;
-  }
-
-  @media (min-width: ${({ theme }) => theme.breakpointDesktop}) {
-    font-size: 2rem;
-    line-height: 2rem;
+    font-size: 0.9rem;
+    line-height: 1rem;
   }
 `;
 
 const ColumnSubtitleStyled = styled.div`
   color: ${({ theme }) => theme.white};
-  font-size: 0.8rem;
+  font-size: 0.6rem;
   line-height: 1rem;
-  min-height: 2rem;
-  display: flex;
-  align-items: center;
 
   @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
-    font-size: 1rem;
+    font-size: 0.8rem;
+    line-height: 1rem;
   }
 `;
 
-const ProgressBarContainerStyled = styled.div`
-  text-align: center;
+const ProgressbarContainerStyled = styled.div`
+  margin-top: 0.5rem !important;
 `;
 
 const ProgressBarStyled = styled.div`
-  width: 70%;
-  height: 10px;
+  width: 100%;
+  height: 8px;
   background: ${({ theme }) => theme.white};
   display: inline-block;
 
@@ -67,14 +51,22 @@ const ProgressBarStyled = styled.div`
     display: block;
     background: ${({ theme }) => theme.yellow};
     width: ${({ value }) => value}%;
-    height: 10px;
+    height: 8px;
   }
+`;
+
+const ProgressBarValueColumnStyled = styled.div`
+  padding-left: 0.5rem !important;
 `;
 
 const ProgressBarValueStyled = styled.div`
   display: inline-block;
   color: ${({ theme }) => theme.white};
-  margin-left: 1rem;
+  font-size: 0.6rem;
+
+  @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
+    font-size: 0.8rem;
+  }
 `;
 
 const Status = () => {
@@ -89,26 +81,30 @@ const Status = () => {
   return (
     <ContainerStyled id="crowdfunding">
       <WrapperStyled className="container">
-        <div className="columns is-mobile">
-          <ColumnStyled className="column">
+        <div className="columns is-mobile is-marginless">
+          <ColumnStyled className="column is-paddingless">
             <ColumnTitleStyled>{amount}€</ColumnTitleStyled>
             <ColumnSubtitleStyled>sur {objective}€</ColumnSubtitleStyled>
           </ColumnStyled>
-          <ColumnStyled className="column">
+          <ColumnStyled className="column is-paddingless">
             <ColumnTitleStyled>{dayLeftCount} jours</ColumnTitleStyled>
             <ColumnSubtitleStyled>pour participer</ColumnSubtitleStyled>
           </ColumnStyled>
-          <ColumnStyled className="column">
+          <ColumnStyled className="column is-paddingless">
             <ColumnTitleStyled>
               {contributors || '-'} personnes
             </ColumnTitleStyled>
             <ColumnSubtitleStyled>ont contribué</ColumnSubtitleStyled>
           </ColumnStyled>
         </div>
-        <ProgressBarContainerStyled>
-          <ProgressBarStyled value={percentage} />
-          <ProgressBarValueStyled>{percentage}%</ProgressBarValueStyled>
-        </ProgressBarContainerStyled>
+        <ProgressbarContainerStyled className="columns is-marginless is-mobile">
+          <div className="column is-paddingless">
+            <ProgressBarStyled value={percentage} />
+          </div>
+          <ProgressBarValueColumnStyled className="column is-narrow is-paddingless">
+            <ProgressBarValueStyled>{percentage}%</ProgressBarValueStyled>
+          </ProgressBarValueColumnStyled>
+        </ProgressbarContainerStyled>
       </WrapperStyled>
     </ContainerStyled>
   );

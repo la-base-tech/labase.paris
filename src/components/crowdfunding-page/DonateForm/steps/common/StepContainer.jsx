@@ -2,13 +2,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import Summary from './Summary';
 
 const ContainerStyled = styled.div`
   padding: 1rem;
 `;
 
 const ContentContainer = styled.div`
-  height: 230px;
+  height: 240px;
+  display: flex;
+  align-items: center;
+
+  > div {
+    width: 100%;
+  }
 `;
 
 const TitleStyled = styled.h3`
@@ -44,11 +51,21 @@ const SecondaryButtonStyled = styled.button`
   border: 1px solid ${({ theme }) => theme.black} !important;
 `;
 
-const StepContainer = ({ title, children, buttonPrevious, buttonNext }) => (
+const StepContainer = ({
+  title,
+  children,
+  buttonPrevious,
+  buttonNext,
+  amount,
+}) => (
   <ContainerStyled>
     {title && <TitleStyled>{title}</TitleStyled>}
 
-    <ContentContainer>{children}</ContentContainer>
+    <ContentContainer>
+      <div>{children}</div>
+    </ContentContainer>
+
+    <Summary amount={amount} />
 
     {(buttonPrevious || buttonNext) && (
       <ButtonsContainerStyled>
@@ -100,12 +117,14 @@ StepContainer.propTypes = {
     isSubmit: PropTypes.bool,
     isLoading: PropTypes.bool,
   }),
+  amount: PropTypes.number,
 };
 
 StepContainer.defaultProps = {
   title: null,
   buttonPrevious: null,
   buttonNext: null,
+  amount: null,
 };
 
 export default StepContainer;

@@ -28,7 +28,7 @@ const StepsContainer = () => {
     lastname: '',
     email: '',
     subscribe: false,
-    amount: 5,
+    amount: null,
   });
   const { updatePaymentIntent } = useContext(PaymentIntentContext);
   const steps = [
