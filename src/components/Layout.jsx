@@ -4,16 +4,16 @@ import PropTypes from 'prop-types';
 import '../styles/app.scss';
 
 import SEO from './SEO';
-import Navbar from './Navbar';
+import Navbar, { Provider as NavbarProvider } from './Navbar';
 import Footer from './Footer';
 
 const Layout = ({ data, children, location }) => (
-  <>
+  <NavbarProvider>
     <SEO pageMetadata={data.page.metadata} />
     <Navbar currentPath={location.pathname} />
     {children}
     <Footer />
-  </>
+  </NavbarProvider>
 );
 
 Layout.propTypes = {

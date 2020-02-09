@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
+import { useInView } from 'react-intersection-observer';
 import BackgroundImage from '../BackgroundImage';
+import { Context as NavbarContext } from '../Navbar';
 import Markdown from '../Markdown';
 import DonateForm from './DonateForm';
 
@@ -103,29 +105,42 @@ const SubtitleStyled = styled.div`
   }
 `;
 
-const Hero = ({ image, title, subtitle }) => (
-  <ContainerStyled>
-    <HeroStyled>
-      <HeroBackgroundImageStyled image={image}>
-        <SectionWrapperStyled>
-          <SectionStyled className="section">
-            <div className="container">
-              <div className="columns is-mobile is-marginless">
-                <div className="column is-full-tablet is-half-desktop">
-                  <SubtitleStyled>{subtitle}</SubtitleStyled>
-                  <TitleStyled>{title}</TitleStyled>
+const Hero = ({ image, title, subtitle }) => {
+  const { showButton, hideButton } = useContext(NavbarContext);
+  const [ref, inView] = useInView({
+    threshold: 0.2,
+  });
+
+  if (inView) {
+    hideButton();
+  } else {
+    showButton();
+  }
+
+  return (
+    <ContainerStyled ref={ref}>
+      <HeroStyled>
+        <HeroBackgroundImageStyled image={image}>
+          <SectionWrapperStyled>
+            <SectionStyled className="section">
+              <div className="container">
+                <div className="columns is-mobile is-marginless">
+                  <div className="column is-full-tablet is-half-desktop">
+                    <SubtitleStyled>{subtitle}</SubtitleStyled>
+                    <TitleStyled>{title}</TitleStyled>
+                  </div>
                 </div>
               </div>
-            </div>
-          </SectionStyled>
-        </SectionWrapperStyled>
-      </HeroBackgroundImageStyled>
-    </HeroStyled>
-    <DonateFormWrapperStyled>
-      <DonateFormStyled />
-    </DonateFormWrapperStyled>
-  </ContainerStyled>
-);
+            </SectionStyled>
+          </SectionWrapperStyled>
+        </HeroBackgroundImageStyled>
+      </HeroStyled>
+      <DonateFormWrapperStyled>
+        <DonateFormStyled />
+      </DonateFormWrapperStyled>
+    </ContainerStyled>
+  );
+};
 
 Hero.propTypes = {
   image: PropTypes.shape({
