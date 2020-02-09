@@ -77,7 +77,7 @@ const CrowdfundingPage = ({ data }) => (
             <SectionTextStyled>{data.page.section3.text}</SectionTextStyled>
             <ButtonStyled
               href="#form"
-              className="button is-primary"
+              className="button is-primary is-inverted"
               targetMiddle
             >
               {data.page.section3.button.title}
@@ -104,7 +104,7 @@ const CrowdfundingPage = ({ data }) => (
             <SectionTextStyled>{data.page.section4.text}</SectionTextStyled>
             <ButtonStyled
               href="#form"
-              className="button is-primary"
+              className="button is-primary is-inverted"
               targetMiddle
             >
               {data.page.section4.button.title}
@@ -130,7 +130,7 @@ const CrowdfundingPage = ({ data }) => (
             <SectionTextStyled>{data.page.section5.text}</SectionTextStyled>
             <ButtonStyled
               href="#form"
-              className="button is-primary"
+              className="button is-primary is-inverted"
               targetMiddle
             >
               {data.page.section5.button.title}
