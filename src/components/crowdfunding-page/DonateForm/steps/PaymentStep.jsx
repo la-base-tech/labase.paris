@@ -169,7 +169,7 @@ const PaymentStep = ({ data, onPrevious, onNext }) => {
 
   return (
     <StepContainer
-      title="Mon don"
+      title="Mon paiement"
       buttonPrevious={{
         title: 'Précédent',
         onClick: () => onPrevious(),
