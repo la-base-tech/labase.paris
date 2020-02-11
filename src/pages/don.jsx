@@ -53,8 +53,7 @@ const CrowdfundingPage = ({ data }) => (
   <StatusProvider>
     <Hero />
 
-    {/* section 1 */}
-    <section className="section">
+    <section className="section" id="section-1">
       <div className="container">
         <SectionTitle>{data.page.section1.title}</SectionTitle>
         <div className="columns">
@@ -62,14 +61,13 @@ const CrowdfundingPage = ({ data }) => (
             <SectionTextStyled>{data.page.section1.text}</SectionTextStyled>
           </div>
           <div className="column is-three-fifths">
-            <YoutubeEmbed {...data.page.section2.video} />
+            <YoutubeEmbed {...data.page.section2.video} id="video" />
           </div>
         </div>
       </div>
     </section>
 
-    {/* section 3 */}
-    <section className="section">
+    <section className="section" id="section-2">
       <div className="container">
         <SectionTitle>{data.page.section3.title}</SectionTitle>
         <ColumnsReverseMobileStyled className="columns">
@@ -92,8 +90,7 @@ const CrowdfundingPage = ({ data }) => (
       </div>
     </section>
 
-    {/* section 4 */}
-    <section className="section">
+    <section className="section" id="section-3">
       <div className="container">
         <SectionTitle className="has-subtitle">
           {data.page.section4.title}
@@ -121,8 +118,7 @@ const CrowdfundingPage = ({ data }) => (
 
     <Carousel />
 
-    {/* section 5 */}
-    <section className="section">
+    <section className="section" id="section-4">
       <div className="container">
         <SectionTitle>{data.page.section5.title}</SectionTitle>
         <ColumnsReverseMobileStyled className="columns">
@@ -145,8 +141,7 @@ const CrowdfundingPage = ({ data }) => (
       </div>
     </section>
 
-    {/* section 6 */}
-    <section className="section">
+    <section className="section" id="section-5">
       <div className="container">
         <SectionTitle>{data.page.section6.title}</SectionTitle>
         <ColumnsReverseMobileStyled className="columns">
