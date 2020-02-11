@@ -36,13 +36,17 @@ if (isDev) {
 
 // Prepare API URL
 process.env.GATSBY_API_URL = isProduction
-  ? process.env.GATSBY_API_URL_PRODUCTION
-  : process.env.GATSBY_API_URL_DEVELOPMENT;
+  ? process.env.API_URL_PRODUCTION
+  : process.env.API_URL_DEVELOPMENT;
 
 // Prepare Stripe Key
 process.env.GATSBY_STRIPE_PUBLISHABLE_KEY = isProduction
-  ? process.env.GATSBY_STRIPE_PUBLISHABLE_KEY_PRODUCTION
-  : process.env.GATSBY_STRIPE_PUBLISHABLE_KEY_DEVELOPMENT;
+  ? process.env.STRIPE_PUBLISHABLE_KEY_PRODUCTION
+  : process.env.STRIPE_PUBLISHABLE_KEY_DEVELOPMENT;
+
+const FACEBOOK_PIXEL_ID = isProduction
+  ? process.env.FACEBOOK_PIXEL_ID_PRODUCTION
+  : process.env.FACEBOOK_PIXEL_ID_DEVELOPMENT;
 
 // eslint-disable-next-line no-console
 console.log(`deploying on ${siteUrl}`);
@@ -135,9 +139,7 @@ module.exports = {
     {
       resolve: 'gatsby-facebook-pixel',
       options: {
-        pixelId: isProduction
-          ? process.env.FACEBOOK_PIXEL_ID
-          : process.env.FACEBOOK_PIXEL_ID,
+        pixelId: FACEBOOK_PIXEL_ID,
       },
     },
     {
