@@ -46,7 +46,7 @@ export default function CarouselWrapper(props) {
             carousel {
               image {
                 childImageSharp {
-                  fluid(maxWidth: 2000, quality: 100) {
+                  fluid(maxWidth: 960) {
                     ...GatsbyImageSharpFluid_withWebp
                   }
                 }

@@ -57,6 +57,7 @@
     "react-stripe-elements": "^6.0.1",
     "react-transition-group": "4.3.0",
     "react-use-dimensions": "1.2.1",
+    "sharp": "0.24.0",
     "smoothscroll-polyfill": "^0.4.4",
     "stripe": "8.14.0",
     "styled-components": "5.0.0",

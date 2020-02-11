@@ -63,7 +63,7 @@ export default function HeaderSectionWrapper(props) {
             section: headerSection {
               image {
                 childImageSharp {
-                  fluid(maxWidth: 1000, quality: 100) {
+                  fluid(maxWidth: 1400) {
                     ...GatsbyImageSharpFluid_withWebp
                   }
                 }

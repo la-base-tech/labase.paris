@@ -89,7 +89,7 @@ export default function SectionWrapper() {
                 text
                 image {
                   childImageSharp {
-                    fluid(maxWidth: 364, quality: 100) {
+                    fluid(maxWidth: 364) {
                       ...GatsbyImageSharpFluid_withWebp
                     }
                   }

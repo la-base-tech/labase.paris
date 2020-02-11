@@ -120,7 +120,7 @@ const Hero = ({ image, title, subtitle }) => {
   return (
     <ContainerStyled ref={ref}>
       <HeroStyled>
-        <HeroBackgroundImageStyled image={image}>
+        <HeroBackgroundImageStyled image={image} loading="eager">
           <SectionWrapperStyled>
             <SectionStyled className="section">
               <div className="container">
@@ -164,7 +164,7 @@ export default function HeroWrapper(props) {
             hero {
               image {
                 childImageSharp {
-                  fluid(maxWidth: 2000, quality: 100) {
+                  fluid(maxWidth: 1500) {
                     ...GatsbyImageSharpFluid_withWebp
                   }
                 }

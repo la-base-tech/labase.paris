@@ -56,7 +56,13 @@ module.exports = {
   siteMetadata,
   plugins: [
     'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
+    {
+      resolve: 'gatsby-plugin-sharp',
+      options: {
+        useMozJpeg: true,
+        defaultQuality: 85,
+      },
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {

@@ -65,7 +65,7 @@ const Section = ({ title, text, button, image }) => {
             </ButtonStyled>
           </div>
           <div className="column is-hidden-mobile">
-            <GatsbyImage fluid={image.childImageSharp.fluid} />
+            <GatsbyImage fluid={image.childImageSharp.fluid} loading="eager" />
           </div>
         </div>
       </div>
@@ -97,7 +97,7 @@ export default function SectionWrapper() {
               text
               image {
                 childImageSharp {
-                  fluid(maxWidth: 1000, quality: 100) {
+                  fluid(maxWidth: 480) {
                     ...GatsbyImageSharpFluid_withWebp
                   }
                 }

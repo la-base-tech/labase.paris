@@ -21,13 +21,14 @@ const ContainerStyled = styled.div`
   }
 `;
 
-const BackgroundImage = ({ image, children }) => {
+const BackgroundImage = ({ image, children, loading }) => {
   return (
     <>
       <ContainerStyled>
         <GatsbyImage
           fluid={image.childImageSharp.fluid}
           durationFadeIn={DURATION_FADE_IN}
+          loading={loading}
         />
       </ContainerStyled>
       {children && children}
@@ -42,10 +43,12 @@ BackgroundImage.propTypes = {
       fluid: PropTypes.shape({}).isRequired,
     }),
   }).isRequired,
+  loading: PropTypes.string,
 };
 
 BackgroundImage.defaultProps = {
   children: null,
+  loading: 'lazy',
 };
 
 export default BackgroundImage;
