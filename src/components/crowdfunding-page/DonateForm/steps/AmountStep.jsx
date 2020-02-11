@@ -107,6 +107,15 @@ const AmountStep = ({ data, onNext }) => {
     }
     const newData = getData();
     onNext(newData);
+
+    // Send to FB
+    if (typeof fbq === 'function') {
+      window.fbq('track', 'AddToCart', {
+        currency: 'EUR',
+        value: Number.parseFloat(newData.amount).toFixed(2),
+        content_name: 'Don',
+      });
+    }
   };
 
   const onClickNext = () => {

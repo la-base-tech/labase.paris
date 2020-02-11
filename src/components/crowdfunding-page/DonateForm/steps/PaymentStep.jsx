@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled, { ThemeContext } from 'styled-components';
 import { CardElement } from 'react-stripe-elements';
@@ -57,6 +57,16 @@ const PaymentStep = ({ data, onPrevious, onNext }) => {
   );
   const theme = useContext(ThemeContext);
   const status = useContext(StatusContext);
+
+  useEffect(() => {
+    // Send to FB
+    if (typeof fbq === 'function') {
+      window.fbq('track', 'InitiateCheckout', {
+        currency: 'EUR',
+        value: Number.parseFloat(data.amount).toFixed(2),
+      });
+    }
+  });
 
   const getFormUnknownError = code => {
     return templateReplace(errors.unknown, { errorCode: code });
@@ -127,6 +137,15 @@ const PaymentStep = ({ data, onPrevious, onNext }) => {
       status.addContributor();
 
       onNext();
+
+      // Send to FB
+      if (typeof fbq === 'function') {
+        window.fbq('track', 'Purchase', {
+          currency: 'EUR',
+          value: Number.parseFloat(data.amount).toFixed(2),
+          content_name: 'Don',
+        });
+      }
 
       // Send to gtag
       if (typeof gtag === 'function') {
