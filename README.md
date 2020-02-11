@@ -12,4 +12,5 @@
 
 - Use the specified node version `nvm install`
 - Install the project dependencies `yarn`
+- Copy .env.example to .env and fill the values
 - Start the app `yarn dev`
