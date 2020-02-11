@@ -140,5 +140,13 @@ module.exports = {
         component: require.resolve('./src/components/Layout.jsx'),
       },
     },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {},
+    },
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {},
+    },
   ],
 };
