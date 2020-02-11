@@ -4,10 +4,14 @@ import { differenceInCalendarDays } from 'date-fns';
 import Context from './Context';
 import api from '../../../api';
 
-const StatusProvider = ({ children }) => {
+const StatusProvider = ({
+  children,
+  contributors: initialContributors,
+  amount: initialAmount,
+}) => {
   const objective = 100000;
-  const [contributors, setContributors] = useState(100);
-  const [amount, setAmount] = useState(30000);
+  const [contributors, setContributors] = useState(initialContributors);
+  const [amount, setAmount] = useState(initialAmount);
 
   const updateStats = async () => {
     const data = await api('stats/crowdfunding');
@@ -47,6 +51,8 @@ const StatusProvider = ({ children }) => {
         dayLeftCount,
         addAmount,
         addContributor,
+        setAmount,
+        setContributors,
       }}
     >
       {children}
@@ -56,6 +62,8 @@ const StatusProvider = ({ children }) => {
 
 StatusProvider.propTypes = {
   children: PropTypes.node.isRequired,
+  amount: PropTypes.number.isRequired,
+  contributors: PropTypes.number.isRequired,
 };
 
 export default StatusProvider;

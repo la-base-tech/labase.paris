@@ -4,7 +4,6 @@ import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import GatsbyImage from 'gatsby-image';
 import Hero from '../components/crowdfunding-page/Hero';
-import StatusProvider from '../components/crowdfunding-page/Status/Provider';
 import Carousel from '../components/crowdfunding-page/Carousel';
 import SectionTitle from '../components/crowdfunding-page/SectionTitle';
 import SectionSubtitle from '../components/crowdfunding-page/SectionSubtitle';
@@ -50,7 +49,7 @@ const ColumnsReverseMobileStyled = styled.div`
 `;
 
 const CrowdfundingPage = ({ data }) => (
-  <StatusProvider>
+  <>
     <Hero />
 
     <section className="section" id="section-1">
@@ -173,7 +172,7 @@ const CrowdfundingPage = ({ data }) => (
         </div>
       </div>
     </section>
-  </StatusProvider>
+  </>
 );
 
 CrowdfundingPage.propTypes = {

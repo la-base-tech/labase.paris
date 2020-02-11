@@ -39,6 +39,8 @@ process.env.GATSBY_API_URL = isProduction
   ? process.env.API_URL_PRODUCTION
   : process.env.API_URL_DEVELOPMENT;
 
+const API_URL = process.env.GATSBY_API_URL;
+
 // Prepare Stripe Key
 process.env.GATSBY_STRIPE_PUBLISHABLE_KEY = isProduction
   ? process.env.STRIPE_PUBLISHABLE_KEY_PRODUCTION
@@ -59,6 +61,12 @@ const siteMetadata = {
 module.exports = {
   siteMetadata,
   plugins: [
+    {
+      resolve: 'labase-api-source',
+      options: {
+        apiUrl: API_URL,
+      },
+    },
     'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-plugin-sharp',

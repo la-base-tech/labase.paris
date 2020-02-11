@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { useInView } from 'react-intersection-observer';
 import BackgroundImage from '../BackgroundImage';
 import { Context as NavbarContext } from '../Navbar';
+import { Provider as StatusProvider } from './Status';
 import Markdown from '../Markdown';
 import DonateForm from './DonateForm';
 
@@ -105,7 +106,7 @@ const SubtitleStyled = styled.div`
   }
 `;
 
-const Hero = ({ image, title, subtitle }) => {
+const Hero = ({ image, title, subtitle, stats }) => {
   const { showButton, hideButton } = useContext(NavbarContext);
   const [ref, inView, entry] = useInView({
     threshold: 0.2,
@@ -118,27 +119,29 @@ const Hero = ({ image, title, subtitle }) => {
   }
 
   return (
-    <ContainerStyled ref={ref}>
-      <HeroStyled>
-        <HeroBackgroundImageStyled image={image} loading="eager">
-          <SectionWrapperStyled>
-            <SectionStyled className="section">
-              <div className="container">
-                <div className="columns is-mobile is-marginless">
-                  <div className="column is-full-tablet is-half-desktop">
-                    <SubtitleStyled>{subtitle}</SubtitleStyled>
-                    <TitleStyled>{title}</TitleStyled>
+    <StatusProvider {...stats}>
+      <ContainerStyled ref={ref}>
+        <HeroStyled>
+          <HeroBackgroundImageStyled image={image} loading="eager">
+            <SectionWrapperStyled>
+              <SectionStyled className="section">
+                <div className="container">
+                  <div className="columns is-mobile is-marginless">
+                    <div className="column is-full-tablet is-half-desktop">
+                      <SubtitleStyled>{subtitle}</SubtitleStyled>
+                      <TitleStyled>{title}</TitleStyled>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </SectionStyled>
-          </SectionWrapperStyled>
-        </HeroBackgroundImageStyled>
-      </HeroStyled>
-      <DonateFormWrapperStyled>
-        <DonateFormStyled />
-      </DonateFormWrapperStyled>
-    </ContainerStyled>
+              </SectionStyled>
+            </SectionWrapperStyled>
+          </HeroBackgroundImageStyled>
+        </HeroStyled>
+        <DonateFormWrapperStyled>
+          <DonateFormStyled />
+        </DonateFormWrapperStyled>
+      </ContainerStyled>
+    </StatusProvider>
   );
 };
 
@@ -152,6 +155,10 @@ Hero.propTypes = {
   subtitle: PropTypes.string.isRequired,
   button: PropTypes.shape({
     title: PropTypes.string.isRequired,
+  }).isRequired,
+  stats: PropTypes.shape({
+    amount: PropTypes.number.isRequired,
+    contributors: PropTypes.number.isRequired,
   }).isRequired,
 };
 
@@ -176,9 +183,15 @@ export default function HeroWrapper(props) {
               }
             }
           }
+          stats: laBaseApiStatsCrowdfunding {
+            amount
+            contributors
+          }
         }
       `}
-      render={data => <Hero {...data.page.hero} {...props} />}
+      render={data => (
+        <Hero {...data.page.hero} stats={data.stats} {...props} />
+      )}
     />
   );
 }

@@ -1,6 +1,10 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import StatusContext from './Context';
+import StatusProvider from './Provider';
+
+export { StatusContext as Context };
+export { StatusProvider as Provider };
 
 const ContainerStyled = styled.div`
   background: ${({ theme }) => theme.black};
