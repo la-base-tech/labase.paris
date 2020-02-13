@@ -82,6 +82,8 @@ const PaymentStep = ({ data, onPrevious, onNext }) => {
       return;
     }
     if (!cardComplete) {
+      // eslint-disable-next-line no-console
+      console.log('Card incomplete');
       setCardError(errors.card);
       return;
     }
@@ -114,6 +116,9 @@ const PaymentStep = ({ data, onPrevious, onNext }) => {
 
       // An error occured during the Stripe payment confirmation
       if (result.error) {
+        // eslint-disable-next-line no-console
+        console.log(result);
+
         const errorType = result.error.type;
 
         // An error occured with the card
