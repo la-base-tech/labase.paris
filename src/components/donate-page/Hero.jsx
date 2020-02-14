@@ -164,7 +164,7 @@ export default function HeroWrapper(props) {
     <StaticQuery
       query={graphql`
         query {
-          page: yaml(fields: { name: { eq: "page-crowdfunding" } }) {
+          page: yaml(fields: { name: { eq: "page-donate" } }) {
             hero {
               image {
                 childImageSharp {

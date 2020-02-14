@@ -42,7 +42,7 @@ export default function CarouselWrapper(props) {
     <StaticQuery
       query={graphql`
         query {
-          page: yaml(fields: { name: { eq: "page-crowdfunding" } }) {
+          page: yaml(fields: { name: { eq: "page-donate" } }) {
             carousel {
               image {
                 childImageSharp {

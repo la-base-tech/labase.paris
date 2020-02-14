@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import GatsbyImage from 'gatsby-image';
-import Hero from '../components/crowdfunding-page/Hero';
-import Carousel from '../components/crowdfunding-page/Carousel';
-import SectionTitle from '../components/crowdfunding-page/SectionTitle';
-import SectionSubtitle from '../components/crowdfunding-page/SectionSubtitle';
+import Hero from '../components/donate-page/Hero';
+import Carousel from '../components/donate-page/Carousel';
+import SectionTitle from '../components/donate-page/SectionTitle';
+import SectionSubtitle from '../components/donate-page/SectionSubtitle';
 import Markdown from '../components/Markdown';
 import YoutubeEmbed from '../components/YoutubeEmbed';
 import Link from '../components/Link';
@@ -26,7 +26,7 @@ const ColumnsReverseMobileStyled = styled.div`
   }
 `;
 
-const CrowdfundingPage = ({ data }) => (
+const DonatePage = ({ data }) => (
   <>
     <Hero />
 
@@ -151,7 +151,7 @@ const CrowdfundingPage = ({ data }) => (
   </>
 );
 
-CrowdfundingPage.propTypes = {
+DonatePage.propTypes = {
   data: PropTypes.shape({
     page: PropTypes.shape({
       section1: PropTypes.shape({
@@ -224,11 +224,11 @@ CrowdfundingPage.propTypes = {
   }).isRequired,
 };
 
-export default CrowdfundingPage;
+export default DonatePage;
 
 export const pageQuery = graphql`
-  query CrowdfundingPageQuery {
-    page: yaml(fields: { name: { eq: "page-crowdfunding" } }) {
+  query DonatePageQuery {
+    page: yaml(fields: { name: { eq: "page-donate" } }) {
       metadata {
         title
         description
