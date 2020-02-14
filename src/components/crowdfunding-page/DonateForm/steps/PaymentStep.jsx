@@ -5,7 +5,7 @@ import { CardElement } from 'react-stripe-elements';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
 import { useStripe } from '../../../Stripe';
-import StatusContext from '../../Status/Context';
+import StatusContext from '../Status/Context';
 import { Context as PaymentIntentContext } from '../PaymentIntentManager';
 import StepContainer from './common/StepContainer';
 

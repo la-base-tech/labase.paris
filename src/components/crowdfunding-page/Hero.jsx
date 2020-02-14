@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { useInView } from 'react-intersection-observer';
 import BackgroundImage from '../BackgroundImage';
 import { Context as NavbarContext } from '../Navbar';
-import { Provider as StatusProvider } from './Status';
+import { Provider as StatusProvider } from './DonateForm/Status';
 import Markdown from '../Markdown';
 import DonateForm from './DonateForm';
 
