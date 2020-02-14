@@ -153,9 +153,6 @@ Hero.propTypes = {
   }).isRequired,
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
-  button: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-  }).isRequired,
   stats: PropTypes.shape({
     amount: PropTypes.number.isRequired,
     contributors: PropTypes.number.isRequired,
@@ -178,9 +175,6 @@ export default function HeroWrapper(props) {
               }
               title
               subtitle
-              button {
-                title
-              }
             }
           }
           stats: laBaseApiStatsCrowdfunding {

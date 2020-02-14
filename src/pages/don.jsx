@@ -13,28 +13,6 @@ import Link from '../components/Link';
 
 const SectionTextStyled = styled(Markdown)``;
 
-const Section4Text2Styled = styled(SectionTextStyled)`
-  font-size: 0.9rem;
-  h4 {
-    text-transform: uppercase;
-    letter-spacing: 0.05rem;
-    font-size: 0.7rem;
-    line-height: 1rem;
-
-    p + & {
-      margin-top: 1rem;
-    }
-  }
-
-  p + h4 {
-    margin-top: 1rem;
-  }
-
-  h4 + p {
-    margin-top: 0 !important;
-  }
-`;
-
 const ButtonStyled = styled(Link)`
   padding: 1rem 2rem !important;
   margin-top: 1rem;
@@ -58,6 +36,13 @@ const CrowdfundingPage = ({ data }) => (
         <div className="columns">
           <div className="column">
             <SectionTextStyled>{data.page.section1.text}</SectionTextStyled>
+            <ButtonStyled
+              href="#form"
+              className="button is-primary is-inverted"
+              targetMiddle
+            >
+              {data.page.section1.button.title}
+            </ButtonStyled>
           </div>
           <div className="column is-three-fifths">
             <YoutubeEmbed {...data.page.section2.video} id="video" />
@@ -95,23 +80,14 @@ const CrowdfundingPage = ({ data }) => (
           {data.page.section4.title}
         </SectionTitle>
         <SectionSubtitle>{data.page.section4.subtitle}</SectionSubtitle>
-        <div className="columns">
-          <div className="column is-two-thirds">
-            <SectionTextStyled>{data.page.section4.text}</SectionTextStyled>
-            <ButtonStyled
-              href="#form"
-              className="button is-primary is-inverted"
-              targetMiddle
-            >
-              {data.page.section4.button.title}
-            </ButtonStyled>
-          </div>
-          <div className="column is-hidden-mobile">
-            <Section4Text2Styled>
-              {data.page.section4.text2}
-            </Section4Text2Styled>
-          </div>
-        </div>
+        <SectionTextStyled>{data.page.section4.text}</SectionTextStyled>
+        <ButtonStyled
+          href="#form"
+          className="button is-primary is-inverted"
+          targetMiddle
+        >
+          {data.page.section4.button.title}
+        </ButtonStyled>
       </div>
     </section>
 
@@ -181,6 +157,9 @@ CrowdfundingPage.propTypes = {
       section1: PropTypes.shape({
         title: PropTypes.string.isRequired,
         text: PropTypes.string.isRequired,
+        button: PropTypes.shape({
+          title: PropTypes.string.isRequired,
+        }).isRequired,
       }).isRequired,
       section2: PropTypes.shape({
         video: PropTypes.shape({
@@ -207,7 +186,6 @@ CrowdfundingPage.propTypes = {
         title: PropTypes.string.isRequired,
         subtitle: PropTypes.string.isRequired,
         text: PropTypes.string.isRequired,
-        text2: PropTypes.string.isRequired,
         button: PropTypes.shape({
           title: PropTypes.string.isRequired,
         }).isRequired,
@@ -258,6 +236,9 @@ export const pageQuery = graphql`
       section1 {
         title
         text
+        button {
+          title
+        }
       }
       section2 {
         video {
@@ -286,7 +267,6 @@ export const pageQuery = graphql`
         title
         subtitle
         text
-        text2
         button {
           title
         }

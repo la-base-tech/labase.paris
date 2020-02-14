@@ -4,10 +4,10 @@ metadata:
 
 crowdfundingSection:
   title: Assure un avenir à la base
-  text: Soutiens le QG de la mobilisation citoyenne et participe au crowdfunding
+  text: Soutiens le QG de la mobilisation citoyenne et participe à son financement citoyen
   image: ./images/crowdfunding.png
   button: 
-    title: Je soutiens
+    title: Je donne
 
 headerSection:
   image: ./images/hero.jpg
