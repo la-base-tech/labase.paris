@@ -65,8 +65,34 @@ const DonatePage = ({ data }) => (
               {data.page.section3.button.title}
             </ButtonStyled>
           </div>
-          <div className="column">
+          <div
+            className="column is-flex is-hidden-mobile"
+            style={{ position: 'relative' }}
+          >
             <GatsbyImage
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                rigt: 0,
+                bottom: 0,
+                width: '100%',
+                height: '100%',
+              }}
+              objectFit="contain"
+              imgStyle={{
+                objectFit: 'contain',
+              }}
+              fluid={data.page.section3.image.childImageSharp.fluid}
+            />
+          </div>
+          <div className="column is-hidden-tablet">
+            <GatsbyImage
+              style={{ maxHeight: '80vh' }}
+              objectFit="contain"
+              imgStyle={{
+                objectFit: 'contain',
+              }}
               fluid={data.page.section3.image.childImageSharp.fluid}
             />
           </div>
