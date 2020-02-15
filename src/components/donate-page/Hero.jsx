@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { useInView } from 'react-intersection-observer';
 import BackgroundImage from '../BackgroundImage';
 import { Context as NavbarContext } from '../Navbar';
-import { Provider as StatusProvider } from './Status';
+import { Provider as StatusProvider } from './DonateForm/Status';
 import Markdown from '../Markdown';
 import DonateForm from './DonateForm';
 
@@ -153,9 +153,6 @@ Hero.propTypes = {
   }).isRequired,
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
-  button: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-  }).isRequired,
   stats: PropTypes.shape({
     amount: PropTypes.number.isRequired,
     contributors: PropTypes.number.isRequired,
@@ -167,7 +164,7 @@ export default function HeroWrapper(props) {
     <StaticQuery
       query={graphql`
         query {
-          page: yaml(fields: { name: { eq: "page-crowdfunding" } }) {
+          page: yaml(fields: { name: { eq: "page-donate" } }) {
             hero {
               image {
                 childImageSharp {
@@ -178,9 +175,6 @@ export default function HeroWrapper(props) {
               }
               title
               subtitle
-              button {
-                title
-              }
             }
           }
           stats: laBaseApiStatsCrowdfunding {

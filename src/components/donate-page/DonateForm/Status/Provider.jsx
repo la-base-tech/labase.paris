@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { differenceInCalendarDays } from 'date-fns';
 import Context from './Context';
-import api from '../../../api';
+import api from '../../../../api';
 
 const StatusProvider = ({
   children,

@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import styled from 'styled-components';
 import StatusContext from './Context';
 import StatusProvider from './Provider';
+import { getAmountFormatted } from '../utils';
 
 export { StatusContext as Context };
 export { StatusProvider as Provider };
@@ -87,8 +88,10 @@ const Status = () => {
       <WrapperStyled className="container">
         <div className="columns is-mobile is-marginless">
           <ColumnStyled className="column is-paddingless">
-            <ColumnTitleStyled>{amount}€</ColumnTitleStyled>
-            <ColumnSubtitleStyled>sur {objective}€</ColumnSubtitleStyled>
+            <ColumnTitleStyled>{getAmountFormatted(amount)}</ColumnTitleStyled>
+            <ColumnSubtitleStyled>
+              sur {getAmountFormatted(objective)}
+            </ColumnSubtitleStyled>
           </ColumnStyled>
           <ColumnStyled className="column is-paddingless">
             <ColumnTitleStyled>{dayLeftCount} jours</ColumnTitleStyled>

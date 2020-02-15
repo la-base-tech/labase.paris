@@ -6,20 +6,21 @@ hero:
   image: ./images/hero.jpg
   title: >-
     Soutiens&nbsp;le&nbsp;QG pour le&nbsp;climat et la&nbsp;justice&nbsp;sociale
-  subtitle: Après un an réussi, la base doit continuer à accélérer la mobilisation citoyenne.
+  subtitle: Après une première année réussie, la base doit continuer à accélérer la mobilisation citoyenne.
   button: 
     title: Je découvre
 
 section1:
   title: Le 15 mars 2020 marquera la fin du bail de la base
   text: >-
-    Après un an d’expérimentation, la base  a démontré qu’elle est **indispensable pour des dizaines d’associations militantes et des milliers de personnes**.
+    Après un an d’expérimentation, la base  a démontré qu’elle est **indispensable pour des dizaines d’associations et des milliers de personnes engagées**.
     
     
     Cette communauté se mobilise quotidiennement pour **relever le plus grand défi de l’histoire de l’humanité :** limiter le dérèglement climatique et développer un monde plus juste et plus soutenable.
-    
-    
-    Pour assurer un avenir à la base au-delà du 15 mars 2020, **participe au crowdfunding**.
+
+    Pour assurer un avenir à la base au-delà du 15 mars 2020, nous avons besoin de toutes et tous. **Participe au financement citoyen.**
+  button: 
+    title: Je participe
 
 section2: 
   video:
@@ -29,12 +30,12 @@ section2:
     title: Voir les objectifs du crowdfunding
 
 section3: 
-  title: 100 000 euros pour (sur)vivre et passer la 2nde
+  title: 100 000 euros pour (sur)vivre et passer la seconde
   text: >-
-    La base doit amplifier davantage la mobilisation citoyenne pour le climat et la justice sociale. Pour cela, nous avons besoin de 100 000 euros. Les premiers 50 000 euros permettent d’avoir un lieu mais pas de le faire vivre. Avec 75 000 euros, nous pouvons alors l’animer et le transformer (vive les travaux !). Avec 100 000 euros, la base peut consacrer des ressources pour passer la 2nde dans la diffusion de ses valeurs et de sa vision du monde.
+    La base doit amplifier davantage la mobilisation citoyenne pour le climat et la justice sociale. Pour cela, nous avons besoin de 100 000 euros. Les premiers **50 000 euros permettront d’avoir un lieu** mais pas de le faire vivre. **Avec 75 000 euros, nous pourrons l’animer et le transformer** (vive les travaux !). **Avec 100 000 euros, la base pourra consacrer des ressources pour passer la seconde dans la diffusion de ses valeurs et de sa vision du monde.**
     
     
-    Mobiliser, transformer, agir : ce sont les citoyennes et les citoyens qui font et qui financent en grande partie la base. Cette indépendance est le gage de notre liberté de parole et d’action, en toutes circonstances.
+    Mobiliser, transformer, agir : **ce sont les citoyennes et les citoyens qui font et qui financent la base.** Cette indépendance est le **gage de notre liberté de parole et d’action**, en toutes circonstances.
   image: ./images/paliers.png
   button:
     title: Je soutiens
@@ -43,17 +44,12 @@ section4:
   title: Boostons la mobilisation citoyenne grâce à la base
   subtitle: "En mars 2019, la base ouvrait pour un an d’expérimentation. Son objectif : accélérer la mobilisation citoyenne pour le climat et la justice sociale."
   text: >-
-    En ce début 2020, la France n’a toujours pas pris les engagements suffisants pour limiter le dérèglement climatique et réduire les injustices sociales. Mais, nous sommes de plus en plus nombreuses et nombreux à nous mobiliser et nous ne lâcherons rien ! La base se doit également de continuer et même de faire mieux : **faisons voir les alternatives** en proposant des ateliers de réparations, **formons d’autres publics** en organisant des événements dans d’autres lieux, **offrons notre soutien à davantages d’organisations** avec un espace plus grand et repensé... Tant de choses sont encore à construire, à amplifier, à co-créer. 
-  text2: >-
-    #### Et si demain à la base
-    
-    — vous pouviez apprendre à réparer votre électroménager,<br>
-    — vous pouviez acheter des fruits et légumes locaux et bio,<br>
-    — vous pouviez apprendre à coudre.
+    En ce début 2020, la France n’a toujours pas pris les engagements suffisants pour limiter le dérèglement climatique et réduire les injustices sociales. Mais, nous sommes de plus en plus nombreuses et nombreux à nous mobiliser et nous ne lâcherons rien ! La base se doit également de persévérer et même de faire mieux : **faisons voir les alternatives** en les présentant au quotidien, **touchons d’autres publics** en organisant des événements dans de nouveaux lieux, **offrons notre soutien à davantages d’organisations** avec un espace plus grand et repensé... Tant de choses sont encore à construire, à amplifier, à co-créer. 
+ 
 
     Ensemble, nous sommes une force immense ! Participe à l’accélération de la base.
   button: 
-    title: Je participe
+    title: Je m’implique
 
 carousel:
   - image: ./images/carousel/1.jpg
@@ -89,8 +85,8 @@ carousel:
   - image: ./images/carousel/11.jpg
     title: Corinne Morel-Darleux 
     subtitle: auteure et femme politique, lors d’une conférence à la base le 5 juin 2019
-  - image: ./images/carousel/11.jpg
-    title: Fatime Ouassak 
+  - image: ./images/carousel/12.jpg
+    title: Fatima Ouassak
     subtitle: membre de Front de Mères, lors d’une table-ronde le 21 janvier 2020
 
 section5:
@@ -104,10 +100,10 @@ section5:
 section6: 
   title: En 2019, de l’argent pour mobiliser, transformer et agir
   text1: >-
-    La base fonctionne à la fois grâce à son bar associatif, les loyers de ses résident·es ainsi que les dons des citoyennes et des citoyens. La communauté de la base et ses multiples espaces fonctionnent grâce une petite équipe de salarié·es et de nombreux bénévoles. Pour que le lieu vive, nous réalisons les travaux avec beaucoup de débrouille. En plus de cela, nous avons un loyer qui est une part importante de nos coûts. Tous ces éléments sont essentiels pour que nous continuons à organiser des événements qui touche toujours plus de monde et continuer à accélérer la mobilisation citoyenne pour le climat et la justice sociale !
+    La base fonctionne à la fois grâce à son **bar associatif, les loyers de ses résident·es ainsi que les dons des citoyennes et des citoyens**. La communauté de la base et ses multiples espaces fonctionnent grâce une petite équipe de salarié·es et de nombreux bénévoles. Pour que le lieu vive, nous réalisons nous-même l’ensemble des travaux d’aménagement avec beaucoup de débrouille. En plus de cela, nous avons **un loyer qui est une part importante de nos coûts**. Tous ces éléments sont essentiels pour que nous continuons à organiser des événements qui touchent toujours plus de monde, et pour continuer à accélérer la mobilisation citoyenne pour le climat et la justice sociale !
   image1: ./images/section6-1.jpg
   text2: >-
-    En 2019, nous n’avons reçu aucune subvention. Les dons des particuliers contribuent largement à notre financement. Cela nous permet  d’avoir une totale liberté de parole et d’action.
+    **En 2019, nous n’avons reçu aucune subvention. Ce sont les citoyennes et les citoyens qui font et qui financent en grande partie la base.** C’est grâce à cela que nous pouvons **avoir une totale liberté de parole et d’action**.
   image2: ./images/section6-2.jpg
   button:
     title: Je donne

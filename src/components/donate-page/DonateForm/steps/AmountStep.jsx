@@ -146,7 +146,7 @@ const AmountStep = ({ data, onNext }) => {
 
   return (
     <StepContainer
-      title="Crowdfunding"
+      title="Financement citoyen"
       buttonNext={{
         title: 'Continuer',
         onClick: onClickNext,
@@ -171,7 +171,7 @@ const AmountStep = ({ data, onNext }) => {
           ))}
         </ButtonsContainerStyled>
         <CustomAmountTitleStyled>
-          ou je choisis de donner
+          ou je choisis de donner ce que je veux
         </CustomAmountTitleStyled>
 
         <InputControlStyled className="control has-icons-right">

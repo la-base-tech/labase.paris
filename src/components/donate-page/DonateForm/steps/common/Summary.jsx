@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { getAmountFormatted } from '../../utils';
 
 const TextStyled = styled.div`
   transition: all 0.23s ease;
@@ -22,14 +23,6 @@ const TAX_EXEMPTION = 0.66;
 
 function getAmountWithTaxExemption(amount) {
   return amount * (1 - TAX_EXEMPTION);
-}
-
-export function getAmountFormatted(amount, withFractionDigits) {
-  return new Intl.NumberFormat('fr-FR', {
-    style: 'currency',
-    currency: 'EUR',
-    minimumFractionDigits: withFractionDigits ? 2 : 0,
-  }).format(amount);
 }
 
 const Summary = ({ amount }) => {

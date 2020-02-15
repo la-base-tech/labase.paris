@@ -3,37 +3,15 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import GatsbyImage from 'gatsby-image';
-import Hero from '../components/crowdfunding-page/Hero';
-import Carousel from '../components/crowdfunding-page/Carousel';
-import SectionTitle from '../components/crowdfunding-page/SectionTitle';
-import SectionSubtitle from '../components/crowdfunding-page/SectionSubtitle';
+import Hero from '../components/donate-page/Hero';
+import Carousel from '../components/donate-page/Carousel';
+import SectionTitle from '../components/donate-page/SectionTitle';
+import SectionSubtitle from '../components/donate-page/SectionSubtitle';
 import Markdown from '../components/Markdown';
 import YoutubeEmbed from '../components/YoutubeEmbed';
 import Link from '../components/Link';
 
 const SectionTextStyled = styled(Markdown)``;
-
-const Section4Text2Styled = styled(SectionTextStyled)`
-  font-size: 0.9rem;
-  h4 {
-    text-transform: uppercase;
-    letter-spacing: 0.05rem;
-    font-size: 0.7rem;
-    line-height: 1rem;
-
-    p + & {
-      margin-top: 1rem;
-    }
-  }
-
-  p + h4 {
-    margin-top: 1rem;
-  }
-
-  h4 + p {
-    margin-top: 0 !important;
-  }
-`;
 
 const ButtonStyled = styled(Link)`
   padding: 1rem 2rem !important;
@@ -48,7 +26,7 @@ const ColumnsReverseMobileStyled = styled.div`
   }
 `;
 
-const CrowdfundingPage = ({ data }) => (
+const DonatePage = ({ data }) => (
   <>
     <Hero />
 
@@ -58,6 +36,13 @@ const CrowdfundingPage = ({ data }) => (
         <div className="columns">
           <div className="column">
             <SectionTextStyled>{data.page.section1.text}</SectionTextStyled>
+            <ButtonStyled
+              href="#form"
+              className="button is-primary is-inverted"
+              targetMiddle
+            >
+              {data.page.section1.button.title}
+            </ButtonStyled>
           </div>
           <div className="column is-three-fifths">
             <YoutubeEmbed {...data.page.section2.video} id="video" />
@@ -80,8 +65,34 @@ const CrowdfundingPage = ({ data }) => (
               {data.page.section3.button.title}
             </ButtonStyled>
           </div>
-          <div className="column">
+          <div
+            className="column is-flex is-hidden-mobile"
+            style={{ position: 'relative' }}
+          >
             <GatsbyImage
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                rigt: 0,
+                bottom: 0,
+                width: '100%',
+                height: '100%',
+              }}
+              objectFit="contain"
+              imgStyle={{
+                objectFit: 'contain',
+              }}
+              fluid={data.page.section3.image.childImageSharp.fluid}
+            />
+          </div>
+          <div className="column is-hidden-tablet">
+            <GatsbyImage
+              style={{ maxHeight: '80vh' }}
+              objectFit="contain"
+              imgStyle={{
+                objectFit: 'contain',
+              }}
               fluid={data.page.section3.image.childImageSharp.fluid}
             />
           </div>
@@ -95,23 +106,14 @@ const CrowdfundingPage = ({ data }) => (
           {data.page.section4.title}
         </SectionTitle>
         <SectionSubtitle>{data.page.section4.subtitle}</SectionSubtitle>
-        <div className="columns">
-          <div className="column is-two-thirds">
-            <SectionTextStyled>{data.page.section4.text}</SectionTextStyled>
-            <ButtonStyled
-              href="#form"
-              className="button is-primary is-inverted"
-              targetMiddle
-            >
-              {data.page.section4.button.title}
-            </ButtonStyled>
-          </div>
-          <div className="column is-hidden-mobile">
-            <Section4Text2Styled>
-              {data.page.section4.text2}
-            </Section4Text2Styled>
-          </div>
-        </div>
+        <SectionTextStyled>{data.page.section4.text}</SectionTextStyled>
+        <ButtonStyled
+          href="#form"
+          className="button is-primary is-inverted"
+          targetMiddle
+        >
+          {data.page.section4.button.title}
+        </ButtonStyled>
       </div>
     </section>
 
@@ -175,12 +177,15 @@ const CrowdfundingPage = ({ data }) => (
   </>
 );
 
-CrowdfundingPage.propTypes = {
+DonatePage.propTypes = {
   data: PropTypes.shape({
     page: PropTypes.shape({
       section1: PropTypes.shape({
         title: PropTypes.string.isRequired,
         text: PropTypes.string.isRequired,
+        button: PropTypes.shape({
+          title: PropTypes.string.isRequired,
+        }).isRequired,
       }).isRequired,
       section2: PropTypes.shape({
         video: PropTypes.shape({
@@ -207,7 +212,6 @@ CrowdfundingPage.propTypes = {
         title: PropTypes.string.isRequired,
         subtitle: PropTypes.string.isRequired,
         text: PropTypes.string.isRequired,
-        text2: PropTypes.string.isRequired,
         button: PropTypes.shape({
           title: PropTypes.string.isRequired,
         }).isRequired,
@@ -246,11 +250,11 @@ CrowdfundingPage.propTypes = {
   }).isRequired,
 };
 
-export default CrowdfundingPage;
+export default DonatePage;
 
 export const pageQuery = graphql`
-  query CrowdfundingPageQuery {
-    page: yaml(fields: { name: { eq: "page-crowdfunding" } }) {
+  query DonatePageQuery {
+    page: yaml(fields: { name: { eq: "page-donate" } }) {
       metadata {
         title
         description
@@ -258,6 +262,9 @@ export const pageQuery = graphql`
       section1 {
         title
         text
+        button {
+          title
+        }
       }
       section2 {
         video {
@@ -286,7 +293,6 @@ export const pageQuery = graphql`
         title
         subtitle
         text
-        text2
         button {
           title
         }
