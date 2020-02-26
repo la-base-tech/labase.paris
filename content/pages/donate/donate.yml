@@ -2,6 +2,49 @@ metadata:
   title: Soutiens le QG pour le climat et la justice sociale
   description: Après un an réussi, la base doit continuer à accélérer la mobilisation citoyenne.
 
+crowdfunding: 
+  dateEnd: 29/03/2020 23:59
+  objective: 100000
+
+share: 
+  twitterProps:
+    via: labase_climat
+  whatsappProps: 
+    text: >-
+      Salut,
+
+      Tu connais déjà la base ? Tu sais, c’est ce lieu à Paris qui accélère la mobilisation pour le climat et la justice sociale. En an, ce lieu est devenu indispensable pour des dizaines d’organisations et des milliers de personnes engagées. Malheureusement, son bail se termine le 15 mars. Pour assurer son avenir et lui permettre d’accélérer encore davantage la mobilisation, la base vient de lancer un financement citoyen. 
+     
+      👉 Fais comme moi, soutiens ce lieu en participant à son financement et partage ce post
+      https://labase.paris/don
+  emailProps: 
+    subject: Soutiens avec moi la base, le QG de la mobilisation citoyenne
+    body: >-
+      Bonjour,
+
+
+      J’espère que tu vas bien. 
+
+
+      Il y a un lieu à Paris dont je souhaite te parler : la base. Ce lieu a ouvert en mars 2019 pour une année d’expérimentation. Son objectif est d’accélérer la mobilisation citoyenne pour le climat et la justice sociale. 
+
+
+      Cette première année d’expérimentation a permis de démontrer que la base est indispensable pour des dizaines d’associations militantes et des milliers de personnes engagées. Sa communauté (plus de 10 000 personnes) se mobilise quotidiennement pour relever le plus grand défi de l’histoire de l’humanité : limiter le dérèglement climatique et développer un monde plus juste et plus soutenable.
+
+
+      En 2019, la base a soutenu de nombreuses mobilisations comme :
+      - L’affaire du Siècle qui attaque l’Etat en justice pour inaction climatique
+      - La marche du siècle du 16 mars 2019 qui a réuni 107 000 personnes à Paris
+      - Bloquons la République des Pollueurs, action de désobéissance civile qui a bloquée 4 Tours La Défense (dont Total et la Société Générale) pour dévoiler les liens entre les entreprises privées et le gouvernement
+      - Le blocage des entrepôts d’Amazon afin de dénoncer la surconsommation
+      - SuperLocal qui recense plus de 200 projets inutiles ou injustes dans toute la France
+
+
+      Le bail de ce lieu se termine le 15 mars 2020 mais ce projet ne doit pas s’arrêter là. En effet, l’urgence climatique et les injustices sociales sont toujours présentes. Pour assurer un avenir à la base et lui permettre d’accélérer encore davantage la mobilisation citoyenne, je t’invite à participer au financement citoyen sur le site https://labase.paris et à relayer le message dans tous tes réseaux.
+
+
+      A bientôt,
+
 hero:
   image: ./images/hero.jpg
   title: >-

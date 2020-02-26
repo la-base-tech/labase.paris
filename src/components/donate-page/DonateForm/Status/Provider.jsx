@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { differenceInCalendarDays } from 'date-fns';
+import { differenceInCalendarDays, parse } from 'date-fns';
 import Context from './Context';
 import api from '../../../../api';
 
@@ -8,8 +8,9 @@ const StatusProvider = ({
   children,
   contributors: initialContributors,
   amount: initialAmount,
+  objective,
+  dateEnd,
 }) => {
-  const objective = 100000;
   const [contributors, setContributors] = useState(initialContributors);
   const [amount, setAmount] = useState(initialAmount);
 
@@ -29,9 +30,9 @@ const StatusProvider = ({
 
   const percentage = !amount ? 0 : Math.ceil((amount / objective) * 100);
 
-  const dateEnd = new Date(2020, 2, 22, 23, 59); // 22/03/2029 23:59
+  const dateEndObj = parse(dateEnd, 'dd/MM/yyyy HH:mm', new Date());
   const now = new Date();
-  const dayLeftCount = differenceInCalendarDays(dateEnd, now);
+  const dayLeftCount = differenceInCalendarDays(dateEndObj, now);
 
   const addAmount = anAmount => {
     setAmount(amount + anAmount);
@@ -64,6 +65,8 @@ StatusProvider.propTypes = {
   children: PropTypes.node.isRequired,
   amount: PropTypes.number.isRequired,
   contributors: PropTypes.number.isRequired,
+  dateEnd: PropTypes.string.isRequired,
+  objective: PropTypes.number.isRequired,
 };
 
 export default StatusProvider;

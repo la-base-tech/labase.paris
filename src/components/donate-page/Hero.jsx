@@ -106,7 +106,7 @@ const SubtitleStyled = styled.div`
   }
 `;
 
-const Hero = ({ image, title, subtitle, stats }) => {
+const Hero = ({ image, title, subtitle, stats, crowdfunding }) => {
   const { showButton, hideButton } = useContext(NavbarContext);
   const [ref, inView, entry] = useInView({
     threshold: 0.2,
@@ -119,7 +119,7 @@ const Hero = ({ image, title, subtitle, stats }) => {
   }
 
   return (
-    <StatusProvider {...stats}>
+    <StatusProvider {...stats} {...crowdfunding}>
       <ContainerStyled ref={ref}>
         <HeroStyled>
           <HeroBackgroundImageStyled image={image} loading="eager">
@@ -153,6 +153,10 @@ Hero.propTypes = {
   }).isRequired,
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
+  crowdfunding: PropTypes.shape({
+    dateEnd: PropTypes.string.isRequired,
+    objective: PropTypes.number.isRequired,
+  }).isRequired,
   stats: PropTypes.shape({
     amount: PropTypes.number.isRequired,
     contributors: PropTypes.number.isRequired,
@@ -165,6 +169,10 @@ export default function HeroWrapper(props) {
       query={graphql`
         query {
           page: yaml(fields: { name: { eq: "page-donate" } }) {
+            crowdfunding {
+              dateEnd
+              objective
+            }
             hero {
               image {
                 childImageSharp {
@@ -184,7 +192,12 @@ export default function HeroWrapper(props) {
         }
       `}
       render={data => (
-        <Hero {...data.page.hero} stats={data.stats} {...props} />
+        <Hero
+          {...data.page.hero}
+          crowdfunding={data.page.crowdfunding}
+          stats={data.stats}
+          {...props}
+        />
       )}
     />
   );
