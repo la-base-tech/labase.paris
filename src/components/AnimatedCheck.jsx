@@ -4,8 +4,8 @@ import styled from 'styled-components';
 
 // Extracted from https://codepen.io/haniotis/pen/KwvYLO
 const SvgStyled = styled.svg`
-  width: 56px;
-  height: 56px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
   display: block;
   stroke-width: 2;

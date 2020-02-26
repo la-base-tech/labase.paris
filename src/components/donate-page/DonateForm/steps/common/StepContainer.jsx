@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Summary from './Summary';
+import StepTitle from './StepTitle';
 
 const ContainerStyled = styled.div`
   padding: 1rem;
@@ -16,12 +17,6 @@ const ContentContainer = styled.div`
   > div {
     width: 100%;
   }
-`;
-
-const TitleStyled = styled.h3`
-  font-weight: 900;
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
 `;
 
 const ButtonsContainerStyled = styled.div`
@@ -59,7 +54,7 @@ const StepContainer = ({
   amount,
 }) => (
   <ContainerStyled>
-    {title && <TitleStyled>{title}</TitleStyled>}
+    {title && <StepTitle>{title}</StepTitle>}
 
     <ContentContainer>
       <div>{children}</div>
