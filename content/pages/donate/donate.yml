@@ -2,6 +2,10 @@ metadata:
   title: Soutiens le QG pour le climat et la justice sociale
   description: Après un an réussi, la base doit continuer à accélérer la mobilisation citoyenne.
 
+crowdfunding: 
+  dateEnd: 29/03/2020 23:59
+  objective: 100000
+
 hero:
   image: ./images/hero.jpg
   title: >-
