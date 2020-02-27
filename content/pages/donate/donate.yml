@@ -67,8 +67,8 @@ section1:
 
 section2: 
   video:
-    youtubeId: FSyTJuhtUsE
-    title: Crowdfunding de la base
+    youtubeId: TyJu7E2lTqQ
+    title: Assure un avenir à la base  
   button:
     title: Voir les objectifs du crowdfunding
 
@@ -137,6 +137,9 @@ section5:
   text: >-
     Ouverte depuis mars 2019, la base est un véritable soutien à la mobilisation citoyenne pour le climat et la justice sociale. **Lieu d’organisation** des marches climat, **espace événementiel** de formation et d'engagement, **bureaux** pour de nombreuses organisations engagées, lieu de **soutien aux activistes** en procès, salle de **briefing** pour des actions de désobéissance civile non-violentes, **seconde maison pour les militants·es**, adresse que l’on partage pour faire **la fête**... La base a de nombreuses portes d’entrée mais un seul véritable objectif : **accélérer la mobilisation citoyenne.**
   image: ./images/section5.jpg
+  video:
+    youtubeId: FSyTJuhtUsE
+    title: 2019, année de mobilisation à la base
   button: 
     title: J’accélère
 
