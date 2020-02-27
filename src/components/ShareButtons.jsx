@@ -50,6 +50,7 @@ const ShareButtons = ({
   url,
   twitterProps,
   whatsappProps,
+  telegramProps,
   emailProps,
   ...rest
 }) => {
@@ -87,6 +88,7 @@ const ShareButtons = ({
       icon: faTelegram,
       props: {
         url,
+        ...telegramProps,
       },
     },
     {
@@ -119,9 +121,15 @@ ShareButtons.propTypes = {
   url: PropTypes.string.isRequired,
   twitterProps: PropTypes.shape({
     via: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    hashtags: PropTypes.arrayOf(PropTypes.string).isRequired,
   }).isRequired,
   whatsappProps: PropTypes.shape({
-    text: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    separator: PropTypes.string.isRequired,
+  }).isRequired,
+  telegramProps: PropTypes.shape({
+    title: PropTypes.string.isRequired,
   }).isRequired,
   emailProps: PropTypes.shape({
     subject: PropTypes.string.isRequired,
