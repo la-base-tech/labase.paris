@@ -44,17 +44,18 @@ const Footer = ({ press, links, addressTitle, address, socialNetworks }) => (
 
       <div className="columns">
         <div className="column">
-          <ColumnTitleStyled>{press.title}</ColumnTitleStyled>
-          <div>{press.email}</div>
           <ul>
             {links.map((link, index) => (
               <li key={index}>
-                <LinkStyled href={link.url} download={link.download}>
-                  {link.title}
-                </LinkStyled>
+                <LinkStyled href={link.url}>{link.title}</LinkStyled>
               </li>
             ))}
           </ul>
+          <ColumnTitleStyled>{press.title}</ColumnTitleStyled>
+          <div>{press.email}</div>
+          <LinkStyled href={press.file.url} download>
+            {press.file.title}
+          </LinkStyled>
         </div>
         <div className="column">
           <ColumnTitleStyled>{addressTitle}</ColumnTitleStyled>
@@ -73,11 +74,14 @@ Footer.propTypes = {
   press: PropTypes.shape({
     title: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
+    file: PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
+    }).isRequired,
   }).isRequired,
   links: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
-      downloadable: PropTypes.bool,
       url: PropTypes.string.isRequired,
     })
   ).isRequired,
@@ -104,10 +108,13 @@ export default function FooterWrapper() {
             press {
               title
               email
+              file {
+                url
+                title
+              }
             }
             links {
               title
-              download
               url
             }
             addressTitle
