@@ -134,9 +134,7 @@ const DonatePage = ({ data }) => (
             </ButtonStyled>
           </div>
           <div className="column">
-            <GatsbyImage
-              fluid={data.page.section5.image.childImageSharp.fluid}
-            />
+            <YoutubeEmbed {...data.page.section5.video} id="video-2" />
           </div>
         </ColumnsReverseMobileStyled>
       </div>
@@ -219,10 +217,9 @@ DonatePage.propTypes = {
       section5: PropTypes.shape({
         title: PropTypes.string.isRequired,
         text: PropTypes.string.isRequired,
-        image: PropTypes.shape({
-          childImageSharp: PropTypes.shape({
-            fluid: PropTypes.shape({}).isRequired,
-          }).isRequired,
+        video: PropTypes.shape({
+          youtubeId: PropTypes.string.isRequired,
+          title: PropTypes.string.isRequired,
         }).isRequired,
         button: PropTypes.shape({
           title: PropTypes.string.isRequired,
@@ -300,12 +297,9 @@ export const pageQuery = graphql`
       section5 {
         title
         text
-        image {
-          childImageSharp {
-            fluid(maxWidth: 570) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
+        video {
+          youtubeId
+          title
         }
         button {
           title

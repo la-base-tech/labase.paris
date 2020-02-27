@@ -76,13 +76,19 @@ export default function SuccessStepWrapper(props) {
             share {
               twitterProps {
                 via
+                title
+                hashtags
               }
               whatsappProps {
-                text
+                title
+                separator
               }
               emailProps {
                 subject
                 body
+              }
+              telegramProps {
+                title
               }
             }
           }

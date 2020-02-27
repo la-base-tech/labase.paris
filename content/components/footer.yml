@@ -1,10 +1,18 @@
-press: 
-  title: Contact presse
-  email: contact@labase.paris
 links:
-  - title: Dossier de presse
-    download: true
+  - title: Page d'accueil
+    url: /
+  - title: Financement citoyen
+    url: /don/
+  - title: Crédits photos
+    url: /credits-photos/        
+
+press: 
+  title: Presse
+  email: contact@labase.paris
+  file:
+    title: Dossier de presse
     url: /files/dossier-presse.pdf
+
 addressTitle: Adresse
 address: 31 rue Bichat 75010 Paris   
 socialNetworks:

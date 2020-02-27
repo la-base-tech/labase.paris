@@ -9,14 +9,25 @@ crowdfunding:
 share: 
   twitterProps:
     via: labase_climat
+    title: >-
+      Stop ou encore ?
+
+      Soutien dorénavant indispensable à la mobilisation citoyenne, la base se doit de continuer et même de faire mieux !
+      
+      👉Participe au financement citoyen de la base 
+    hashtags:
+      - climat
+      - justicesociale
+      - passonsalaction
+      - engagement
   whatsappProps: 
-    text: >-
+    title: >-
       Salut,
 
-      Tu connais déjà la base ? Tu sais, c’est ce lieu à Paris qui accélère la mobilisation pour le climat et la justice sociale. En an, ce lieu est devenu indispensable pour des dizaines d’organisations et des milliers de personnes engagées. Malheureusement, son bail se termine le 15 mars. Pour assurer son avenir et lui permettre d’accélérer encore davantage la mobilisation, la base vient de lancer un financement citoyen. 
-     
-      👉 Fais comme moi, soutiens ce lieu en participant à son financement et partage ce post
-      https://labase.paris/don
+      Tu connais déjà la base ? Tu sais, c’est ce lieu à Paris qui accélère la mobilisation pour le climat et la justice sociale. En an, ce lieu est devenu indispensable pour des dizaines d’organisations et des milliers de personnes engagées. Malheureusement, son bail se termine le 15 mars. Pour assurer son avenir et lui permettre d’accélérer encore davantage la mobilisation, la base a lancé un financement citoyen. 
+      
+      👉 Fais comme moi, soutiens ce lieu en participant à son financement et partage l’info. 
+    separator: " "
   emailProps: 
     subject: Soutiens avec moi la base, le QG de la mobilisation citoyenne
     body: >-
@@ -44,7 +55,14 @@ share:
 
 
       A bientôt,
+  telegramProps: 
+    title: >-
+      Salut,
 
+      Tu connais déjà la base ? Tu sais, c’est ce lieu à Paris qui accélère la mobilisation pour le climat et la justice sociale. En an, ce lieu est devenu indispensable pour des dizaines d’organisations et des milliers de personnes engagées. Malheureusement, son bail se termine le 15 mars. Pour assurer son avenir et lui permettre d’accélérer encore davantage la mobilisation, la base a lancé un financement citoyen. 
+      
+      👉 Fais comme moi, soutiens ce lieu en participant à son financement et partage l’info.
+      
 hero:
   image: ./images/hero.jpg
   title: >-
@@ -67,8 +85,8 @@ section1:
 
 section2: 
   video:
-    youtubeId: FSyTJuhtUsE
-    title: Crowdfunding de la base
+    youtubeId: TyJu7E2lTqQ
+    title: Assure un avenir à la base  
   button:
     title: Voir les objectifs du crowdfunding
 
@@ -137,6 +155,9 @@ section5:
   text: >-
     Ouverte depuis mars 2019, la base est un véritable soutien à la mobilisation citoyenne pour le climat et la justice sociale. **Lieu d’organisation** des marches climat, **espace événementiel** de formation et d'engagement, **bureaux** pour de nombreuses organisations engagées, lieu de **soutien aux activistes** en procès, salle de **briefing** pour des actions de désobéissance civile non-violentes, **seconde maison pour les militants·es**, adresse que l’on partage pour faire **la fête**... La base a de nombreuses portes d’entrée mais un seul véritable objectif : **accélérer la mobilisation citoyenne.**
   image: ./images/section5.jpg
+  video:
+    youtubeId: FSyTJuhtUsE
+    title: 2019, année de mobilisation à la base
   button: 
     title: J’accélère
 
