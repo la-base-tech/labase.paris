@@ -17,10 +17,10 @@ const StatusProvider = ({
   const updateStats = async () => {
     const data = await api('stats/crowdfunding');
     if (data.contributors) {
-      setContributors(data.contributors);
+      setContributors(Number.parseInt(data.contributors, 10));
     }
     if (data.amount) {
-      setAmount(data.amount);
+      setAmount(Number.parseInt(data.amount, 10));
     }
   };
 
@@ -35,7 +35,7 @@ const StatusProvider = ({
   const dayLeftCount = differenceInCalendarDays(dateEndObj, now);
 
   const addAmount = anAmount => {
-    setAmount(amount + anAmount);
+    setAmount(amount + Number.parseInt(anAmount, 10));
   };
 
   const addContributor = () => {
