@@ -106,14 +106,41 @@ const DonatePage = ({ data }) => (
           {data.page.section4.title}
         </SectionTitle>
         <SectionSubtitle>{data.page.section4.subtitle}</SectionSubtitle>
-        <SectionTextStyled>{data.page.section4.text}</SectionTextStyled>
-        <ButtonStyled
-          href="#form"
-          className="button is-primary is-inverted"
-          targetMiddle
-        >
-          {data.page.section4.button.title}
-        </ButtonStyled>
+        <div className="columns">
+          <div className="column">
+            <SectionTextStyled>{data.page.section4.text}</SectionTextStyled>
+            <ButtonStyled
+              href="#form"
+              className="button is-primary is-inverted"
+              targetMiddle
+            >
+              {data.page.section4.button.title}
+            </ButtonStyled>
+          </div>
+          <div
+            className="column is-flex is-hidden-mobile"
+            style={{ position: 'relative' }}
+          >
+            <GatsbyImage
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                rigt: 0,
+                bottom: 0,
+                width: '100%',
+                height: '100%',
+              }}
+              objectFit="cover"
+              objectPosition="50% 50%"
+              imgStyle={{
+                objectFit: 'cover',
+                objectPosition: '100% 100%',
+              }}
+              fluid={data.page.section4.image.childImageSharp.fluid}
+            />
+          </div>
+        </div>
       </div>
     </section>
 
@@ -213,6 +240,11 @@ DonatePage.propTypes = {
         button: PropTypes.shape({
           title: PropTypes.string.isRequired,
         }).isRequired,
+        image: PropTypes.shape({
+          childImageSharp: PropTypes.shape({
+            fluid: PropTypes.shape({}).isRequired,
+          }).isRequired,
+        }).isRequired,
       }).isRequired,
       section5: PropTypes.shape({
         title: PropTypes.string.isRequired,
@@ -292,6 +324,13 @@ export const pageQuery = graphql`
         text
         button {
           title
+        }
+        image {
+          childImageSharp {
+            fluid(maxWidth: 480) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
         }
       }
       section5 {

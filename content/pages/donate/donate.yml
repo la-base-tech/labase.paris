@@ -112,6 +112,7 @@ section4:
     Ensemble, nous sommes une force immense ! Participe à l’accélération de la base.
   button: 
     title: Je m’implique
+  image: ./images/section4.jpg
 
 carousel:
   - image: ./images/carousel/1.jpg
