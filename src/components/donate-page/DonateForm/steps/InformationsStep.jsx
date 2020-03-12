@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import styled, { ThemeContext } from 'styled-components';
 import { lighten } from 'polished';
@@ -21,21 +21,27 @@ const SectionTitleStyled = styled.h4`
   font-weight: 800;
   font-size: 1rem;
   line-height: 1rem;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
+
+  @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
+    margin-bottom: 0 !important;
+  }
 `;
 
 const CardSectionTitleStyled = styled(SectionTitleStyled)`
   margin-top: 0.75rem;
 `;
 
-const TextStyled = styled.p`
+const TextSecurityStyled = styled.p`
   font-size: 0.8rem;
   line-height: 0.8rem;
-  margin-bottom: 0.25rem;
+  margin-top: 0.25rem;
 `;
 
 const NameColumnsStyled = styled.div`
   margin-bottom: 0 !important;
+  margin-top: 0 !important;
+
   @media (max-width: ${({ theme }) => theme.breakpointTabletBefore}) {
     margin: 0 !important;
   }
@@ -67,7 +73,6 @@ const LabelStyled = styled.label`
 `;
 
 const CardElementContainerStyled = styled.div`
-  margin-top: 0.25rem;
   @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
     margin-top: 0.75rem;
   }
@@ -149,6 +154,21 @@ const InformationsStep = ({ data, onPrevious, onNext }) => {
       });
     }
   });
+
+  // Implement auto focus on the first input
+  const firstnameInputRef = useRef();
+  useEffect(() => {
+    // Do not focus if not empty
+    if (data.firstname) {
+      return;
+    }
+    // Only on mobile
+    if (typeof window !== 'undefined' && window.innerWidth >= 768) {
+      firstnameInputRef.current.focus({
+        preventScroll: true, // Let the step manager handle the scroll
+      });
+    }
+  }, []);
 
   const getFormUnknownError = code => {
     return templateReplace(stripeErrors.unknown, { errorCode: code });
@@ -270,10 +290,7 @@ const InformationsStep = ({ data, onPrevious, onNext }) => {
     }
   };
 
-  const onStripeCardReady = () => {
-    const cardElement = elements.getElement('card');
-    cardElement.focus();
-  };
+  const onStripeCardReady = () => {};
 
   const onStripeCardChange = event => {
     setCardComplete(event.complete);
@@ -314,11 +331,14 @@ const InformationsStep = ({ data, onPrevious, onNext }) => {
                 type="text"
                 name="firstname"
                 placeholder="Mon prénom"
-                ref={register({
-                  required: true,
-                  minLength: 2,
-                  maxLength: 50,
-                })}
+                ref={e => {
+                  register(e, {
+                    required: true,
+                    minLength: 2,
+                    maxLength: 50,
+                  });
+                  firstnameInputRef.current = e;
+                }}
                 onEnterKeyDown={requestPayment}
               />
             </InputControlStyled>
@@ -361,10 +381,10 @@ const InformationsStep = ({ data, onPrevious, onNext }) => {
           </LabelStyled>
         </CheckboxControlStyled>
         <CardSectionTitleStyled>Ma carte bancaire</CardSectionTitleStyled>
-        <TextStyled className="is-hidden-mobile">
+        <TextSecurityStyled className="is-hidden-mobile">
           Le paiement et vos informations sont sécurisés par Stripe{' '}
           <LockIconStyled icon={faLock} />
-        </TextStyled>
+        </TextSecurityStyled>
         <CardElementContainerStyled>
           <CardElementStyled
             style={{
