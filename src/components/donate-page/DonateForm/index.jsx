@@ -13,11 +13,15 @@ const ContainerStyled = styled.div`
   overflow: hidden;
 `;
 
+const stripeFonts = [
+  { cssSrc: 'https://fonts.googleapis.com/css?family=Montserrat:300' },
+];
+
 const DonateForm = () => (
   <ContainerStyled id="form">
     <Status />
     <PaymentIntentManager>
-      <Elements locale="fr">
+      <Elements locale="fr" fonts={stripeFonts}>
         <StepsContainer />
       </Elements>
     </PaymentIntentManager>

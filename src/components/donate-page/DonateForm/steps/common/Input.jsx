@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { lighten } from 'polished';
 
 const InputStyled = styled.input`
   transition: all 0.2s ease;
@@ -8,7 +9,11 @@ const InputStyled = styled.input`
   border: none;
   border-bottom: 1px solid ${({ theme }) => theme.black};
   border-left: 0 solid #db4a39;
-  background: transparent;
+  background: ${({ theme }) => lighten(0.3, theme.yellow)};
+
+  &::placeholder {
+    color: #7e7100;
+  }
 
   &:focus,
   &:hover {

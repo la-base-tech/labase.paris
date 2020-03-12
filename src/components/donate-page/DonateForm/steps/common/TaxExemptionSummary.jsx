@@ -5,12 +5,10 @@ import { getAmountFormatted } from '../../utils';
 
 const TextStyled = styled.div`
   transition: all 0.23s ease;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   margin-top: 1rem;
-  height: 2rem;
-  b {
-    font-size: 0.9rem;
-  }
+  text-align: right;
+  line-height: 0.9rem;
 
   &.is-invisible {
     opacity: 0;
@@ -25,24 +23,23 @@ function getAmountWithTaxExemption(amount) {
   return amount * (1 - TAX_EXEMPTION);
 }
 
-const Summary = ({ amount }) => {
+const TaxExemptionSummary = ({ amount }) => {
   const amountFixed = amount || 0;
   const amountWithTaxExemption = getAmountWithTaxExemption(amountFixed);
   return (
     <TextStyled className={`${!amountFixed ? 'is-invisible' : ''}`}>
-      Je fais un <b>don de {getAmountFormatted(amountFixed, false)}</b>,<br />
-      <b>soit {getAmountFormatted(amountWithTaxExemption, true)}</b> après
+      *soit environ {getAmountFormatted(amountWithTaxExemption, true)} après
       déduction fiscale.
     </TextStyled>
   );
 };
 
-Summary.propTypes = {
+TaxExemptionSummary.propTypes = {
   amount: PropTypes.number,
 };
 
-Summary.defaultProps = {
+TaxExemptionSummary.defaultProps = {
   amount: null,
 };
 
-export default Summary;
+export default TaxExemptionSummary;

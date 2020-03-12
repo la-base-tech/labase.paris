@@ -2,15 +2,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Summary from './Summary';
+import TaxExemptionSummary from './TaxExemptionSummary';
 import StepTitle from './StepTitle';
+import { getAmountFormatted } from '../../utils';
 
 const ContainerStyled = styled.div`
   padding: 1rem;
 `;
 
 const ContentContainer = styled.div`
-  height: 240px;
+  min-height: 240px;
   display: flex;
   align-items: center;
 
@@ -20,14 +21,14 @@ const ContentContainer = styled.div`
 `;
 
 const ButtonsContainerStyled = styled.div`
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 `;
 
 const MainButtonStyled = styled.button`
   font-weight: bold;
   font-size: 0.9rem;
-  padding-left: 1.5em;
-  padding-right: 1.5em;
+  padding-left: 1em;
+  padding-right: 1em;
 
   @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
     padding-left: 2em;
@@ -41,9 +42,10 @@ const MainButtonStyled = styled.button`
 `;
 
 const SecondaryButtonStyled = styled.button`
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: bold;
-  border: 1px solid ${({ theme }) => theme.black} !important;
+  padding-left: 0;
+  padding-right: 0;
 `;
 
 const StepContainer = ({
@@ -59,8 +61,6 @@ const StepContainer = ({
     <ContentContainer>
       <div>{children}</div>
     </ContentContainer>
-
-    <Summary amount={amount} />
 
     {(buttonPrevious || buttonNext) && (
       <ButtonsContainerStyled>
@@ -89,13 +89,15 @@ const StepContainer = ({
                 onClick={buttonNext.onClick}
                 type={buttonNext.isSubmit ? 'submit' : 'button'}
               >
-                {buttonNext.title}
+                Je donne {amount && <>{getAmountFormatted(amount)} *</>}
               </MainButtonStyled>
             )}
           </div>
         </div>
       </ButtonsContainerStyled>
     )}
+
+    <TaxExemptionSummary amount={amount} />
   </ContainerStyled>
 );
 

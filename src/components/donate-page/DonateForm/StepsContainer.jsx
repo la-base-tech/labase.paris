@@ -1,12 +1,7 @@
 import React, { useState, useContext } from 'react';
 // import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import {
-  AmountStep,
-  InformationsStep,
-  PaymentStep,
-  SuccessStep,
-} from './steps';
+import { AmountStep, InformationsStep, SuccessStep } from './steps';
 import StepTransition from './StepTransition';
 import { Context as PaymentIntentContext } from './PaymentIntentManager';
 
@@ -38,10 +33,6 @@ const StepsContainer = () => {
     },
     {
       component: InformationsStep,
-      props: {},
-    },
-    {
-      component: PaymentStep,
       props: {},
     },
     {
