@@ -72,19 +72,33 @@ const LabelStyled = styled.label`
   font-size: 0.8rem;
 `;
 
-const CardElementContainerStyled = styled.div`
+const CardElementStyled = styled(CardElement)`
   @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
     margin-top: 0.75rem;
   }
-  border-bottom: 1px solid ${({ theme }) => theme.black};
+
+  background: ${({ theme }) => lighten(0.3, theme.yellow)};
   padding-bottom: calc(0.5em - 1px);
   padding-left: calc(0.75em - 1px);
   padding-right: calc(0.75em - 1px);
   padding-top: calc(0.5em - 1px);
-  background: ${({ theme }) => lighten(0.3, theme.yellow)};
-`;
+  border-bottom: 1px solid ${({ theme }) => theme.black};
 
-const CardElementStyled = styled(CardElement)``;
+  &:hover,
+  &.StripeElement--focus {
+    transition: all 230ms ease;
+  }
+
+  &.StripeElement--focus {
+    background-color: ${({ theme }) => lighten(0.45, theme.yellow)};
+    border-bottom-color: ${({ theme }) => lighten(0.2, theme.black)};
+  }
+
+  &:hover {
+    background-color: ${({ theme }) => lighten(0.4, theme.yellow)};
+    border-bottom-color: ${({ theme }) => lighten(0.1, theme.black)};
+  }
+`;
 
 const CardErrorStyled = styled.div`
   color: ${({ theme }) => theme.red};
@@ -385,29 +399,27 @@ const InformationsStep = ({ data, onPrevious, onNext }) => {
           Le paiement et vos informations sont sécurisés par Stripe{' '}
           <LockIconStyled icon={faLock} />
         </TextSecurityStyled>
-        <CardElementContainerStyled>
-          <CardElementStyled
-            style={{
-              base: {
-                iconColor: theme.black,
-                fontFamily: '"Montserrat", sans-serif',
-                fontSize: '16px',
-                fontSmoothing: 'antialiased',
-                '::placeholder': {
-                  color: '#7e7100',
-                  fontWeight: '300',
-                },
+        <CardElementStyled
+          style={{
+            base: {
+              iconColor: theme.black,
+              fontFamily: '"Montserrat", sans-serif',
+              fontSize: '16px',
+              fontSmoothing: 'antialiased',
+              '::placeholder': {
+                color: '#7e7100',
+                fontWeight: '300',
               },
-              invalid: {
-                color: theme.red,
-                iconColor: theme.red,
-              },
-            }}
-            onChange={onStripeCardChange}
-            onReady={onStripeCardReady}
-            hidePostalCode
-          />
-        </CardElementContainerStyled>
+            },
+            invalid: {
+              color: theme.red,
+              iconColor: theme.red,
+            },
+          }}
+          onChange={onStripeCardChange}
+          onReady={onStripeCardReady}
+          hidePostalCode
+        />
         <CardErrorStyled>{cardError}</CardErrorStyled>
         {formError && <FormErrorStyled>{formError}</FormErrorStyled>}
       </FormStyled>
