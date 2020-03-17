@@ -3,91 +3,115 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { lighten } from 'polished';
 import { useForm } from 'react-hook-form';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 import StepContainer from './common/StepContainer';
 import Input from './common/Input';
+import TaxExemptionSummary from './common/TaxExemptionSummary';
 
 const FormStyled = styled.form``;
 
-const FixedAmountTitleStyled = styled.div`
-  font-size: 0.9rem;
+const TitleStyled = styled.div`
+  font-weight: 900;
+  font-size: 2rem;
   margin-bottom: 1rem;
+  text-align: center;
 `;
 
-const ButtonsContainerStyled = styled.div`
-  margin-bottom: 3rem;
-`;
-
-const AmountColumnStyled = styled.div`
-  padding-top: var(--columnGap);
-  padding-bottom: var(--columnGap);
-`;
-
-const AmountButtonStyled = styled.button`
+const ButtonStyled = styled.button`
   background: transparent;
   color: ${({ theme }) => theme.black};
   text-align: center;
   font-size: 0.8rem;
   font-weight: bold;
   border: 1px solid ${({ theme }) => theme.black};
-  width: 100%;
+  height: 60px;
+  width: 60px;
   padding: 0.6rem 0.4rem;
-
-  @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
-    padding: 1rem 0.75rem;
-  }
-
-  &:hover:not(.is-active) {
-    cursor: pointer;
-    transition: all 0.2s ease;
-    background: ${({ theme }) => lighten(0.2, theme.yellow)};
-  }
-
-  &.is-active {
-    background: ${({ theme }) => theme.black};
-    color: ${({ theme }) => theme.yellow};
-  }
 
   &:focus {
     outline: 0;
   }
+
+  &:hover {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: ${({ theme }) => lighten(0.2, theme.yellow)};
+  }
 `;
 
-const CustomAmountTitleStyled = styled.div`
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-`;
+const ReduceButtonStyled = styled(ButtonStyled)``;
+
+const IncreaseButtonStyled = styled(ButtonStyled)``;
 
 const InputControlStyled = styled.div`
-  width: 100%;
-  max-width: 200px;
-  input {
-    font-weight: bold;
+  width: 140px;
+`;
+
+const InputStyled = styled(Input)`
+  text-align: right;
+  font-weight: bold;
+  font-size: 1.5rem;
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
+  -moz-appearance: textfield;
 `;
 
 const InputEuroStyled = styled.span`
   color: ${({ theme }) => theme.black} !important;
   font-weight: bold;
+  font-size: 1.5rem;
 `;
 
+const TaxExemptionSummaryStyled = styled(TaxExemptionSummary)`
+  font-size: 1rem;
+  text-align: center;
+  width: 180px;
+  margin: auto;
+
+  span {
+    font-weight: bold;
+  }
+`;
+
+const ButtonContainerStyled = styled.div`
+  text-align: center;
+  margin-top: 2rem;
+`;
+
+const ButtonContinueStyled = styled.button`
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding-left: 1em;
+  padding-right: 1em;
+
+  @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
+    padding-left: 2em;
+    padding-right: 2em;
+  }
+`;
+
+const INITIAL_AMOUNT = 30;
+const STEP = 10;
+
 const AmountStep = ({ data, onNext }) => {
-  const fixedAmounts = [5, 10, 15, 25, 50, 100];
+  const initialAmount = data.amount || INITIAL_AMOUNT;
+  const [amount, setAmount] = useState(initialAmount);
 
-  const initialFixedAmount = fixedAmounts.includes(data.amount)
-    ? data.amount
-    : null;
-  const initialCustomAmount = (!initialFixedAmount && data.amount) || null;
-
-  const [fixedAmount, setFixedAmount] = useState(initialFixedAmount);
-  const [amount, setAmount] = useState(
-    initialFixedAmount || initialCustomAmount
-  );
-
-  const { register, handleSubmit, errors, triggerValidation } = useForm({
+  const {
+    register,
+    handleSubmit,
+    errors,
+    triggerValidation,
+    setValue,
+  } = useForm({
     mode: 'onChange',
     reValidateMode: 'onChange',
     defaultValues: {
-      customAmount: initialCustomAmount,
+      amount: initialAmount,
     },
   });
 
@@ -98,13 +122,11 @@ const AmountStep = ({ data, onNext }) => {
   };
 
   const callOnNext = async () => {
-    // No fixed amount, check if the form is valid
-    if (!fixedAmount) {
-      const isValid = await triggerValidation();
-      if (!isValid) {
-        return;
-      }
+    const isValid = await triggerValidation();
+    if (!isValid) {
+      return;
     }
+
     const newData = getData();
     onNext(newData);
 
@@ -118,26 +140,25 @@ const AmountStep = ({ data, onNext }) => {
     }
   };
 
+  const onReduceButtonClick = () => {
+    const newAmount = Math.max((amount || 0) - STEP, 0);
+    setAmount(newAmount);
+    setValue('amount', newAmount);
+  };
+
+  const onIncreaseButtonClick = () => {
+    const newAmount = Math.min((amount || 0) + STEP, 9999);
+    setAmount(newAmount);
+    setValue('amount', newAmount);
+  };
+
   const onClickNext = () => {
     callOnNext();
   };
 
-  const onClickFixedAmount = value => {
-    setFixedAmount(value);
-    setAmount(value);
-  };
-
-  const onCustomAmountFocus = () => {
-    // Reset fixed amount
-    if (fixedAmount) {
-      setFixedAmount(null);
-      setAmount(null);
-    }
-  };
-
-  const onCustomAmountChange = e => {
+  const onAmountChange = e => {
     const { value } = e.currentTarget;
-    setAmount(value || null);
+    setAmount(Number.parseInt(value, 10) || null);
   };
 
   const submitForm = async () => {
@@ -145,66 +166,61 @@ const AmountStep = ({ data, onNext }) => {
   };
 
   return (
-    <StepContainer
-      title="Financement citoyen"
-      buttonNext={{
-        title: 'Continuer',
-        onClick: onClickNext,
-      }}
-      amount={amount}
-    >
+    <StepContainer amount={amount}>
       <FormStyled onSubmit={handleSubmit(submitForm)}>
-        <FixedAmountTitleStyled>
-          Je participe à hauteur de
-        </FixedAmountTitleStyled>
-        <ButtonsContainerStyled className="columns is-mobile is-multiline is-variable is-1">
-          {fixedAmounts.map(anAmount => (
-            <AmountColumnStyled className="column is-one-third" key={anAmount}>
-              <AmountButtonStyled
-                type="button"
-                className={`${fixedAmount === anAmount ? 'is-active' : ''}`}
-                onClick={() => onClickFixedAmount(anAmount)}
-              >
-                {anAmount}€
-              </AmountButtonStyled>
-            </AmountColumnStyled>
-          ))}
-        </ButtonsContainerStyled>
-        <CustomAmountTitleStyled>
-          ou je choisis de donner ce que je veux
-        </CustomAmountTitleStyled>
+        <TitleStyled>Je fais un don de</TitleStyled>
+        <div className="columns is-mobile is-marginless is-centered">
+          <div className="column is-narrow">
+            <ReduceButtonStyled type="button" onClick={onReduceButtonClick}>
+              <FontAwesomeIcon icon={faMinus} />
+            </ReduceButtonStyled>
+          </div>
+          <div className="column is-narrow">
+            <InputControlStyled className="control has-icons-right">
+              <InputStyled
+                className={`input ${errors.amount ? 'has-error' : ''}`}
+                type="number"
+                name="amount"
+                placeholder="--"
+                ref={register({
+                  validate: value => {
+                    const reg = /^[0-9]+$/;
+                    if (!reg.test(value)) {
+                      return false;
+                    }
+                    const number = +value;
+                    return number >= 1 && number < 10000;
+                  },
+                })}
+                onEnterKeyDown={submitForm}
+                onChange={onAmountChange}
+                step="1"
+                min="1"
+                max="9999"
+                autoComplete="off"
+                spellCheck="false"
+              />
+              <InputEuroStyled className="icon is-small is-right">
+                €
+              </InputEuroStyled>
+            </InputControlStyled>
+          </div>
+          <div className="column is-narrow">
+            <IncreaseButtonStyled type="button" onClick={onIncreaseButtonClick}>
+              <FontAwesomeIcon icon={faPlus} />
+            </IncreaseButtonStyled>
+          </div>
+        </div>
+        <TaxExemptionSummaryStyled amount={amount} />
 
-        <InputControlStyled className="control has-icons-right">
-          <Input
-            className={`input ${
-              !fixedAmount && errors.customAmount ? 'has-error' : ''
-            }`}
-            type="number"
-            name="customAmount"
-            placeholder="--"
-            ref={register({
-              validate: value => {
-                const reg = /^[0-9]+$/;
-                if (!reg.test(value)) {
-                  return false;
-                }
-                const number = +value;
-                return number >= 1 && number < 10000;
-              },
-            })}
-            onEnterKeyDown={submitForm}
-            onFocus={onCustomAmountFocus}
-            onChange={onCustomAmountChange}
-            step="1"
-            min="1"
-            max="9999"
-            autoComplete="off"
-            spellCheck="false"
-          />
-          <InputEuroStyled className="icon is-small is-right">
-            €
-          </InputEuroStyled>
-        </InputControlStyled>
+        <ButtonContainerStyled>
+          <ButtonContinueStyled
+            className="button is-primary is-inverted"
+            onClick={onClickNext}
+          >
+            Continuer
+          </ButtonContinueStyled>
+        </ButtonContainerStyled>
       </FormStyled>
     </StepContainer>
   );

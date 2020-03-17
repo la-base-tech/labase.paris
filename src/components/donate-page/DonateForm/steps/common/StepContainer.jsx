@@ -2,7 +2,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import TaxExemptionSummary from './TaxExemptionSummary';
 import StepTitle from './StepTitle';
 import { getAmountFormatted } from '../../utils';
 
@@ -89,15 +88,13 @@ const StepContainer = ({
                 onClick={buttonNext.onClick}
                 type={buttonNext.isSubmit ? 'submit' : 'button'}
               >
-                Je donne {amount && <>{getAmountFormatted(amount)} *</>}
+                Je donne {amount && <>{getAmountFormatted(amount)}</>}
               </MainButtonStyled>
             )}
           </div>
         </div>
       </ButtonsContainerStyled>
     )}
-
-    <TaxExemptionSummary amount={amount} />
   </ContainerStyled>
 );
 
