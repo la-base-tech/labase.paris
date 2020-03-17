@@ -35,7 +35,7 @@ const CardSectionTitleStyled = styled(SectionTitleStyled)`
 const TextSecurityStyled = styled.p`
   font-size: 0.8rem;
   line-height: 0.8rem;
-  margin-top: 0.25rem;
+  margin-bottom: 1rem;
 `;
 
 const NameColumnsStyled = styled.div`
@@ -336,7 +336,12 @@ const InformationsStep = ({ data, onPrevious, onNext }) => {
       amount={data.amount}
     >
       <FormStyled onSubmit={handleSubmit(requestPayment)}>
+        <TextSecurityStyled className="is-hidden-mobile">
+          Le paiement et vos informations sont sécurisés par Stripe{' '}
+          <LockIconStyled icon={faLock} />
+        </TextSecurityStyled>
         <SectionTitleStyled>Mes informations</SectionTitleStyled>
+
         <NameColumnsStyled className="columns">
           <NameColumnStyled className="column">
             <InputControlStyled className="control">
@@ -395,10 +400,7 @@ const InformationsStep = ({ data, onPrevious, onNext }) => {
           </LabelStyled>
         </CheckboxControlStyled>
         <CardSectionTitleStyled>Ma carte bancaire</CardSectionTitleStyled>
-        <TextSecurityStyled className="is-hidden-mobile">
-          Le paiement et vos informations sont sécurisés par Stripe{' '}
-          <LockIconStyled icon={faLock} />
-        </TextSecurityStyled>
+
         <CardElementStyled
           style={{
             base: {

@@ -80,10 +80,10 @@ const SubtitleStyled = styled.div`
 
 const DonateFormContainerStyled = styled.div`
   position: relative;
-  min-height: 505px;
+  min-height: 503px;
 
   @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
-    min-height: 495px;
+    min-height: 504px;
   }
 
   @media (min-width: ${({ theme }) => theme.breakpointDesktop}) {
