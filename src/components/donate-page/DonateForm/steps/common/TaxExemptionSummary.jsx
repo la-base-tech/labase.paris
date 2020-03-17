@@ -28,7 +28,7 @@ const TaxExemptionSummary = ({ amount }) => {
   const amountWithTaxExemption = getAmountWithTaxExemption(amountFixed);
   return (
     <TextStyled className={`${!amountFixed ? 'is-invisible' : ''}`}>
-      *soit environ {getAmountFormatted(amountWithTaxExemption, true)} après
+      *Soit environ {getAmountFormatted(amountWithTaxExemption, true)} après
       déduction fiscale.
     </TextStyled>
   );
