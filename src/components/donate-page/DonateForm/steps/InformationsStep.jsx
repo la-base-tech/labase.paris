@@ -324,7 +324,7 @@ const InformationsStep = ({ data, onPrevious, onNext }) => {
     <StepContainer
       title="Mon paiement"
       buttonPrevious={{
-        title: 'Précédent',
+        title: '> Précédent',
         onClick: onClickPreviousButton,
       }}
       buttonNext={{
