@@ -13,9 +13,13 @@ const FormStyled = styled.form``;
 
 const TitleStyled = styled.div`
   font-weight: 900;
-  font-size: 2rem;
   margin-bottom: 1rem;
   text-align: center;
+  font-size: 1.5rem;
+
+  @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
+    font-size: 2rem;
+  }
 `;
 
 const ButtonStyled = styled.button`
@@ -25,8 +29,13 @@ const ButtonStyled = styled.button`
   font-size: 0.8rem;
   font-weight: bold;
   border: 1px solid ${({ theme }) => theme.black};
-  height: 60px;
-  width: 60px;
+  height: 48px;
+  width: 48px;
+
+  @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
+    height: 60px;
+    width: 60px;
+  }
   padding: 0.6rem 0.4rem;
 
   &:focus {
@@ -45,13 +54,21 @@ const ReduceButtonStyled = styled(ButtonStyled)``;
 const IncreaseButtonStyled = styled(ButtonStyled)``;
 
 const InputControlStyled = styled.div`
-  width: 140px;
+  width: 100px;
+
+  @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
+    width: 140px;
+  }
 `;
 
 const InputStyled = styled(Input)`
   text-align: right;
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
+    font-size: 1.5rem;
+  }
+
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -63,14 +80,22 @@ const InputStyled = styled(Input)`
 const InputEuroStyled = styled.span`
   color: ${({ theme }) => theme.black} !important;
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
+    font-size: 1.5rem;
+  }
 `;
 
 const TaxExemptionSummaryStyled = styled(TaxExemptionSummary)`
-  font-size: 1rem;
   text-align: center;
-  width: 180px;
   margin: auto;
+  width: 160px;
+  font-size: 0.9rem;
+
+  @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
+    width: 180px;
+    font-size: 1rem;
+  }
 
   span {
     font-weight: bold;
