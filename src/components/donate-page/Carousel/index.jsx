@@ -15,7 +15,7 @@ const CarouselContainer = ({ slides }) => {
   return (
     <SectionStyled className="section">
       <div className="container">
-        <Carousel slideCount={slides.length} timeout={6000}>
+        <Carousel slideCount={slides.length} timeout={4000}>
           <CustomCarousel slides={slides} />
         </Carousel>
       </div>
