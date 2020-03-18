@@ -337,7 +337,7 @@ const InformationsStep = ({ data, onPrevious, onNext }) => {
     >
       <FormStyled onSubmit={handleSubmit(requestPayment)}>
         <TextSecurityStyled className="is-hidden-mobile">
-          Le paiement et vos informations sont sécurisés par Stripe{' '}
+          Le paiement et vos données sont sécurisés par Stripe{' '}
           <LockIconStyled icon={faLock} />
         </TextSecurityStyled>
         <SectionTitleStyled>Mes informations</SectionTitleStyled>
