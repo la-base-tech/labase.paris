@@ -26,6 +26,10 @@ const HeroBackgroundImageStyled = styled(BackgroundImage)`
   height: 100%;
 `;
 
+const ContentContainerStyled = styled.div`
+  height: 100%;
+`;
+
 const ColumnsContainerStyled = styled.div`
   @media (min-width: ${({ theme }) => theme.breakpointDesktop}) {
     position: absolute;
@@ -106,25 +110,27 @@ const Hero = ({ image, title, subtitle }) => {
     <ContainerStyled ref={ref}>
       <HeroStyled>
         <HeroBackgroundImageStyled image={image} loading="eager">
-          <ColumnsContainerStyled>
-            <ColumnsStyled className="columns is-marginless is-desktop">
-              <div className="column">
-                <div className="section">
-                  <div className="container">
-                    <SubtitleStyled className="is-hidden-mobile">
-                      {subtitle}
-                    </SubtitleStyled>
-                    <TitleStyled>{title}</TitleStyled>
+          <ContentContainerStyled className="container">
+            <ColumnsContainerStyled>
+              <ColumnsStyled className="columns is-marginless is-desktop">
+                <div className="column">
+                  <div className="section">
+                    <div className="container">
+                      <SubtitleStyled className="is-hidden-mobile">
+                        {subtitle}
+                      </SubtitleStyled>
+                      <TitleStyled>{title}</TitleStyled>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="column">
-                <DonateFormContainerStyled>
-                  <DonateForm />
-                </DonateFormContainerStyled>
-              </div>
-            </ColumnsStyled>
-          </ColumnsContainerStyled>
+                <div className="column">
+                  <DonateFormContainerStyled>
+                    <DonateForm />
+                  </DonateFormContainerStyled>
+                </div>
+              </ColumnsStyled>
+            </ColumnsContainerStyled>
+          </ContentContainerStyled>
         </HeroBackgroundImageStyled>
       </HeroStyled>
     </ContainerStyled>
@@ -139,7 +145,6 @@ Hero.propTypes = {
   }).isRequired,
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
-
 };
 
 export default function HeroWrapper(props) {
@@ -162,12 +167,7 @@ export default function HeroWrapper(props) {
           }
         }
       `}
-      render={data => (
-        <Hero
-          {...data.page.hero}
-          {...props}
-        />
-      )}
+      render={data => <Hero {...data.page.hero} {...props} />}
     />
   );
 }
