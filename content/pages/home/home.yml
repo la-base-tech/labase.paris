@@ -3,11 +3,11 @@ metadata:
   description: la base est un lieu au coeur de Paris où les citoyen·ne·s se rencontrent et agissent pour le climat et donc la justice écologique et sociale
 
 crowdfundingSection:
-  title: Assure un avenir à la base
-  text: Soutiens le QG de la mobilisation citoyenne et participe à son financement citoyen
+  title: Fais un don pour assurer l'avenir de la base
+  text: "Après une première année réussie, la base a besoin de toi. Nous lançons un financement citoyen pour continuer et renforcer notre action : accélérer la mobilisation citoyenne. Fais un don et soutiens le QG pour le climat et la justice sociale."
   image: ./images/crowdfunding.png
   button: 
-    title: Je donne
+    title: Je contribue
 
 headerSection:
   image: ./images/hero.jpg
