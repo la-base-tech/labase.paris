@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 import GatsbyImage from 'gatsby-image';
-import styled from 'styled-components';
+import styled, { ThemeContext } from 'styled-components';
 import { useInView } from 'react-intersection-observer';
 import Link from '../Link';
 import { Context as NavbarContext } from '../Navbar';
@@ -39,7 +39,13 @@ const ButtonStyled = styled(Link)`
   font-weight: bold;
 `;
 
+const CrowdfundingStatusMobileStyled = styled(CrowdfundingStatus)`
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+`;
+
 const Section = ({ title, text, button, image }) => {
+  const theme = useContext(ThemeContext);
   const { showButton, hideButton } = useContext(NavbarContext);
   const [ref, inView, entry] = useInView({
     threshold: 0.2,
@@ -57,7 +63,12 @@ const Section = ({ title, text, button, image }) => {
         <div className="columns is-vcentered">
           <div className="column">
             <TitleStyled>{title}</TitleStyled>
-            <TextStyled>{text}</TextStyled>
+            <TextStyled className="is-hidden-mobile">{text}</TextStyled>
+            <CrowdfundingStatusMobileStyled
+              className="is-hidden-tablet"
+              backgroundColor={theme.yellow}
+              textColor={theme.black}
+            />
             <ButtonStyled
               href="/don/"
               className="button is-primary is-inverted"
@@ -67,7 +78,10 @@ const Section = ({ title, text, button, image }) => {
           </div>
           <div className="column is-hidden-mobile">
             <GatsbyImage fluid={image.childImageSharp.fluid} loading="eager" />
-            <CrowdfundingStatus />
+            <CrowdfundingStatus
+              backgroundColor={theme.yellow}
+              textColor={theme.black}
+            />
           </div>
         </div>
       </div>
