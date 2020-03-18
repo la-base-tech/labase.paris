@@ -54,7 +54,7 @@ const ProgressBarStyled = styled.div`
   &::after {
     content: '';
     display: block;
-    background: ${({ theme }) => theme.yellow};
+    background: ${({ theme }) => theme.green};
     width: ${({ value }) => value}%;
     height: 8px;
   }
