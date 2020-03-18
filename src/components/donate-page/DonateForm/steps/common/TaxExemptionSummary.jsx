@@ -1,12 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { getAmountFormatted } from '../../utils';
-
-const TAX_EXEMPTION = 0.66;
-
-function getAmountWithTaxExemption(amount) {
-  return amount * (1 - TAX_EXEMPTION);
-}
+import {
+  getAmountFormatted,
+  getAmountWithTaxExemption,
+} from '../../../../../utils';
 
 const TaxExemptionSummary = ({ amount, ...rest }) => {
   const amountFixed = amount || 0;

@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import { useInView } from 'react-intersection-observer';
 import BackgroundImage from '../BackgroundImage';
 import { Context as NavbarContext } from '../Navbar';
-import { Provider as StatusProvider } from './DonateForm/Status';
 import Markdown from '../Markdown';
 import DonateForm from './DonateForm';
 
@@ -91,7 +90,7 @@ const DonateFormContainerStyled = styled.div`
   }
 `;
 
-const Hero = ({ image, title, subtitle, stats, crowdfunding }) => {
+const Hero = ({ image, title, subtitle }) => {
   const { showButton, hideButton } = useContext(NavbarContext);
   const [ref, inView, entry] = useInView({
     threshold: 0.2,
@@ -104,33 +103,31 @@ const Hero = ({ image, title, subtitle, stats, crowdfunding }) => {
   }
 
   return (
-    <StatusProvider {...stats} {...crowdfunding}>
-      <ContainerStyled ref={ref}>
-        <HeroStyled>
-          <HeroBackgroundImageStyled image={image} loading="eager">
-            <ColumnsContainerStyled>
-              <ColumnsStyled className="columns is-marginless is-desktop">
-                <div className="column">
-                  <div className="section">
-                    <div className="container">
-                      <SubtitleStyled className="is-hidden-mobile">
-                        {subtitle}
-                      </SubtitleStyled>
-                      <TitleStyled>{title}</TitleStyled>
-                    </div>
+    <ContainerStyled ref={ref}>
+      <HeroStyled>
+        <HeroBackgroundImageStyled image={image} loading="eager">
+          <ColumnsContainerStyled>
+            <ColumnsStyled className="columns is-marginless is-desktop">
+              <div className="column">
+                <div className="section">
+                  <div className="container">
+                    <SubtitleStyled className="is-hidden-mobile">
+                      {subtitle}
+                    </SubtitleStyled>
+                    <TitleStyled>{title}</TitleStyled>
                   </div>
                 </div>
-                <div className="column">
-                  <DonateFormContainerStyled>
-                    <DonateForm />
-                  </DonateFormContainerStyled>
-                </div>
-              </ColumnsStyled>
-            </ColumnsContainerStyled>
-          </HeroBackgroundImageStyled>
-        </HeroStyled>
-      </ContainerStyled>
-    </StatusProvider>
+              </div>
+              <div className="column">
+                <DonateFormContainerStyled>
+                  <DonateForm />
+                </DonateFormContainerStyled>
+              </div>
+            </ColumnsStyled>
+          </ColumnsContainerStyled>
+        </HeroBackgroundImageStyled>
+      </HeroStyled>
+    </ContainerStyled>
   );
 };
 
@@ -142,14 +139,7 @@ Hero.propTypes = {
   }).isRequired,
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
-  crowdfunding: PropTypes.shape({
-    dateEnd: PropTypes.string.isRequired,
-    objective: PropTypes.number.isRequired,
-  }).isRequired,
-  stats: PropTypes.shape({
-    amount: PropTypes.number.isRequired,
-    contributors: PropTypes.number.isRequired,
-  }).isRequired,
+
 };
 
 export default function HeroWrapper(props) {
@@ -158,10 +148,6 @@ export default function HeroWrapper(props) {
       query={graphql`
         query {
           page: yaml(fields: { name: { eq: "page-donate" } }) {
-            crowdfunding {
-              dateEnd
-              objective
-            }
             hero {
               image {
                 childImageSharp {
@@ -174,17 +160,11 @@ export default function HeroWrapper(props) {
               subtitle
             }
           }
-          stats: laBaseApiStatsCrowdfunding {
-            amount
-            contributors
-          }
         }
       `}
       render={data => (
         <Hero
           {...data.page.hero}
-          crowdfunding={data.page.crowdfunding}
-          stats={data.stats}
           {...props}
         />
       )}

@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import StepTitle from './StepTitle';
-import { getAmountFormatted } from '../../utils';
+import { getAmountFormatted } from '../../../../../utils';
 
 const ContainerStyled = styled.div`
   padding: 1rem;

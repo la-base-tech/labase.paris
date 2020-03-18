@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import styled from 'styled-components';
 import StatusContext from './Context';
 import StatusProvider from './Provider';
-import { getAmountFormatted } from '../utils';
+import { getAmountFormatted } from '../../utils';
 
 export { StatusContext as Context };
 export { StatusProvider as Provider };

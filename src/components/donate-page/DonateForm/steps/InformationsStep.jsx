@@ -10,7 +10,7 @@ import { CardElement } from 'react-stripe-elements';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
 import { useStripe } from '../../../Stripe';
-import StatusContext from '../Status/Context';
+import CrowdfundingStatusContext from '../../../CrowdfundingStatus/Context';
 import { Context as PaymentIntentContext } from '../PaymentIntentManager';
 import StepContainer from './common/StepContainer';
 import Input from './common/Input';
@@ -140,7 +140,7 @@ const InformationsStep = ({ data, onPrevious, onNext }) => {
     PaymentIntentContext
   );
   const theme = useContext(ThemeContext);
-  const status = useContext(StatusContext);
+  const crowdfundingStatus = useContext(CrowdfundingStatusContext);
 
   const {
     register,
@@ -266,8 +266,8 @@ const InformationsStep = ({ data, onPrevious, onNext }) => {
       resetPaymentIntent();
 
       // Update stats
-      status.addAmount(data.amount);
-      status.addContributor();
+      crowdfundingStatus.addAmount(data.amount);
+      crowdfundingStatus.addContributor();
 
       onNext();
 

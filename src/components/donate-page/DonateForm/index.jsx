@@ -2,7 +2,7 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Elements } from '../../Stripe';
-import Status from './Status';
+import CrowdfundingStatus from '../../CrowdfundingStatus';
 import PaymentIntentManager from './PaymentIntentManager';
 import StepsContainer from './StepsContainer';
 
@@ -19,7 +19,7 @@ const stripeFonts = [
 
 const DonateForm = () => (
   <ContainerStyled id="form">
-    <Status />
+    <CrowdfundingStatus />
     <PaymentIntentManager>
       <Elements locale="fr" fonts={stripeFonts}>
         <StepsContainer />

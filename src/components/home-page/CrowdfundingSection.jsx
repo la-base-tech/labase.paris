@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import { useInView } from 'react-intersection-observer';
 import Link from '../Link';
 import { Context as NavbarContext } from '../Navbar';
+import CrowdfundingStatus from '../CrowdfundingStatus';
 
 const ContainerStyled = styled.section`
   background: ${props => props.theme.yellow};
@@ -66,6 +67,7 @@ const Section = ({ title, text, button, image }) => {
           </div>
           <div className="column is-hidden-mobile">
             <GatsbyImage fluid={image.childImageSharp.fluid} loading="eager" />
+            <CrowdfundingStatus />
           </div>
         </div>
       </div>
