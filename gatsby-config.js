@@ -115,6 +115,7 @@ module.exports = {
       options: {
         develop: false, // Activates purging in npm run develop
         printRejected: false,
+        ignore: ['fontawesome-svg-core/'],
       },
     },
     {

@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import { useInView } from 'react-intersection-observer';
 import BackgroundImage from '../BackgroundImage';
 import { Context as NavbarContext } from '../Navbar';
-import { Provider as StatusProvider } from './DonateForm/Status';
 import Markdown from '../Markdown';
 import DonateForm from './DonateForm';
 
@@ -13,43 +12,12 @@ const ContainerStyled = styled.div`
   position: relative;
 `;
 
-const DonateFormWrapperStyled = styled.div`
-  position: relative;
-  background: ${({ theme }) => theme.cloud};
-  padding: 0 1rem;
-  margin-top: calc(-${({ theme }) => theme.navbarHeight} - 3rem);
-
-  @media (min-width: ${({ theme }) => theme.breakpointDesktop}) {
-    background: transparent;
-    margin-top: 0;
-    position: absolute;
-    top: 0;
-    height: 100%;
-    left: 50%;
-    width: 50%;
-    max-width: ${960 / 2}px;
-    padding: 0.75rem;
-    display: flex;
-    align-items: center;
-  }
-`;
-
-const DonateFormStyled = styled(DonateForm)`
-  margin: auto;
-`;
-
 const HeroStyled = styled.div`
   position: relative;
-  top: -${({ theme }) => theme.navbarHeight};
-  height: calc(100vh - 6rem);
-
-  @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
-    min-height: 600px;
-  }
 
   @media (min-width: ${({ theme }) => theme.breakpointDesktop}) {
-    top: 0;
     height: calc(100vh - ${({ theme }) => theme.navbarHeight});
+    min-height: 600px;
   }
 `;
 
@@ -58,20 +26,27 @@ const HeroBackgroundImageStyled = styled(BackgroundImage)`
   height: 100%;
 `;
 
-const SectionWrapperStyled = styled.div`
-  padding-top: ${({ theme }) => theme.navbarHeight};
-  height: calc(100% - 3rem);
-  display: flex;
-  align-items: center;
+const ContentContainerStyled = styled.div`
+  height: 100%;
+`;
 
+const ColumnsContainerStyled = styled.div`
   @media (min-width: ${({ theme }) => theme.breakpointDesktop}) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
     height: 100%;
-    padding-top: 0;
   }
 `;
 
-const SectionStyled = styled.div`
-  width: 100%;
+const ColumnsStyled = styled.div`
+  @media (min-width: ${({ theme }) => theme.breakpointDesktop}) {
+    display: flex;
+    align-items: center;
+  }
 `;
 
 const TitleStyled = styled(Markdown)`
@@ -106,7 +81,20 @@ const SubtitleStyled = styled.div`
   }
 `;
 
-const Hero = ({ image, title, subtitle, stats, crowdfunding }) => {
+const DonateFormContainerStyled = styled.div`
+  position: relative;
+  min-height: 503px;
+
+  @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
+    min-height: 504px;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpointDesktop}) {
+    min-height: auto;
+  }
+`;
+
+const Hero = ({ image, title, subtitle }) => {
   const { showButton, hideButton } = useContext(NavbarContext);
   const [ref, inView, entry] = useInView({
     threshold: 0.2,
@@ -119,29 +107,33 @@ const Hero = ({ image, title, subtitle, stats, crowdfunding }) => {
   }
 
   return (
-    <StatusProvider {...stats} {...crowdfunding}>
-      <ContainerStyled ref={ref}>
-        <HeroStyled>
-          <HeroBackgroundImageStyled image={image} loading="eager">
-            <SectionWrapperStyled>
-              <SectionStyled className="section">
-                <div className="container">
-                  <div className="columns is-mobile is-marginless">
-                    <div className="column is-full-tablet is-half-desktop">
-                      <SubtitleStyled>{subtitle}</SubtitleStyled>
+    <ContainerStyled ref={ref}>
+      <HeroStyled>
+        <HeroBackgroundImageStyled image={image} loading="eager">
+          <ContentContainerStyled className="container">
+            <ColumnsContainerStyled>
+              <ColumnsStyled className="columns is-marginless is-desktop">
+                <div className="column">
+                  <div className="section">
+                    <div className="container">
+                      <SubtitleStyled className="is-hidden-mobile">
+                        {subtitle}
+                      </SubtitleStyled>
                       <TitleStyled>{title}</TitleStyled>
                     </div>
                   </div>
                 </div>
-              </SectionStyled>
-            </SectionWrapperStyled>
-          </HeroBackgroundImageStyled>
-        </HeroStyled>
-        <DonateFormWrapperStyled>
-          <DonateFormStyled />
-        </DonateFormWrapperStyled>
-      </ContainerStyled>
-    </StatusProvider>
+                <div className="column">
+                  <DonateFormContainerStyled>
+                    <DonateForm />
+                  </DonateFormContainerStyled>
+                </div>
+              </ColumnsStyled>
+            </ColumnsContainerStyled>
+          </ContentContainerStyled>
+        </HeroBackgroundImageStyled>
+      </HeroStyled>
+    </ContainerStyled>
   );
 };
 
@@ -153,14 +145,6 @@ Hero.propTypes = {
   }).isRequired,
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
-  crowdfunding: PropTypes.shape({
-    dateEnd: PropTypes.string.isRequired,
-    objective: PropTypes.number.isRequired,
-  }).isRequired,
-  stats: PropTypes.shape({
-    amount: PropTypes.number.isRequired,
-    contributors: PropTypes.number.isRequired,
-  }).isRequired,
 };
 
 export default function HeroWrapper(props) {
@@ -169,10 +153,6 @@ export default function HeroWrapper(props) {
       query={graphql`
         query {
           page: yaml(fields: { name: { eq: "page-donate" } }) {
-            crowdfunding {
-              dateEnd
-              objective
-            }
             hero {
               image {
                 childImageSharp {
@@ -185,20 +165,9 @@ export default function HeroWrapper(props) {
               subtitle
             }
           }
-          stats: laBaseApiStatsCrowdfunding {
-            amount
-            contributors
-          }
         }
       `}
-      render={data => (
-        <Hero
-          {...data.page.hero}
-          crowdfunding={data.page.crowdfunding}
-          stats={data.stats}
-          {...props}
-        />
-      )}
+      render={data => <Hero {...data.page.hero} {...props} />}
     />
   );
 }

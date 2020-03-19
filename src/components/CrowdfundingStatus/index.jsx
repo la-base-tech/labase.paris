@@ -1,16 +1,12 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import StatusContext from './Context';
 import StatusProvider from './Provider';
-import { getAmountFormatted } from '../utils';
+import { getAmountFormatted } from '../../utils';
 
 export { StatusContext as Context };
 export { StatusProvider as Provider };
-
-const ContainerStyled = styled.div`
-  background: ${({ theme }) => theme.black};
-  padding: 1rem;
-`;
 
 const WrapperStyled = styled.div`
   margin: auto;
@@ -19,7 +15,6 @@ const WrapperStyled = styled.div`
 const ColumnStyled = styled.div``;
 
 const ColumnTitleStyled = styled.div`
-  color: ${({ theme }) => theme.white};
   font-weight: 900;
   font-size: 0.6rem;
   line-height: 1rem;
@@ -31,7 +26,6 @@ const ColumnTitleStyled = styled.div`
 `;
 
 const ColumnSubtitleStyled = styled.div`
-  color: ${({ theme }) => theme.white};
   font-size: 0.6rem;
   line-height: 1rem;
 
@@ -54,7 +48,7 @@ const ProgressBarStyled = styled.div`
   &::after {
     content: '';
     display: block;
-    background: ${({ theme }) => theme.yellow};
+    background: ${({ theme }) => theme.green};
     width: ${({ value }) => value}%;
     height: 8px;
   }
@@ -66,7 +60,6 @@ const ProgressBarValueColumnStyled = styled.div`
 
 const ProgressBarValueStyled = styled.div`
   display: inline-block;
-  color: ${({ theme }) => theme.white};
   font-size: 0.6rem;
 
   @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
@@ -74,7 +67,17 @@ const ProgressBarValueStyled = styled.div`
   }
 `;
 
-const Status = () => {
+const ContainerStyled = styled.div`
+  background: ${({ backgroundColor }) => backgroundColor};
+
+  ${ColumnTitleStyled}, 
+  ${ColumnSubtitleStyled}, 
+  ${ProgressBarValueStyled} {
+    color: ${({ textColor }) => textColor};
+  }
+`;
+
+const Status = ({ backgroundColor, textColor, ...rest }) => {
   const {
     objective,
     amount,
@@ -84,7 +87,12 @@ const Status = () => {
   } = useContext(StatusContext);
 
   return (
-    <ContainerStyled id="crowdfunding">
+    <ContainerStyled
+      {...rest}
+      id="crowdfunding"
+      backgroundColor={backgroundColor}
+      textColor={textColor}
+    >
       <WrapperStyled className="container">
         <div className="columns is-mobile is-marginless">
           <ColumnStyled className="column is-paddingless">
@@ -115,6 +123,11 @@ const Status = () => {
       </WrapperStyled>
     </ContainerStyled>
   );
+};
+
+Status.propTypes = {
+  backgroundColor: PropTypes.string.isRequired,
+  textColor: PropTypes.string.isRequired,
 };
 
 export default Status;

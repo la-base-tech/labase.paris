@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 // import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { ThemeContext } from 'styled-components';
 import { Elements } from '../../Stripe';
-import Status from './Status';
+import CrowdfundingStatus from '../../CrowdfundingStatus';
 import PaymentIntentManager from './PaymentIntentManager';
 import StepsContainer from './StepsContainer';
 
@@ -13,16 +13,31 @@ const ContainerStyled = styled.div`
   overflow: hidden;
 `;
 
-const DonateForm = () => (
-  <ContainerStyled id="form">
-    <Status />
-    <PaymentIntentManager>
-      <Elements locale="fr">
-        <StepsContainer />
-      </Elements>
-    </PaymentIntentManager>
-  </ContainerStyled>
-);
+const CrowdfundingStatusStyled = styled(CrowdfundingStatus)`
+  padding: 1rem;
+`;
+
+const stripeFonts = [
+  { cssSrc: 'https://fonts.googleapis.com/css?family=Montserrat:300' },
+];
+
+const DonateForm = () => {
+  const theme = useContext(ThemeContext);
+
+  return (
+    <ContainerStyled id="form">
+      <CrowdfundingStatusStyled
+        backgroundColor={theme.black}
+        textColor={theme.white}
+      />
+      <PaymentIntentManager>
+        <Elements locale="fr" fonts={stripeFonts}>
+          <StepsContainer />
+        </Elements>
+      </PaymentIntentManager>
+    </ContainerStyled>
+  );
+};
 
 DonateForm.propTypes = {};
 
