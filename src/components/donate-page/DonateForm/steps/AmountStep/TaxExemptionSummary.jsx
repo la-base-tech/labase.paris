@@ -1,18 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import {
   getAmountFormatted,
   getAmountWithTaxExemption,
 } from '../../../../../utils';
 
+const ContentStyled = styled.div`
+  text-align: center;
+  font-size: 0.8rem;
+`;
+
+const AmountStyled = styled.span`
+  font-weight: bold;
+`;
+
 const TaxExemptionSummary = ({ amount, ...rest }) => {
   const amountFixed = amount || 0;
   const amountWithTaxExemption = getAmountWithTaxExemption(amountFixed);
   return (
-    <div {...rest}>
-      <span>Soit {getAmountFormatted(amountWithTaxExemption, true)}</span> après
-      déduction fiscale.
-    </div>
+    <ContentStyled {...rest}>
+      Je fais un don de{' '}
+      <AmountStyled>{getAmountFormatted(amount, false)}</AmountStyled>,<br />
+      soit {getAmountFormatted(amountWithTaxExemption, true)} après déduction
+      fiscale.
+    </ContentStyled>
   );
 };
 
