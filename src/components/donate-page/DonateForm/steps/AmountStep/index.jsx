@@ -89,7 +89,7 @@ const ButtonContinueStyled = styled.button`
   }
 `;
 
-const INITIAL_AMOUNT = 30;
+const INITIAL_AMOUNT = 20;
 
 const AmountStep = ({ data, onNext }) => {
   const [activeSuggestion, setActiveSuggestion] = useState();
