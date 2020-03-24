@@ -83,7 +83,7 @@ const Status = ({ backgroundColor, textColor, ...rest }) => {
     amount,
     contributors,
     percentage,
-    dayLeftCount,
+    // dayLeftCount,
   } = useContext(StatusContext);
 
   return (
@@ -101,10 +101,10 @@ const Status = ({ backgroundColor, textColor, ...rest }) => {
               sur {getAmountFormatted(objective)}
             </ColumnSubtitleStyled>
           </ColumnStyled>
-          <ColumnStyled className="column is-paddingless">
+          {/* <ColumnStyled className="column is-paddingless">
             <ColumnTitleStyled>{dayLeftCount} jours</ColumnTitleStyled>
             <ColumnSubtitleStyled>pour participer</ColumnSubtitleStyled>
-          </ColumnStyled>
+          </ColumnStyled> */}
           <ColumnStyled className="column is-paddingless">
             <ColumnTitleStyled>
               {contributors || '-'} personnes
