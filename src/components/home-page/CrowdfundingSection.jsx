@@ -19,6 +19,7 @@ const TitleStyled = styled.h2`
   line-height: 3rem;
 
   @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
+    margin: 1rem 0;
     font-size: 2.7rem;
     line-height: 3.2rem;
   }
@@ -29,9 +30,7 @@ const TitleStyled = styled.h2`
   }
 `;
 
-const TextStyled = styled.p`
-  margin: 1rem 0;
-`;
+const TextStyled = styled.p``;
 
 const ButtonStyled = styled(Link)`
   padding: 1rem 2rem !important;
@@ -62,8 +61,8 @@ const Section = ({ title, text, button, image }) => {
       <div className="container">
         <div className="columns is-vcentered">
           <div className="column">
-            <TitleStyled>{title}</TitleStyled>
             <TextStyled className="is-hidden-mobile">{text}</TextStyled>
+            <TitleStyled>{title}</TitleStyled>
             <CrowdfundingStatusMobileStyled
               className="is-hidden-tablet"
               backgroundColor={theme.yellow}
