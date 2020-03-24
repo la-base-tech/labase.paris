@@ -16,7 +16,7 @@ const ColumnStyled = styled.div``;
 
 const ColumnTitleStyled = styled.div`
   font-weight: 900;
-  font-size: 0.6rem;
+  font-size: 1rem;
   line-height: 1rem;
 
   @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
@@ -26,13 +26,8 @@ const ColumnTitleStyled = styled.div`
 `;
 
 const ColumnSubtitleStyled = styled.div`
-  font-size: 0.6rem;
-  line-height: 1rem;
-
-  @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
-    font-size: 0.8rem;
-    line-height: 1rem;
-  }
+  font-size: 0.9rem;
+  line-height: 0.9rem;
 `;
 
 const ProgressbarContainerStyled = styled.div`
@@ -60,11 +55,7 @@ const ProgressBarValueColumnStyled = styled.div`
 
 const ProgressBarValueStyled = styled.div`
   display: inline-block;
-  font-size: 0.6rem;
-
-  @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
-    font-size: 0.8rem;
-  }
+  font-size: 0.8rem;
 `;
 
 const ContainerStyled = styled.div`
