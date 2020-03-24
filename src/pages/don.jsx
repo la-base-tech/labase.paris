@@ -30,10 +30,30 @@ const DonatePage = ({ data }) => (
   <>
     <Hero />
 
+    <section className="section" id="section-coronavirus">
+      <div className="container">
+        <SectionTitle>{data.page.sectionCoronavirus.title}</SectionTitle>
+        <div className="columns">
+          <div className="column">
+            <SectionTextStyled>
+              {data.page.sectionCoronavirus.text}
+            </SectionTextStyled>
+            <ButtonStyled
+              href="#form"
+              className="button is-primary is-inverted"
+              targetMiddle
+            >
+              {data.page.sectionCoronavirus.button.title}
+            </ButtonStyled>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section className="section" id="section-1">
       <div className="container">
         <SectionTitle>{data.page.section1.title}</SectionTitle>
-        <div className="columns">
+        <ColumnsReverseMobileStyled className="columns">
           <div className="column">
             <SectionTextStyled>{data.page.section1.text}</SectionTextStyled>
             <ButtonStyled
@@ -47,7 +67,7 @@ const DonatePage = ({ data }) => (
           <div className="column is-three-fifths">
             <YoutubeEmbed {...data.page.section2.video} id="video" />
           </div>
-        </div>
+        </ColumnsReverseMobileStyled>
       </div>
     </section>
 
@@ -205,6 +225,13 @@ const DonatePage = ({ data }) => (
 DonatePage.propTypes = {
   data: PropTypes.shape({
     page: PropTypes.shape({
+      sectionCoronavirus: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        text: PropTypes.string.isRequired,
+        button: PropTypes.shape({
+          title: PropTypes.string.isRequired,
+        }).isRequired,
+      }).isRequired,
       section1: PropTypes.shape({
         title: PropTypes.string.isRequired,
         text: PropTypes.string.isRequired,
@@ -287,6 +314,13 @@ export const pageQuery = graphql`
       metadata {
         title
         description
+      }
+      sectionCoronavirus {
+        title
+        text
+        button {
+          title
+        }
       }
       section1 {
         title

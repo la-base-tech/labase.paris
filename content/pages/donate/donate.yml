@@ -67,6 +67,22 @@ hero:
   button: 
     title: Je découvre
 
+sectionCoronavirus: 
+  title: La base a fermé ses portes mais vit toujours !
+  text: >-
+    **À cause de l’épidémie de coronavirus, la base a fermé ses portes** le 14 mars et ce jusqu’à nouvel ordre. Plus de conférences, plus de bureaux, plus de soirées, plus de bar… C’est une période très difficile pour la base dont l’équilibre économique fragile repose à 40% sur les revenus du bar et à 30% sur la location de postes de travail. Le manque à gagner est donc considérable !
+
+    
+    Cependant, **bien plus qu’un lieu, la base est une communauté** composée de dizaines d’organisations résidentes, de référent·e·s de groupes de travail, de nombreux·ses bénévoles et de quelques salariés. La base, ce sont des centaines de personnes qui se forment, s’organisent et s’engagent chaque jour pour le climat et la justice sociale.
+
+    
+    **En cette période de confinement, cette communauté unie continue à se mobiliser**, même si c’est d’une manière différente. Malgré la distance, **la base s’est adaptée pour proposer une programmation en ligne inédite.** Rendez-vous sur Facebook !
+
+    
+    Aide la base et rejoins la communauté : fais un don.  
+  button: 
+      title: Je fais un don
+
 section1:
   title: La base poursuit l'aventure au 31 rue Bichat
   text: >-
