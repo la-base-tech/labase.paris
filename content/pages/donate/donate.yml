@@ -63,7 +63,10 @@ hero:
   image: ./images/hero.jpg
   title: >-
     Soutiens&nbsp;le&nbsp;QG pour le&nbsp;climat et la&nbsp;justice&nbsp;sociale
-  subtitle: "La base est un lieu et une communauté engagée qui partagent un objectif : accélérer la mobilisation citoyenne. Fermée à cause du coronavirus, la base continue son action en ligne. En ces temps de crise, elle a plus que jamais besoin de chacun·e d’entre nous."
+  subtitle: >-
+      La base est un lieu et une communauté engagée qui partagent un objectif : accélérer la mobilisation citoyenne.<br>
+      
+      Fermée à cause du coronavirus, la base continue son action en ligne. En ces temps de crise, elle a plus que jamais besoin de chacun·e d’entre nous."
   button: 
     title: Je découvre
 

@@ -68,7 +68,7 @@ const TitleStyled = styled(Markdown)`
   }
 `;
 
-const SubtitleStyled = styled.div`
+const SubtitleStyled = styled(Markdown)`
   color: ${props => props.theme.white};
   font-size: 1rem;
   line-height: 1.1rem;
