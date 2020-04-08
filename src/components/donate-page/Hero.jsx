@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
@@ -100,11 +100,13 @@ const Hero = ({ image, title, subtitle }) => {
     threshold: 0.2,
   });
 
-  if (inView) {
-    hideButton();
-  } else if (entry) {
-    showButton();
-  }
+  useEffect(() => {
+    if (inView) {
+      hideButton();
+    } else if (entry) {
+      showButton();
+    }
+  }, [inView]);
 
   return (
     <ContainerStyled ref={ref}>

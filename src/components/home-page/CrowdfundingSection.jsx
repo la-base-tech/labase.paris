@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 import GatsbyImage from 'gatsby-image';
@@ -50,11 +50,13 @@ const Section = ({ title, text, button, image }) => {
     threshold: 0.2,
   });
 
-  if (inView) {
-    hideButton();
-  } else if (entry) {
-    showButton();
-  }
+  useEffect(() => {
+    if (inView) {
+      hideButton();
+    } else if (entry) {
+      showButton();
+    }
+  }, [inView]);
 
   return (
     <ContainerStyled className="section" ref={ref}>
