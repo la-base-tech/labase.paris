@@ -9,7 +9,7 @@ import { config } from '@fortawesome/fontawesome-svg-core';
 
 import '../styles/app.scss';
 
-import SEO from './SEO';
+import Metadata from './Metadata';
 import Navbar, { Provider as NavbarProvider } from './Navbar';
 import Footer from './Footer';
 import { Provider as CrowdfundingStatusProvider } from './CrowdfundingStatus';
@@ -19,7 +19,7 @@ config.autoAddCss = false; /* eslint-disable import/first */
 const Layout = ({ data, children, location, stats, crowdfunding }) => (
   <NavbarProvider>
     <CrowdfundingStatusProvider {...stats} {...crowdfunding}>
-      <SEO pageMetadata={data.page.metadata} />
+      <Metadata pageMetadata={data.page.metadata} />
       <Navbar currentPath={location.pathname} />
       {children}
       <Footer />
