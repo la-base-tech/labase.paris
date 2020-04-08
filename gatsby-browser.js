@@ -14,10 +14,10 @@ export const wrapRootElement = ({ element }) => (
   </ThemeProvider>
 );
 
-export const onClientEntry = () => {
+export const onClientEntry = async () => {
   // IntersectionObserver polyfill for gatsby-background-image (Safari, IE)
   if (typeof window.IntersectionObserver === `undefined`) {
-    import(`intersection-observer`);
+    await import(`intersection-observer`);
   }
   smoothscroll.polyfill();
 };
