@@ -38,14 +38,11 @@ const SuccessStep = ({ data, share }) => {
 
   return (
     <StepContainer title="Paiement validé">
-      <TextStyled>
-        <AnimatedCheckContainerStyled>
-          <AnimatedCheck checkColor={theme.yellow} circleColor={theme.black} />
-        </AnimatedCheckContainerStyled>
-        Toute l’équipe de la base te remercie pour{' '}
-        <AmountStyled>ton don de {data.amount}€ !</AmountStyled>
-      </TextStyled>
-
+      <AnimatedCheckContainerStyled>
+        <AnimatedCheck checkColor={theme.yellow} circleColor={theme.black} />
+      </AnimatedCheckContainerStyled>
+      Toute l’équipe de la base te remercie pour{' '}
+      <AmountStyled>ton don de {data.amount}€ !</AmountStyled>
       <ShareTitleStyled>Passe le mot !</ShareTitleStyled>
       <TextStyled>Partage ce financement citoyen à ton entourage</TextStyled>
       <ShareButtonsStyled url={url} {...share} />
