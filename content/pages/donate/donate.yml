@@ -80,7 +80,7 @@ sectionCoronavirus:
     **En cette période de confinement, cette communauté unie continue à se mobiliser**, même si c’est d’une manière différente. Malgré la distance, **la base s’est adaptée pour proposer une programmation en ligne inédite.** Rendez-vous sur Facebook !
 
     
-    Aide la base et rejoins la communauté : fais un don.  
+    Aide la base à agir en faisant un don.
   button: 
       title: Je fais un don
 
@@ -90,7 +90,7 @@ section1:
     Depuis mars 2019, la base  a démontré qu’elle est **indispensable pour des dizaines d’associations et des milliers de personnes engagées**. Cette communauté se mobilise quotidiennement pour **relever le plus grand défi de l’histoire de l’humanité :** limiter le dérèglement climatique et développer un monde plus juste et plus soutenable.
 
 
-    Pour assurer la pérennité de la base et surmonter la perte financière engendrée par la fermeture du lieu durant l’épidémie de Coronavirus, nous avons besoin de toutes et tous. **Fais un don.**
+    **Pour assurer la pérennité** de la base et surmonter la perte financière engendrée par la fermeture du lieu durant l’épidémie de Coronavirus, nous avons besoin de toutes et tous. **Fais un don.**
   button: 
     title: Je veux aider
 
@@ -98,23 +98,21 @@ section2:
   video:
     youtubeId: TyJu7E2lTqQ
     title: Assure un avenir à la base  
-  button:
-    title: Voir les objectifs du crowdfunding
 
 section3: 
   title: 100 000 euros pour (sur)vivre et passer la seconde
-  text: >-
+  text1: >-
     La base a l’opportunité de rester jusqu’à 2 ans supplémentaires dans les locaux du 31 rue Bichat à Paris. 
     
 
     La base fonctionne à la fois grâce à son **bar associatif, les loyers de ses résident·es ainsi que les dons des citoyennes et des citoyens.** La communauté de la base et ses multiples espaces sont animés grâce une petite équipe de salarié·e·s et de nombreux bénévoles. Nous réalisons généralement nous-mêmes les travaux d’aménagement avec beaucoup de débrouille. En plus de cela, nous avons **un loyer qui est une part importante de nos coûts.** Tous ces éléments sont essentiels afin d’organiser des événements qui touchent toujours plus de monde.
-
-
+  image1: ./images/section3-1.png
+  text2: >-
     Pour accélérer plus fort la mobilisation citoyenne pour le climat et la justice sociale, **la base se transforme en 2020**. Nous allons **offrir plus de postes de travail aux organisations, aménager le bar pour y organiser des soirées festives, réaliser des travaux d’isolation...** Nous souhaitons également **consacrer des ressources pour passer la seconde dans la diffusion de nos valeurs et de notre vision du monde :** organiser des événements dans d’autres lieux, aider à la création de nouvelles bases, toucher de nouveaux publics…
 
 
     **Ce sont les citoyennes et les citoyens qui font et qui financent en grande partie la base.** C’est grâce à cela que nous pouvons **avoir une totale liberté de parole et d’action.**
-  image: ./images/paliers.png
+  image2: ./images/section3-2.png
   button:
     title: Je donne
 
@@ -178,14 +176,3 @@ section5:
     title: 2019, année de mobilisation à la base
   button: 
     title: J’accélère
-
-section6: 
-  title: En 2019, de l’argent pour mobiliser, transformer et agir
-  text1: >-
-    La base fonctionne à la fois grâce à son **bar associatif, les loyers de ses résident·es ainsi que les dons des citoyennes et des citoyens**. La communauté de la base et ses multiples espaces fonctionnent grâce une petite équipe de salarié·es et de nombreux bénévoles. Pour que le lieu vive, nous réalisons nous-même l’ensemble des travaux d’aménagement avec beaucoup de débrouille. En plus de cela, nous avons **un loyer qui est une part importante de nos coûts**. Tous ces éléments sont essentiels pour que nous continuons à organiser des événements qui touchent toujours plus de monde, et pour continuer à accélérer la mobilisation citoyenne pour le climat et la justice sociale !
-  image1: ./images/section6-1.png
-  text2: >-
-    **En 2019, nous n’avons reçu aucune subvention. Ce sont les citoyennes et les citoyens qui font et qui financent en grande partie la base.** C’est grâce à cela que nous pouvons **avoir une totale liberté de parole et d’action**.
-  image2: ./images/section6-2.png
-  button:
-    title: Je donne

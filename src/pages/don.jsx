@@ -64,19 +64,35 @@ const DonatePage = ({ data }) => (
               {data.page.section1.button.title}
             </ButtonStyled>
           </div>
-          <div className="column is-three-fifths">
+          <div className="column is-three-fifths" id="section-2">
             <YoutubeEmbed {...data.page.section2.video} id="video" />
           </div>
         </ColumnsReverseMobileStyled>
       </div>
     </section>
 
-    <section className="section" id="section-2">
+    <section className="section" id="section-3">
       <div className="container">
         <SectionTitle>{data.page.section3.title}</SectionTitle>
+
         <ColumnsReverseMobileStyled className="columns">
           <div className="column">
-            <SectionTextStyled>{data.page.section3.text}</SectionTextStyled>
+            <SectionTextStyled>{data.page.section3.text1}</SectionTextStyled>
+          </div>
+          <div className="column">
+            <GatsbyImage
+              fluid={data.page.section3.image1.childImageSharp.fluid}
+            />
+          </div>
+        </ColumnsReverseMobileStyled>
+        <div className="columns">
+          <div className="column">
+            <GatsbyImage
+              fluid={data.page.section3.image2.childImageSharp.fluid}
+            />
+          </div>
+          <div className="column">
+            <SectionTextStyled>{data.page.section3.text2}</SectionTextStyled>
             <ButtonStyled
               href="#form"
               className="button is-primary is-inverted"
@@ -85,42 +101,11 @@ const DonatePage = ({ data }) => (
               {data.page.section3.button.title}
             </ButtonStyled>
           </div>
-          <div
-            className="column is-flex is-hidden-mobile"
-            style={{ position: 'relative' }}
-          >
-            <GatsbyImage
-              style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                rigt: 0,
-                bottom: 0,
-                width: '100%',
-                height: '100%',
-              }}
-              objectFit="contain"
-              imgStyle={{
-                objectFit: 'contain',
-              }}
-              fluid={data.page.section3.image.childImageSharp.fluid}
-            />
-          </div>
-          <div className="column is-hidden-tablet">
-            <GatsbyImage
-              style={{ maxHeight: '80vh' }}
-              objectFit="contain"
-              imgStyle={{
-                objectFit: 'contain',
-              }}
-              fluid={data.page.section3.image.childImageSharp.fluid}
-            />
-          </div>
-        </ColumnsReverseMobileStyled>
+        </div>
       </div>
     </section>
 
-    <section className="section" id="section-3">
+    <section className="section" id="section-4">
       <div className="container">
         <SectionTitle className="has-subtitle">
           {data.page.section4.title}
@@ -166,7 +151,7 @@ const DonatePage = ({ data }) => (
 
     <Carousel />
 
-    <section className="section" id="section-4">
+    <section className="section" id="section-5">
       <div className="container">
         <SectionTitle>{data.page.section5.title}</SectionTitle>
         <ColumnsReverseMobileStyled className="columns">
@@ -184,39 +169,6 @@ const DonatePage = ({ data }) => (
             <YoutubeEmbed {...data.page.section5.video} id="video-2" />
           </div>
         </ColumnsReverseMobileStyled>
-      </div>
-    </section>
-
-    <section className="section" id="section-5">
-      <div className="container">
-        <SectionTitle>{data.page.section6.title}</SectionTitle>
-        <ColumnsReverseMobileStyled className="columns">
-          <div className="column">
-            <SectionTextStyled>{data.page.section6.text1}</SectionTextStyled>
-          </div>
-          <div className="column">
-            <GatsbyImage
-              fluid={data.page.section6.image1.childImageSharp.fluid}
-            />
-          </div>
-        </ColumnsReverseMobileStyled>
-        <div className="columns">
-          <div className="column">
-            <GatsbyImage
-              fluid={data.page.section6.image2.childImageSharp.fluid}
-            />
-          </div>
-          <div className="column">
-            <SectionTextStyled>{data.page.section6.text2}</SectionTextStyled>
-            <ButtonStyled
-              href="#form"
-              className="button is-primary is-inverted"
-              targetMiddle
-            >
-              {data.page.section6.button.title}
-            </ButtonStyled>
-          </div>
-        </div>
       </div>
     </section>
   </>
@@ -244,14 +196,17 @@ DonatePage.propTypes = {
           youtubeId: PropTypes.string.isRequired,
           title: PropTypes.string.isRequired,
         }).isRequired,
-        button: PropTypes.shape({
-          title: PropTypes.string.isRequired,
-        }).isRequired,
       }).isRequired,
       section3: PropTypes.shape({
         title: PropTypes.string.isRequired,
-        text: PropTypes.string.isRequired,
-        image: PropTypes.shape({
+        text1: PropTypes.string.isRequired,
+        image1: PropTypes.shape({
+          childImageSharp: PropTypes.shape({
+            fluid: PropTypes.shape({}).isRequired,
+          }).isRequired,
+        }).isRequired,
+        text2: PropTypes.string.isRequired,
+        image2: PropTypes.shape({
           childImageSharp: PropTypes.shape({
             fluid: PropTypes.shape({}).isRequired,
           }).isRequired,
@@ -279,24 +234,6 @@ DonatePage.propTypes = {
         video: PropTypes.shape({
           youtubeId: PropTypes.string.isRequired,
           title: PropTypes.string.isRequired,
-        }).isRequired,
-        button: PropTypes.shape({
-          title: PropTypes.string.isRequired,
-        }).isRequired,
-      }).isRequired,
-      section6: PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        text1: PropTypes.string.isRequired,
-        image1: PropTypes.shape({
-          childImageSharp: PropTypes.shape({
-            fluid: PropTypes.shape({}).isRequired,
-          }).isRequired,
-        }).isRequired,
-        text2: PropTypes.string.isRequired,
-        image2: PropTypes.shape({
-          childImageSharp: PropTypes.shape({
-            fluid: PropTypes.shape({}).isRequired,
-          }).isRequired,
         }).isRequired,
         button: PropTypes.shape({
           title: PropTypes.string.isRequired,
@@ -334,14 +271,19 @@ export const pageQuery = graphql`
           youtubeId
           title
         }
-        button {
-          title
-        }
       }
       section3 {
         title
-        text
-        image {
+        text1
+        image1 {
+          childImageSharp {
+            fluid(maxWidth: 480) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+        text2
+        image2 {
           childImageSharp {
             fluid(maxWidth: 480) {
               ...GatsbyImageSharpFluid_withWebp
@@ -373,28 +315,6 @@ export const pageQuery = graphql`
         video {
           youtubeId
           title
-        }
-        button {
-          title
-        }
-      }
-      section6 {
-        title
-        text1
-        image1 {
-          childImageSharp {
-            fluid(maxWidth: 480) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
-        text2
-        image2 {
-          childImageSharp {
-            fluid(maxWidth: 480) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
         }
         button {
           title
