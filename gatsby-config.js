@@ -56,6 +56,7 @@ console.log(`deploying on ${siteUrl}`);
 const siteMetadata = {
   siteUrl,
   socialShareImage: '/images/social.jpg',
+  twitterNickname: '@labase_climat',
 };
 
 module.exports = {
