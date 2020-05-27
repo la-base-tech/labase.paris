@@ -4,6 +4,15 @@ import styled from 'styled-components';
 import ReactMarkdown from 'react-markdown/with-html';
 
 const ReactMarkdownStyled = styled(ReactMarkdown)`
+  a {
+    color: ${props => props.theme.black};
+    border-bottom: 1px solid ${props => props.theme.yellow};
+
+    &:hover {
+      background-color: ${props => props.theme.yellow};
+    }
+  }
+
   mark {
     background-color: ${props => props.theme.yellow};
   }
@@ -14,7 +23,12 @@ const ReactMarkdownStyled = styled(ReactMarkdown)`
 `;
 
 const Markdown = ({ children, ...rest }) => (
-  <ReactMarkdownStyled {...rest} source={children} escapeHtml={false} />
+  <ReactMarkdownStyled
+    {...rest}
+    source={children}
+    escapeHtml={false}
+    linkTarget="_blank"
+  />
 );
 
 Markdown.propTypes = {
