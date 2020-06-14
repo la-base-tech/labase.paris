@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
-import GatsbyImage from 'gatsby-image';
 import styled, { ThemeContext } from 'styled-components';
 import { useInView } from 'react-intersection-observer';
 import Link from '../Link';
@@ -10,40 +9,42 @@ import CrowdfundingStatus from '../CrowdfundingStatus';
 
 const ContainerStyled = styled.section`
   background: ${props => props.theme.yellow};
+  padding: ;
 `;
 
 const TitleStyled = styled.h2`
   color: ${props => props.theme.black};
   font-weight: 900;
-  font-size: 2.5rem;
-  line-height: 3rem;
+  font-size: 1.3rem;
+  line-height: 1.6rem;
+  text-align: center;
 
   @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
-    margin: 1rem 0;
-    font-size: 2.7rem;
-    line-height: 3.2rem;
+    font-size: 1.5rem;
+    line-height: 1.7rem;
+    text-align: left;
   }
 
   @media (min-width: ${({ theme }) => theme.breakpointDesktop}) {
-    font-size: 3rem;
-    line-height: 3.5rem;
+    font-size: 2rem;
+    line-height: 2.5rem;
   }
 `;
 
-const TextStyled = styled.p``;
+const TextStyled = styled.p`
+  margin-top: 1rem;
+`;
 
 const ButtonStyled = styled(Link)`
   padding: 1rem 2rem !important;
-  margin-top: 1rem;
   font-weight: bold;
 `;
 
 const CrowdfundingStatusMobileStyled = styled(CrowdfundingStatus)`
   margin-top: 1rem;
-  margin-bottom: 1rem;
 `;
 
-const Section = ({ title, text, button, image }) => {
+const Section = ({ title, text, button }) => {
   const theme = useContext(ThemeContext);
   const { showButton, hideButton } = useContext(NavbarContext);
   const [ref, inView, entry] = useInView({
@@ -63,13 +64,10 @@ const Section = ({ title, text, button, image }) => {
       <div className="container">
         <div className="columns is-vcentered">
           <div className="column">
-            <TextStyled className="is-hidden-mobile">{text}</TextStyled>
             <TitleStyled>{title}</TitleStyled>
-            <CrowdfundingStatusMobileStyled
-              className="is-hidden-tablet"
-              backgroundColor={theme.yellow}
-              textColor={theme.black}
-            />
+            <TextStyled className="is-hidden-mobile">{text}</TextStyled>
+          </div>
+          <div className="column is-narrow has-text-centered">
             <ButtonStyled
               href="/don/"
               className="button is-primary is-inverted"
@@ -77,14 +75,11 @@ const Section = ({ title, text, button, image }) => {
               {button.title}
             </ButtonStyled>
           </div>
-          <div className="column is-hidden-mobile">
-            <GatsbyImage fluid={image.childImageSharp.fluid} loading="eager" />
-            <CrowdfundingStatus
-              backgroundColor={theme.yellow}
-              textColor={theme.black}
-            />
-          </div>
         </div>
+        <CrowdfundingStatusMobileStyled
+          backgroundColor={theme.yellow}
+          textColor={theme.black}
+        />
       </div>
     </ContainerStyled>
   );
@@ -93,11 +88,6 @@ const Section = ({ title, text, button, image }) => {
 Section.propTypes = {
   title: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
-  image: PropTypes.shape({
-    childImageSharp: PropTypes.shape({
-      fluid: PropTypes.shape({}).isRequired,
-    }).isRequired,
-  }).isRequired,
   button: PropTypes.shape({
     title: PropTypes.string.isRequired,
   }).isRequired,
@@ -112,13 +102,6 @@ export default function SectionWrapper() {
             section: crowdfundingSection {
               title
               text
-              image {
-                childImageSharp {
-                  fluid(maxWidth: 480) {
-                    ...GatsbyImageSharpFluid_withWebp
-                  }
-                }
-              }
               button {
                 title
               }

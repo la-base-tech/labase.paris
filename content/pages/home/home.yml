@@ -5,7 +5,6 @@ metadata:
 crowdfundingSection:
   title: Fais un don pour le QG de la mobilisation citoyenne
   text: La base est l’accélérateur de la mobilisation pour le climat et la justice sociale. Face à la situation actuelle, la communauté se mobilise en ligne et anime des actions de solidarité. Les dons des citoyen·nes sont essentiels à la longévité de la base.
-  image: ./images/crowdfunding.png
   button: 
     title: Je contribue
 
