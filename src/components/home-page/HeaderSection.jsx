@@ -5,7 +5,11 @@ import { StaticQuery, graphql } from 'gatsby';
 import BackgroundImage from 'gatsby-background-image';
 import Markdown from '../Markdown';
 
-const SectionStyled = styled(BackgroundImage)``;
+const SectionStyled = styled(BackgroundImage)`
+  min-height: calc(568px - 4.75rem);
+  height: calc(100vh - 4.75rem);
+  max-height: 750px;
+`;
 
 const TextContainer = styled.div`
   position: relative;
@@ -34,7 +38,7 @@ const HeaderSection = ({ image, text }) => {
   return (
     <SectionStyled
       id="header"
-      className="hero is-fullheight-with-navbar"
+      className="hero"
       Tag="section"
       fluid={image.childImageSharp.fluid}
     >
