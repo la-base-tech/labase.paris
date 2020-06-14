@@ -2,11 +2,13 @@ import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import styled, { ThemeContext } from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby';
+import GatsbyImage from 'gatsby-image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import isEmail from 'validator/lib/isEmail';
 import { post as apiPost, API_URL } from '../../api';
 import AnimatedCheck from '../AnimatedCheck';
+import Markdown from '../Markdown';
 
 const API_ENDPOINT = 'actions/subscribe';
 const FORM_ENDPOINT = API_URL + API_ENDPOINT;
@@ -33,31 +35,39 @@ const ContainerStyled = styled.div`
 
 const ColumnStyled = styled.div`
   padding: 32px;
+  padding-bottom: 0;
 
   @media (min-width: ${props => props.theme.breakpointTablet}) {
     padding: 64px;
+    padding-right: 16px;
   }
 `;
 
 const TitleStyled = styled.h3`
-  text-transform: uppercase;
+  margin-bottom: 16px;
 `;
 
-const TextStyled = styled.div`
-  margin-top: 32px;
+const TextStyled = styled(Markdown)`
   font-weight: 300;
   font-size: 16px;
 `;
 
-const HintStyled = styled.div`
-  margin-top: 16px;
-  font-size: 8px;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
+const ImageStyled = styled(GatsbyImage)`
+  max-width: 50%;
+  margin: auto;
+
+  @media (min-width: ${props => props.theme.breakpointTablet}) {
+    max-width: 100%;
+  }
 `;
 
 const FormStyled = styled.form`
-  margin-top: 32px;
+  padding: 32px;
+
+  @media (min-width: ${props => props.theme.breakpointTablet}) {
+    padding: 64px;
+    padding-top: 0;
+  }
 `;
 
 const InputControlStyled = styled.div`
@@ -98,15 +108,7 @@ const AnimatedCheckContainerStyled = styled.div`
   justify-content: center;
 `;
 
-const NewsletterSection = ({
-  image,
-  title,
-  text,
-  hint,
-  errorMessage,
-  input,
-  button,
-}) => {
+const NewsletterSection = ({ image, title, text, newsletter }) => {
   const theme = useContext(ThemeContext);
   const [email, setEmail] = useState('');
   const [emailIsValid, setEmailValid] = useState(false);
@@ -143,79 +145,86 @@ const NewsletterSection = ({
 
   return (
     <SectionStyled id="newsletter">
-      <ContainerStyled className="container" image={image}>
-        <div className="columns is-marginless">
-          <ColumnStyled className="column is-two-thirds">
+      <ContainerStyled className="container">
+        <div className="columns is-marginless is-vcentered">
+          <ColumnStyled className="column">
             <TitleStyled>{title}</TitleStyled>
             <TextStyled>{text}</TextStyled>
-
-            <HintStyled>{hint}</HintStyled>
-
-            <FormStyled onSubmit={handleSubmit} action={FORM_ENDPOINT}>
-              <div className="columns">
-                <div className="column">
-                  <InputControlStyled className="control has-icons-right">
-                    <InputStyled
-                      name="email"
-                      onChange={handleEmailChange}
-                      value={email}
-                      className="input"
-                      type="email"
-                      placeholder={input.placeholder}
-                      required
-                    />
-                    {emailIsValid &&
-                      !(formIsSent || formIsLoading || formHasError) && (
-                        <span className="icon is-small is-right is-valid">
-                          <FontAwesomeIcon icon={faCheck} />
-                        </span>
-                      )}
-                  </InputControlStyled>
-                  {formHasError && (
-                    <p className="help is-danger">{errorMessage}</p>
-                  )}
-                </div>
-                <div className="column is-narrow">
-                  {formIsSent && (
-                    <AnimatedCheckContainerStyled>
-                      <AnimatedCheck
-                        checkColor={theme.yellow}
-                        circleColor={theme.black}
-                      />
-                    </AnimatedCheckContainerStyled>
-                  )}
-                  {!formIsSent && (
-                    <ButtonStyled
-                      className={`button is-black ${
-                        formIsLoading ? 'is-loading' : ''
-                      }`}
-                      type="submit"
-                      disabled={!emailIsValid || formHasError}
-                    >
-                      {button.title}
-                    </ButtonStyled>
-                  )}
-                </div>
-              </div>
-            </FormStyled>
           </ColumnStyled>
+          <div className="column is-two-fifths">
+            <ImageStyled fluid={image.childImageSharp.fluid} />
+          </div>
         </div>
+        <FormStyled onSubmit={handleSubmit} action={FORM_ENDPOINT}>
+          <TitleStyled>{newsletter.title}</TitleStyled>
+          <div className="columns">
+            <div className="column">
+              <InputControlStyled className="control has-icons-right">
+                <InputStyled
+                  name="email"
+                  onChange={handleEmailChange}
+                  value={email}
+                  className="input"
+                  type="email"
+                  placeholder={newsletter.input.placeholder}
+                  required
+                />
+                {emailIsValid &&
+                  !(formIsSent || formIsLoading || formHasError) && (
+                    <span className="icon is-small is-right is-valid">
+                      <FontAwesomeIcon icon={faCheck} />
+                    </span>
+                  )}
+              </InputControlStyled>
+              {formHasError && (
+                <p className="help is-danger">{newsletter.errorMessage}</p>
+              )}
+            </div>
+            <div className="column is-narrow">
+              {formIsSent && (
+                <AnimatedCheckContainerStyled>
+                  <AnimatedCheck
+                    checkColor={theme.yellow}
+                    circleColor={theme.black}
+                  />
+                </AnimatedCheckContainerStyled>
+              )}
+              {!formIsSent && (
+                <ButtonStyled
+                  className={`button is-black ${
+                    formIsLoading ? 'is-loading' : ''
+                  }`}
+                  type="submit"
+                  disabled={!emailIsValid || formHasError}
+                >
+                  {newsletter.button.title}
+                </ButtonStyled>
+              )}
+            </div>
+          </div>
+        </FormStyled>
       </ContainerStyled>
     </SectionStyled>
   );
 };
 
 NewsletterSection.propTypes = {
-  image: PropTypes.string.isRequired,
+  image: PropTypes.shape({
+    childImageSharp: PropTypes.shape({
+      fluid: PropTypes.shape({}).isRequired,
+    }).isRequired,
+  }).isRequired,
   title: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
-  hint: PropTypes.string.isRequired,
-  errorMessage: PropTypes.string.isRequired,
-  input: PropTypes.shape({
-    placeholder: PropTypes.string.isRequired,
-  }).isRequired,
-  button: PropTypes.shape({
+  newsletter: PropTypes.shape({
     title: PropTypes.string.isRequired,
+    errorMessage: PropTypes.string.isRequired,
+    input: PropTypes.shape({
+      placeholder: PropTypes.string.isRequired,
+    }).isRequired,
+    button: PropTypes.shape({
+      title: PropTypes.string.isRequired,
+    }).isRequired,
   }).isRequired,
 };
 
@@ -226,17 +235,25 @@ export default function NewsletterSectionWrapper() {
         query {
           content: yaml(fields: { name: { eq: "page-home" } }) {
             section: newsletterSection {
-              image
+              image {
+                childImageSharp {
+                  fluid(maxWidth: 700) {
+                    ...GatsbyImageSharpFluid_withWebp
+                  }
+                }
+              }
               title
               text
-              hint
-              input {
-                placeholder
-              }
-              button {
+              newsletter {
                 title
+                input {
+                  placeholder
+                }
+                button {
+                  title
+                }
+                errorMessage
               }
-              errorMessage
             }
           }
         }

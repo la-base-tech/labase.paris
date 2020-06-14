@@ -17,15 +17,18 @@ headerSection:
     climatique et sociale
 
 newsletterSection: 
-  image: /images/mail-illustration.svg
-  title: Recevoir la lettre d'informations
-  text: Pour être informé des actualités de la base, être au courant des évènements, des conférences ou des dernières nouvelles.
-  hint: Il suffit de s'inscrire juste là !
-  input: 
-    placeholder: Mon adresse email
-  button: 
-    title: Allez envoie !
-  errorMessage: Une erreur est survenue, veuillez réessayer plus tard
+  image: ./images/deconfinement.png
+  title: Une base forte et solidaire !
+  text: >-
+    Depuis le 11 mai, la base se déconfine. En plus d’**informer et de former sur les réseaux sociaux**, la base organise régulièrement des **actions de solidarité à destination des personnes qui en ont besoin** : préparation de repas, collectes et distributions de vêtements et de denrées alimentaires, fabrications de masques…
+  
+  newsletter:
+    title: Recevoir la lettre d’informations
+    input: 
+      placeholder: Mon adresse email
+    button: 
+      title: Allez envoie !
+    errorMessage: Une erreur est survenue, veuillez réessayer plus tard
 
 presentationSection: 
   image: /images/labase-illustration.svg
