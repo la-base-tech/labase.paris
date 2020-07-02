@@ -81,13 +81,13 @@ actionSection:
   items: 
     - text: Rejoindre la communauté de bénévoles
       button: Je rejoins
-      url: https://5762d9bb.sibforms.com/serve/MUIEALqdB91TiTaofQJCACXGNLGbuc-rQJirZ8CKme0i_Ep39N_Bph01Z1hkdy1DSWqXxfvARHKpyRmi_qG04QZX4A_Jh0mbrAWLvb9BaS06QXJ1xL-5WJ8Uf4I0oFjdhKBZ62p8gy4UrgbPXi6nhJwqGShG-oxhKANk9PoNmubHx2yM-Od0Jq7k4hMU1Tt2WZA-sAUG7GQxfL2n
+      url: https://5762d9bb.sibforms.com/serve/MUIEANWrAT-byOr28cGrG3ffdIT5mC3S-RC8r1-WXTEZQE1_c_zeH118MQ7es0pQLiPRFgW6nP3O7HGqh2OX9A3kC-7cW4jY6RBPt3l-GmGod4vp5zDpGUH7A5VM-SRGTFQSwOVQXidleF4YtEHnIUGpWIMLcSe_hCvIGWGOvYjNzWNnDghkOoaJDZt-I24umNNHdNr6nOnHaF0G
       image: /images/benevoles-illustration.svg
     - text: Faire un don pour soutenir la base
       button: Je soutiens
       url: /don/
       image: /images/don-illustration.svg
-    - text: Nous proposer un événement à organiser
+    - text: Proposer un événement à organiser ou réserver une salle
       button: Je propose
       url: https://docs.google.com/forms/d/e/1FAIpQLSfi3Lzvs_2xdeh9i29goYlVsP5yB2CKtB-uKCjkKaR0aQLUEA/viewform
       image: /images/calendrier-illustration.svg
