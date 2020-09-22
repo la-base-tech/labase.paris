@@ -17,6 +17,7 @@ const HeroStyled = styled.div`
   min-height: calc(568px - 4.75rem);
 
   @media (min-width: ${({ theme }) => theme.breakpointDesktop}) {
+    min-height: calc(700px - 4.75rem);
     height: calc(100vh - 4.75rem);
     max-height: 750px;
   }
