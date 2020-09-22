@@ -15,8 +15,11 @@ const ContainerStyled = styled.div`
 const HeroStyled = styled.div`
   position: relative;
   min-height: calc(568px - 4.75rem);
-  height: calc(100vh - 4.75rem);
-  max-height: 750px;
+
+  @media (min-width: ${({ theme }) => theme.breakpointDesktop}) {
+    height: calc(100vh - 4.75rem);
+    max-height: 750px;
+  }
 `;
 
 const HeroBackgroundImageStyled = styled(BackgroundImage)`
