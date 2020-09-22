@@ -29,6 +29,10 @@ const MainButtonStyled = styled.button`
   padding-left: 1em;
   padding-right: 1em;
 
+  &:hover {
+    opacity: 0.7;
+  }
+
   @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
     padding-left: 2em;
     padding-right: 2em;
