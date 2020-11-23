@@ -72,11 +72,11 @@ sectionCoronavirus:
   title: La base est en danger !
   text: >-
     Suite aux mesures sanitaires, le bar associatif de la base a dû fermer ses portes. Les espaces de travail dédiés aux organisations se sont quant à eux partiellement vidés. **Le QG de la mobilisation citoyenne se retrouve donc privé de près de 60% de ses revenus.** En 2020, c’est la 2e fois que la base se retrouve dans cette situation. Cette fois-ci, **elle pourrait ne pas s’en relever.**
- 
-    Même en danger, la communauté de la base est mobilisée. **Elle continue d’informer sur les réseaux sociaux et de former grâce à des événements en ligne. Les espaces de la base ont été repensés pour les adapter à la situation et les rendre les plus utiles possibles :** distributions de bons avec l’organisation La Cloche, soutien aux commerçants du quartier, maraudes alimentaires et vestimentaires...
+
+
+    Même en danger, la communauté de la base est mobilisée. **Elle continue d’informer sur les réseaux sociaux et de former grâce à des événements en ligne. Les espaces de la base ont été repensés pour les adapter à la situation et les rendre les plus utiles possibles :** distributions de bons avec l’organisation La Cloche, soutien aux commerçants du quartier, maraudes alimentaires et vestimentaires... **Elle se bat également pour sa survie :** demandes de subvention à la Ville, tentative de négociation du loyer, prêt bancaire… **Mais toutes ces pistes sont incertaines et le 1er confinement a vidé les quelques réserves d’argent.**
     
-    **Elle se bat également pour sa survie :** demandes de subvention à la Ville, tentative de négociation du loyer, prêt bancaire… **Mais toutes ces pistes sont incertaines et le 1er confinement a vidé les quelques réserves d’argent.**
-    
+
     **Sans le soutien financier des citoyennes et des citoyens, la base pourrait devoir fermer définitivement ses portes dès le 1er trimestre 2021. Fais un don pour la survie de la base !**
 
   button: 
@@ -98,14 +98,17 @@ section2:
     title: Assure un avenir à la base  
 
 section3: 
-  title: 65 000 euros pour survivre aux mesures sanitaires
+  title: 65000 euros pour survivre aux mesures sanitaires
   text1: >-
     La base fonctionne à la fois grâce à son **bar associatif, les loyers de ses résident·es ainsi que les dons des citoyennes et des citoyens.** La communauté de la base et ses multiples espaces sont animés grâce une petite équipe de salarié·e·s et de nombreux bénévoles. Nous réalisons généralement nous-mêmes les travaux d’aménagement avec beaucoup de débrouille. En plus de cela, nous avons **un loyer qui est une part importante de nos coûts.** Tous ces éléments sont essentiels afin d’organiser des événements qui touchent toujours plus de monde.
   image1: ./images/section3-1.png
   text2: >-
-    La base dépense environ 35 000 €/mois. Chaque mois, le bar associatif rapporte environ 20 000 €/mois (chiffre d’affaires) et la location des espaces environ 7 500€/mois. Avec la fermeture du bar, la base perd donc 20 000 €/mois de revenu. Le confinement a également vidé les espaces de travail, occasionnant une perte de 2 000 €/mois également. Face à cela, le loyer reste le même, malgré de nombreuses tentatives de négociations avec notre propriétaire privé. Les salaires (SMIC) sont pour partie pris en charge par des dispositifs gouvernementaux. 
+    La base dépense environ 35000€/mois. Chaque mois, le bar associatif rapporte environ 20000€/mois (chiffre d’affaires) et la location des espaces environ 7500€/mois. Avec la **fermeture du bar**, la base perd donc 20000 €/mois de revenu. **Le confinement a également vidé les espaces de travail**, occasionnant une perte de 2000€/mois également. Face à cela, le loyer reste le même, malgré de nombreuses tentatives de négociations avec notre propriétaire privé. Les salaires (SMIC) sont pour partie pris en charge par des dispositifs gouvernementaux. 
  
-    Au global, la base perd environ 18 000 €/mois depuis octobre (mois de fermeture du bar et de mise en place du couvre-feu). Anticipant une activité réduite pour décembre 2020 et janvier 2021, 65 000€ sont nécessaires pour assurer la survie de la base.    
+    Au global, **la base perd environ 18000€/mois depuis octobre** (mois de fermeture du bar et de mise en place du couvre-feu). 
+    
+    
+    **Avec une activité réduite pour décembre 2020 et janvier 2021, 65000€ sont nécessaires pour assurer la survie de la base.**
   image2: ./images/section3-2.png
   button:
     title: Je donne
@@ -115,14 +118,14 @@ carousel:
     title: 107 000 personnes
     subtitle: lors de la Marche du Siècle
   - image: ./images/carousel/2.jpg 
-    title: 1104 bénévoles
+    title: 1429 bénévoles
     subtitle: qui font vivre la base
   - image: ./images/carousel/3.jpg
     title: 2 000 personnes
     subtitle: en soutien aux activistes en procès
   - image: ./images/carousel/4.jpg
-    title: 9 636 litres
-    subtitle: de bière consommés
+    title: 15 386 litres
+    subtitle: de bière et cidre bio consommés
   - image: ./images/carousel/5.jpg
     title: "37 organisations"
     subtitle: hébergées à la base
@@ -133,13 +136,13 @@ carousel:
     title: Alain Damasio 
     subtitle: écrivain de science-fiction, lors d’une conférence à la base le 5 juin 2019
   - image: ./images/carousel/8.jpg 
-    title: 9 224 adhérents·es
+    title: 13 106 adhérent·es
     subtitle: qui aiment la base
   - image: ./images/carousel/9.jpg
     title: Fakear
     subtitle: auteur-compositeur, en concert à la base le 11 septembre 2019
   - image: ./images/carousel/10.jpg
-    title: 172  événements
+    title: 215 événements
     subtitle: conférences, ateliers, formations, projections de film…
   - image: ./images/carousel/11.jpg
     title: Corinne Morel-Darleux 

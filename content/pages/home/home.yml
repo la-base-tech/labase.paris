@@ -4,7 +4,7 @@ metadata:
 
 crowdfundingSection:
   title: La base est en danger ! Fais un don pour sauver le QG de la mobilisation citoyenne
-  text: Privée des revenus de son bar associatif, la base pourrait devoir fermer définitivement ses portes au 1er trimestre 2021.  Les dons des citoyen·nes sont essentiels pour la conserver.
+  text: Privée des revenus de son bar associatif, la base pourrait devoir fermer définitivement ses portes au 1er trimestre 2021.  Les dons des citoyen·nes sont essentiels pour la sauver.
   button: 
     title: Je fais un don
 
@@ -17,9 +17,9 @@ headerSection:
 
 newsletterSection: 
   image: ./images/deconfinement.png
-  title: Une base forte et solidaire !
+  title: ""
   text: >-
-    Depuis le 11 mai, la base se déconfine. En plus d’**informer et de former sur les réseaux sociaux**, la base organise régulièrement des **actions de solidarité à destination des personnes qui en ont besoin** : préparation de repas, collectes et distributions de vêtements et de denrées alimentaires, fabrications de masques…
+    Pour être informé des actualités de la base, être au courant des évènements, des conférences ou des dernières nouvelles.
   
   newsletter:
     title: Recevoir la lettre d’informations

@@ -18,16 +18,6 @@ const ContentStyled = styled.div`
   }
 `;
 
-const MainTitleStyled = styled.div`
-  font-weight: bold;
-  margin-bottom: 1rem;
-  font-size: 1.1rem;
-
-  @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
-    font-size: 1rem;
-  }
-`;
-
 const TextContainerStyled = styled.div`
   height: 8rem;
 
@@ -71,7 +61,6 @@ const CustomSlide = ({ title, subtitle, image, index, ...rest }) => {
       <BackgroundImage image={image}>
         <ContentStyled>
           <div>
-            <MainTitleStyled>12 mois en 12 points</MainTitleStyled>
             <TextContainerStyled>
               <TitleStyled>{title}</TitleStyled>
               <SubtitleStyled>{subtitle}</SubtitleStyled>
