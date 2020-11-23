@@ -32,7 +32,7 @@ const StatusProvider = ({
 
   const dateEndObj = parse(dateEnd, 'dd/MM/yyyy HH:mm', new Date());
   const now = new Date();
-  const dayLeftCount = differenceInCalendarDays(dateEndObj, now);
+  const dayLeftCount = differenceInCalendarDays(dateEndObj, now) || 0;
 
   const addAmount = anAmount => {
     setAmount(amount + Number.parseInt(anAmount, 10));
