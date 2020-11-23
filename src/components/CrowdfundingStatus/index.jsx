@@ -107,7 +107,7 @@ const Status = ({ backgroundColor, textColor, ...rest }) => {
         </div>
         <ProgressbarContainerStyled className="columns is-marginless is-mobile">
           <div className="column is-paddingless">
-            <ProgressBarStyled value={percentage} />
+            <ProgressBarStyled value={Math.min(percentage, 100)} />
           </div>
           <ProgressBarValueColumnStyled className="column is-narrow is-paddingless">
             <ProgressBarValueStyled>{percentage}%</ProgressBarValueStyled>
