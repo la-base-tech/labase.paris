@@ -42,7 +42,6 @@ Layout.propTypes = {
   }).isRequired,
   crowdfunding: PropTypes.shape({
     dateEnd: PropTypes.string.isRequired,
-    objective: PropTypes.number.isRequired,
   }).isRequired,
   stats: PropTypes.shape({
     amount: PropTypes.number.isRequired,
@@ -57,7 +56,6 @@ export default function LayoutWrapper(props) {
         query {
           crowdfunding: yaml(fields: { name: { eq: "crowdfunding" } }) {
             dateEnd
-            objective
           }
           stats: laBaseApiStatsCrowdfunding {
             amount

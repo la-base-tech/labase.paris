@@ -40,6 +40,12 @@ const ButtonStyled = styled(Link)`
   font-weight: bold;
 `;
 
+const CrowdfundingStatusContainerStyled = styled.div`
+  @media (min-width: ${({ theme }) => theme.breakpointTablet}) {
+    min-width: 350px;
+  }
+`;
+
 const CrowdfundingStatusMobileStyled = styled(CrowdfundingStatus)`
   margin-top: 1rem;
 `;
@@ -74,12 +80,14 @@ const Section = ({ title, text, button }) => {
             >
               {button.title}
             </ButtonStyled>
+            <CrowdfundingStatusContainerStyled>
+              <CrowdfundingStatusMobileStyled
+                backgroundColor={theme.yellow}
+                textColor={theme.black}
+              />
+            </CrowdfundingStatusContainerStyled>
           </div>
         </div>
-        <CrowdfundingStatusMobileStyled
-          backgroundColor={theme.yellow}
-          textColor={theme.black}
-        />
       </div>
     </ContainerStyled>
   );

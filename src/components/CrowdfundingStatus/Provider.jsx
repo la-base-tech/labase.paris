@@ -8,7 +8,6 @@ const StatusProvider = ({
   children,
   contributors: initialContributors,
   amount: initialAmount,
-  objective,
   dateEnd,
 }) => {
   const [contributors, setContributors] = useState(initialContributors);
@@ -28,8 +27,6 @@ const StatusProvider = ({
     updateStats();
   }, []);
 
-  const percentage = !amount ? 0 : Math.ceil((amount / objective) * 100);
-
   const dateEndObj = parse(dateEnd, 'dd/MM/yyyy HH:mm', new Date());
   const now = new Date();
   const dayLeftCount = differenceInCalendarDays(dateEndObj, now) || 0;
@@ -45,10 +42,8 @@ const StatusProvider = ({
   return (
     <Context.Provider
       value={{
-        objective,
         contributors,
         amount,
-        percentage,
         dayLeftCount,
         addAmount,
         addContributor,
@@ -66,7 +61,6 @@ StatusProvider.propTypes = {
   amount: PropTypes.number.isRequired,
   contributors: PropTypes.number.isRequired,
   dateEnd: PropTypes.string.isRequired,
-  objective: PropTypes.number.isRequired,
 };
 
 export default StatusProvider;
