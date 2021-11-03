@@ -62,7 +62,7 @@
     "smoothscroll-polyfill": "0.4.4",
     "stripe": "8.44.0",
     "styled-components": "5.1.0",
-    "validator": "13.0.0"
+    "validator": "13.7.0"
   },
   "devDependencies": {
     "babel-eslint": "10.1.0",
