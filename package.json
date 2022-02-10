@@ -44,7 +44,7 @@
     "gatsby-transformer-sharp": "2.4.6",
     "gatsby-transformer-yaml": "2.3.3",
     "intersection-observer": "0.9.0",
-    "node-sass": "4.13.1",
+    "node-sass": "7.0.0",
     "polished": "3.5.2",
     "prop-types": "15.7.2",
     "react": "16.13.1",
